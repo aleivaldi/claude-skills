@@ -41,8 +41,8 @@ Durante il workflow, questi file vengono creati/modificati:
 ### 2. brief-structured.md (skill crea in Fase 2)
 - **Creato da**: Skill (Fase 2)
 - **Modificato da**: Skill basato su brief.md e assunzioni
-- **Scopo**: Documento ordinato e completo che aggiunge dettagli a quanto indicato in brief.md
-- **Ciclo di vita**: Modificato fino a quando l'utente non lo approva
+- **Scopo**: Documento COMPLETO e DEFINITIVO che SOSTITUISCE brief.md. Contiene tutte le informazioni dal brief originale più tutto ciò dedotto e fornito dall'utente
+- **Ciclo di vita**: Modificato fino a quando l'utente non lo approva. Dopo l'approvazione, brief.md diventa obsoleto
 
 ### 3. requirements.md (skill crea in Fase 3)
 - **Creato da**: Skill (Fase 3)
@@ -86,17 +86,19 @@ Durante il workflow, questi file vengono creati/modificati:
 
 ### Processo Rapido
 
-1. **Leggi brief.md aggiornato**
-2. **Crea brief-structured.md** come documento stand-alone professionale
-3. **Chiedi conferma** all'utente con AskUserQuestion
-4. **Itera fino ad approvazione**
-5. **Annuncia pronto per Fase 3**
+1. **Leggi brief.md aggiornato** (estrarre TUTTE le informazioni)
+2. **Crea brief-structured.md** (11 sezioni, completo e autosufficiente)
+3. **Review anti-ridondanza** (verificare completezza ed eliminare ripetizioni)
+4. **Chiedi conferma** all'utente con AskUserQuestion
+5. **Itera fino ad approvazione**
+6. **Annuncia pronto per Fase 3**
 
 ### Regola Critica
-brief-structured.md deve essere un **documento completo e leggibile**, NON un diff:
-- ✅ Tono professionale narrativo, condivisibile con stakeholder
+brief-structured.md **SOSTITUISCE brief.md** e deve essere:
+- ✅ **Completo e autosufficiente** - Contiene TUTTE le info dal brief originale più tutto dedotto/fornito dall'utente
+- ✅ **Non ridondante** - Ogni info compare una sola volta nel posto appropriato
+- ✅ Tono professionale, condivisibile con stakeholder
 - ❌ NO markers o riferimenti al processo di creazione
-- ❌ NO linguaggio che mostra tracciamento modifiche
 
 **Per dettagli completi del processo**: Vedi `phase_2.md`
 
@@ -132,11 +134,11 @@ Dopo che brief-structured.md è stato approvato
 
 **Processi Dettagliati**:
 - `phase_1.md` - Analisi brief, algoritmo parsing, generazione domande (0-8), edge cases hardware/regulatory
-- `phase_2.md` - Creazione brief-structured.md (9 sezioni), iterazioni, gestione approvazioni
+- `phase_2.md` - Creazione brief-structured.md (11 sezioni), review anti-ridondanza, iterazioni, approvazioni
 - `phase_3.md` - Generazione requirements.md (8 sezioni), versioning, mappatura sezioni, deliverable
 
 **Template**:
-- `templates/brief-structured-template.md` - Struttura 9 sezioni per brief-structured.md, linee guida scrittura
+- `templates/brief-structured-template.md` - Struttura 11 sezioni: funzionalità primarie/secondarie, criticità e rischi
 - `templates/requirements-template.md` - Struttura 8 sezioni per requirements.md, esempi, lunghezza documento
 
 **Supporto**:

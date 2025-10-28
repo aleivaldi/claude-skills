@@ -2,27 +2,28 @@
 
 ## Obiettivo
 
-Creare **brief-structured.md** come documento stand-alone professionale che ristruttura e completa le informazioni in brief.md, aggiungendo assunzioni ragionevoli dove necessario.
-
-Il documento risultante deve essere:
-- Completo e leggibile autonomamente
-- Condivisibile con stakeholder
-- Privo di riferimenti al processo di creazione
-- Scritto con tono professionale narrativo
+Creare **brief-structured.md** come documento **completo, autosufficiente e definitivo** che:
+- **SOSTITUISCE brief.md** - Brief.md diventa obsoleto dopo questa fase e non sarà più consultato
+- **Contiene TUTTE le informazioni** dal brief originale più tutto ciò dedotto e fornito dall'utente
+- È **completo e leggibile autonomamente** senza bisogno di consultare altri documenti
+- È **condivisibile con stakeholder** con formattazione professionale
+- È **privo di riferimenti al processo** di creazione
+- È **non ridondante** - Ogni informazione compare una volta nel posto più appropriato
 
 ---
 
 ## Overview del Processo
 
-**Fase 2 in 8 passi**:
-1. **Passo 1** - Leggere brief.md aggiornato (estrarre informazioni e risposte)
-2. **Passo 2** - Creare brief-structured.md (documento stand-alone, 9 sezioni)
-3. **Passo 3** - Tracciare modifiche internamente (per output chat, non nel file)
-4. **Passo 4** - Output riepilogo all'utente in chat
-5. **Passo 5** - Chiedere conferma con AskUserQuestion
-6. **Passo 6** - Gestire modifiche richieste (se necessarie)
-7. **Passo 7** - Loop fino ad approvazione (iterare Passo 5-6)
-8. **Passo 8** - Annunciare pronto per Fase 3
+**Fase 2 in 9 passi**:
+1. **Passo 1** - Leggere brief.md aggiornato (estrarre TUTTE le informazioni e risposte)
+2. **Passo 2** - Creare brief-structured.md (documento stand-alone, 11 sezioni)
+3. **Passo 2.5** - Review anti-ridondanza (verificare completezza e eliminare ripetizioni)
+4. **Passo 3** - Tracciare modifiche internamente (per output chat, non nel file)
+5. **Passo 4** - Output riepilogo all'utente in chat
+6. **Passo 5** - Chiedere conferma con AskUserQuestion
+7. **Passo 6** - Gestire modifiche richieste (se necessarie)
+8. **Passo 7** - Loop fino ad approvazione (iterare Passo 5-6)
+9. **Passo 8** - Annunciare pronto per Fase 3
 
 ---
 
@@ -77,7 +78,7 @@ Usa **Write tool** per creare brief-structured.md come **documento stand-alone c
 - ❌ NO riferimenti al processo di creazione del documento
 - ❌ NO linguaggio "diff-like" che mostra cosa è cambiato
 
-#### Struttura brief-structured.md (9 sezioni)
+#### Struttura brief-structured.md (11 sezioni)
 
 **Vedi template completo**: `templates/brief-structured-template.md`
 
@@ -87,10 +88,32 @@ Il documento include:
 3. Obiettivi - Primario, secondari, criteri successo
 4. Vincoli - Tecnici, organizzativi, business
 5. Assunzioni - Con rationale per ognuna
-6. Funzionalità Principali - 2-5 funzionalità core descritte
-7. Workflow Principali - 2-4 workflow documentati
-8. Scope MVP - Incluso/Escluso/Fasi future
-9. Domande Aperte - Decisioni posticipabili
+6. Funzionalità Primarie - Must-have per MVP (2-5 funzionalità)
+7. Funzionalità Secondarie - Nice-to-have (TUTTE quelle citate nel brief)
+8. Workflow Principali - 2-4 workflow documentati
+9. Criticità e Rischi - Fattibilità, time-to-market, costi, dipendenze, adozione
+10. Scope MVP - Incluso/Escluso/Fasi future
+11. Domande Aperte - Decisioni posticipabili
+
+---
+
+### Passo 2.5: Review Anti-Ridondanza e Completezza
+
+**Prima di procedere**, rivedi mentalmente il documento appena creato per verificare:
+
+**Checklist Completezza**:
+- [ ] TUTTE le informazioni dal brief.md originale sono presenti
+- [ ] TUTTE le risposte alle domande di Fase 1 sono integrate
+- [ ] TUTTE le funzionalità menzionate nel brief sono elencate (primarie o secondarie)
+- [ ] Nessuna informazione rilevante è stata persa o dimenticata
+
+**Checklist Anti-Ridondanza**:
+- [ ] Ogni informazione compare UNA SOLA VOLTA nel posto più appropriato
+- [ ] Nessuna sezione ripete informazioni già presenti in altre sezioni
+- [ ] Workflow non ripetono informazioni già nelle funzionalità (sono complementari)
+- [ ] Scope MVP non ripete lista funzionalità (referenzia sezioni 6-7)
+
+**Se trovi ridondanze o informazioni mancanti**: Usa Edit tool per correggere prima di procedere al Passo 3.
 
 ---
 

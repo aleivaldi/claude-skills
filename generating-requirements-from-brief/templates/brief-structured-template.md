@@ -5,14 +5,16 @@ Questo template definisce la struttura per il documento **brief-structured.md** 
 ## Caratteristiche del Documento
 
 Il documento deve essere:
-- Completo e leggibile autonomamente
-- Condivisibile con stakeholder
-- Privo di riferimenti al processo di creazione
-- Scritto con tono professionale narrativo
+- **Completo e autosufficiente** - Contiene TUTTE le informazioni dal brief.md originale più tutto ciò che è stato dedotto e fornito dall'utente
+- **Sostituisce brief.md** - Dopo la creazione di questo documento, brief.md diventa obsoleto e non sarà più consultato
+- **Leggibile autonomamente** - Può essere letto e compreso senza accesso ad altri documenti
+- **Condivisibile con stakeholder** - Formattazione professionale
+- **Privo di riferimenti al processo** - Nessun marker o riferimento a domande/risposte
+- **Non ridondante** - Evita ripetizioni inutili, ogni informazione compare una volta nel posto più appropriato
 
 ---
 
-## Struttura (9 Sezioni)
+## Struttura (11 Sezioni)
 
 ```markdown
 # [NOME PROGETTO] - Brief Strutturato
@@ -76,26 +78,49 @@ Le seguenti assunzioni sono state fatte per definire l'MVP:
 
 [Nota: Usa defaults.md per scegliere assunzioni pragmatiche per MVP]
 
-## 6. Funzionalità Principali
+## 6. Funzionalità Primarie (Must-Have per MVP)
+
+Funzionalità essenziali senza le quali l'MVP non può funzionare.
 
 ### Funzionalità 1: [Nome]
+**Priorità**: Must-Have
 [Descrizione dettagliata della funzionalità]
 [Come l'utente la usa]
-[Perché è importante]
+[Perché è essenziale per MVP]
 
 ### Funzionalità 2: [Nome]
+**Priorità**: Must-Have
 [Descrizione dettagliata della funzionalità]
 [Come l'utente la usa]
-[Perché è importante]
+[Perché è essenziale per MVP]
 
 ### Funzionalità 3: [Nome]
+**Priorità**: Must-Have
 [Descrizione dettagliata della funzionalità]
 [Come l'utente la usa]
-[Perché è importante]
+[Perché è essenziale per MVP]
 
-[Tipicamente almeno 2-5 funzionalità core per MVP]
+[Tipicamente 2-5 funzionalità must-have per MVP]
 
-## 7. Workflow Principali
+## 7. Funzionalità Secondarie (Nice-to-Have)
+
+Funzionalità desiderabili ma non bloccanti. Se citate nel brief originale, devono essere tutte elencate qui.
+
+### Funzionalità Secondaria 1: [Nome]
+**Priorità**: Nice-to-Have | **Quando**: [v2 / v3 / se tempo disponibile]
+[Descrizione]
+[Perché non è essenziale per MVP]
+[Benefit se implementata]
+
+### Funzionalità Secondaria 2: [Nome]
+**Priorità**: Nice-to-Have | **Quando**: [v2 / v3 / se tempo disponibile]
+[Descrizione]
+[Perché non è essenziale per MVP]
+[Benefit se implementata]
+
+[Includere TUTTE le funzionalità menzionate nel brief, anche quelle non prioritarie]
+
+## 8. Workflow Principali
 
 ### Workflow 1: [Nome]
 1. [Step 1]
@@ -111,7 +136,43 @@ Le seguenti assunzioni sono state fatte per definire l'MVP:
 
 [Descrivere almeno 2-4 workflow principali che coprono i casi d'uso più comuni]
 
-## 8. Scope MVP
+## 9. Criticità e Rischi
+
+Identificazione dei rischi principali che potrebbero impattare il progetto.
+
+### Fattibilità Tecnica
+**Rischio**: [Descrizione rischio tecnico]
+**Probabilità**: [Bassa / Media / Alta]
+**Impatto**: [Basso / Medio / Alto]
+**Mitigazione**: [Come affrontiamo questo rischio]
+
+### Time-to-Market
+**Rischio**: [Rischio che possa ritardare il lancio]
+**Probabilità**: [Bassa / Media / Alta]
+**Impatto**: [Basso / Medio / Alto]
+**Mitigazione**: [Come affrontiamo questo rischio]
+
+### Costi
+**Rischio**: [Rischio di superamento budget]
+**Probabilità**: [Bassa / Media / Alta]
+**Impatto**: [Basso / Medio / Alto]
+**Mitigazione**: [Come affrontiamo questo rischio]
+
+### Dipendenze Esterne
+**Rischio**: [Dipendenze da terze parti, API, fornitori]
+**Probabilità**: [Bassa / Media / Alta]
+**Impatto**: [Basso / Medio / Alto]
+**Mitigazione**: [Come affrontiamo questo rischio]
+
+### Adozione Utente
+**Rischio**: [Rischi legati all'adozione da parte degli utenti]
+**Probabilità**: [Bassa / Media / Alta]
+**Impatto**: [Basso / Medio / Alto]
+**Mitigazione**: [Come affrontiamo questo rischio]
+
+[Includere solo i rischi rilevanti per il progetto specifico. Non tutte le categorie sono sempre applicabili]
+
+## 10. Scope MVP
 
 ### Incluso in MVP v1
 - [Funzionalità/capability inclusa]
@@ -131,7 +192,7 @@ Le seguenti assunzioni sono state fatte per definire l'MVP:
 **v3+**:
 - [Nice-to-have dallo scoping originale]
 
-## 9. Domande Aperte
+## 11. Domande Aperte
 
 [Lista di decisioni ancora da prendere o aspetti da validare]
 [Solo se ci sono decisioni veramente posticipabili dopo MVP]
