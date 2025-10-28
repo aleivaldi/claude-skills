@@ -14,7 +14,7 @@ Creare **brief-structured.md** come documento **completo, autosufficiente e defi
 
 ## Overview del Processo
 
-**Fase 2 in 9 passi**:
+**Fase 2 in 8 passi**:
 1. **Passo 1** - Leggere brief.md aggiornato (estrarre TUTTE le informazioni e risposte)
 2. **Passo 2** - Creare brief-structured.md (documento stand-alone, struttura flessibile fino a 12 sezioni)
 3. **Passo 2.5** - Review anti-ridondanza (verificare completezza e eliminare ripetizioni)
@@ -23,7 +23,7 @@ Creare **brief-structured.md** come documento **completo, autosufficiente e defi
 6. **Passo 5** - Chiedere conferma con AskUserQuestion
 7. **Passo 6** - Gestire modifiche richieste (se necessarie)
 8. **Passo 7** - Loop fino ad approvazione (iterare Passo 5-6)
-9. **Passo 8** - Annunciare pronto per Fase 3
+9. **Passo 8** - Annunciare completamento skill
 
 ---
 
@@ -192,7 +192,7 @@ Usa **AskUserQuestion** tool per chiedere:
 Domanda: "Il brief strutturato riflette correttamente il progetto?"
 
 Opzioni:
-- "Sì, procedi con Fase 3"
+- "Sì, è perfetto"
 - "Sì, ma voglio alcune modifiche prima"
 - "No, ci sono errori da correggere"
 ```
@@ -239,29 +239,31 @@ Per favore rivedi di nuovo brief-structured.md.
 
 **Continua il ciclo** Passo 5-6 fino a quando:
 - L'utente conferma che brief-structured.md è corretto
-- L'utente chiede di procedere con Fase 3
-
-⚠️ **NON procedere a Fase 3 senza approvazione esplicita dell'utente**
+- L'utente approva esplicitamente il documento
 
 ---
 
-### Passo 8: Annunciare Pronto per Fase 3
+### Passo 8: Annunciare Completamento Skill
 
 Quando l'utente approva:
 
 ```markdown
-# Brief Strutturato Approvato ✓
+# Brief Strutturato Completato ✓
 
 Ottimo! brief-structured.md è completo e approvato.
 
-## Prossimo passo: Fase 3
+Questa skill ha terminato il suo compito. Hai ora un documento stand-alone, professionale e condivisibile con stakeholder.
 
-Posso ora procedere con la **Fase 3** per creare il documento formale di requisiti (requirements.md).
+## Prossimi passi (opzionali)
 
-Vuoi che proceda con Fase 3?
+Se desideri un **documento di requisiti formale** (requirements.md) con architettura, elementi sistema, sottoprogetti e PoC critici, puoi usare la skill:
+
+**`generating-requirements-document`**
+
+Questa skill prenderà brief-structured.md come input e genererà un requirements.md completo.
 ```
 
-Aspetta conferma prima di iniziare Fase 3.
+La skill termina qui. Se l'utente vuole procedere con requirements.md, dovrà invocare la skill `generating-requirements-document`.
 
 ---
 
@@ -351,10 +353,10 @@ Prima di considerare Fase 2 completa, verifica:
 - [ ] Modifiche gestite con Edit tool (se richieste)
 - [ ] Utente ha approvato esplicitamente
 
-### Pronto per Fase 3
+### Skill Completata
 - [ ] brief-structured.md approvato dall'utente
-- [ ] Annunciato pronto per Fase 3
-- [ ] In attesa conferma utente per procedere
+- [ ] Annunciato completamento skill
+- [ ] Suggerita skill `generating-requirements-document` se utente necessita requirements.md
 
 ---
 
