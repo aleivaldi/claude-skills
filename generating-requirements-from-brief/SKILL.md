@@ -1,6 +1,6 @@
 ---
 name: Generating Requirements from Brief
-description: Trasforma appunti di progetto grezzi in un documento formale di requisiti MVP/PoC. Genera un documento con 8 sezioni con assunzioni chiare, scope e metriche di successo. Supporta progetti software, hardware e misti.
+description: Trasforma appunti di progetto grezzi, brief informali o trascrizioni riunioni in documenti formali di requisiti MVP/PoC. Genera requirements.md con 8 sezioni includendo assunzioni, scope e metriche di successo. Supporta progetti software, hardware e misti.
 ---
 
 # Generating Requirements from Brief
@@ -114,6 +114,19 @@ Creare **requirements.md** come documento formale di requisiti MVP/PoC (8 sezion
 8. Prossimi Passi (Azioni, Timeline, Rischi)
 
 **Per processo dettagliato**: Vedi `phase_3.md`
+
+---
+
+## Materiali di Riferimento
+
+**Processi Dettagliati**:
+- `phase_1.md` - Analisi brief, algoritmo parsing, generazione domande (0-8), edge cases hardware/regulatory
+- `phase_2.md` - Creazione brief-structured.md (9 sezioni), iterazioni, gestione approvazioni
+- `phase_3.md` - Generazione requirements.md (8 sezioni), versioning, mappatura sezioni, deliverable
+
+**Supporto**:
+- `defaults.md` - Default pragmatici MVP (architettura, scala, sicurezza, performance, hardware IoT)
+- `template.md` - Struttura requirements.md, linee guida sezioni, lunghezza documento, errori comuni
 
 ---
 

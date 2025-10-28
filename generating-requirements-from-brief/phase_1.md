@@ -6,6 +6,20 @@ Valutare se la Fase 1 è necessaria. Se sì: estrarre informazioni chiare, ident
 
 Se il brief è già sufficientemente dettagliato: saltare la Fase 1 e procedere direttamente alla Fase 2.
 
+---
+
+## Overview del Processo
+
+**Fase 1 in 6 step**:
+1. **STEP 0** - Valutare se Fase 1 è necessaria (può essere saltata se brief completo)
+2. **STEP 1** - Estrarre informazioni e analizzare gap (10 categorie)
+3. **STEP 3** - Identificare livello tecnico utente (non-tecnico, semi-tecnico, tecnico)
+4. **STEP 4** - Formulare domande di chiarimento (0-8, formato suggestion-based)
+5. **STEP 5** - Filtrare domande (chiedi solo ciò che serve)
+6. **STEP 6** - Output domande in chat (non modificare brief.md)
+
+---
+
 ## Algoritmo di Analisi
 
 ### STEP 0: Valutare se la Fase 1 è Necessaria
@@ -26,15 +40,15 @@ Chiediti:
 
 - **Se NO ad alcuni**: Continua con STEP 1
 
-# STEP 1: Estrazione Informazioni e Analisi Gap
+---
 
-  ## Obiettivo
-  Analizzare brief.md ed estrarre tutte le informazioni rilevanti per il progetto, identificando per ciascuna categoria se le
-   informazioni sono complete, incomplete, o non applicabili al contesto specifico.
+### STEP 1: Estrazione Informazioni e Analisi Gap
 
-  ## Istruzioni per l'Analisi
+**Obiettivo**: Analizzare brief.md ed estrarre tutte le informazioni rilevanti per il progetto, identificando per ciascuna categoria se le informazioni sono complete, incomplete, o non applicabili al contesto specifico.
 
-  Per ciascuna delle seguenti categorie:
+**Istruzioni per l'Analisi**:
+
+Per ciascuna delle seguenti categorie:
   1. Determina se la categoria è **rilevante** per questo tipo di progetto
   2. Se rilevante, estrai le informazioni disponibili dal brief
   3. Valuta lo stato delle informazioni secondo questi criteri:
@@ -74,25 +88,17 @@ Chiediti:
    - [ ] differenza fra must-have e nice-to-have
 
   ### 5. Vincoli Tecnici
-   **Sempre Necessario**:
-   - [ ] nessuno specifico obbligatorio
-   **Solitamente Necessario**:
-   - [ ] nessuno specifico obbligatorio
-   **Spesso Necessario**:
-   - [ ] richieste di tecnologie specifiche
-   - [ ] linguaggi preferiti
-   - [ ] sistemi esistenti in cui integrare
-   - [ ] cloud provider preferito
+   **Spesso Necessario** (non obbligatori per MVP):
+   - [ ] tecnologie o stack specifici richiesti
+   - [ ] linguaggi di programmazione preferiti
+   - [ ] sistemi esistenti con cui integrare
+   - [ ] cloud provider o infrastruttura preferita
 
   ### 6. Integrazioni Esterne
-  **Sempre Necessario**:
-   - [ ] nessuna specifica obbligatoria
-   **Solitamente Necessario**:
-   - [ ] nessuna specifica obbligatoria
-   **Spesso Necessario**:
-   - [ ] API da integrare
-   - [ ] Servizi di terze parti
-   - [ ] Sistemi legacy
+  **Spesso Necessario** (non obbligatorie per MVP v1):
+   - [ ] API esterne da integrare
+   - [ ] servizi di terze parti richiesti
+   - [ ] sistemi legacy con cui comunicare
 
   ### 7. Requisiti Hardware
   Solo se dal brief si deduce che siano necessari prodotti fisici.
