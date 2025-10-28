@@ -12,6 +12,20 @@ Il documento risultante deve essere:
 
 ---
 
+## Overview del Processo
+
+**Fase 2 in 8 passi**:
+1. **Passo 1** - Leggere brief.md aggiornato (estrarre informazioni e risposte)
+2. **Passo 2** - Creare brief-structured.md (documento stand-alone, 9 sezioni)
+3. **Passo 3** - Tracciare modifiche internamente (per output chat, non nel file)
+4. **Passo 4** - Output riepilogo all'utente in chat
+5. **Passo 5** - Chiedere conferma con AskUserQuestion
+6. **Passo 6** - Gestire modifiche richieste (se necessarie)
+7. **Passo 7** - Loop fino ad approvazione (iterare Passo 5-6)
+8. **Passo 8** - Annunciare pronto per Fase 3
+
+---
+
 ## Quando Usare Questa Fase
 
 - brief.md è sufficientemente chiaro (Fase 1 completata o saltata)

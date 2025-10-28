@@ -94,10 +94,9 @@ Durante il workflow, questi file vengono creati/modificati:
 
 ### Regola Critica
 brief-structured.md deve essere un **documento completo e leggibile**, NON un diff:
-- ✅ Tono professionale narrativo
-- ❌ NO markers [CONFERMATO], [AGGIUNTO]
-- ❌ NO riferimenti a "defaults.md"
-- ❌ NO linguaggio "Basato su brief.md"
+- ✅ Tono professionale narrativo, condivisibile con stakeholder
+- ❌ NO markers o riferimenti al processo di creazione
+- ❌ NO linguaggio che mostra tracciamento modifiche
 
 **Per dettagli completi del processo**: Vedi `phase_2.md`
 
@@ -116,14 +115,14 @@ Dopo che brief-structured.md è stato approvato
 4. **Gestisci iterazioni** se richieste
 
 ### Struttura requirements.md (8 sezioni)
-1. Overview
-2. Users & Context
-3. Core Requirements
-4. Scope
-5. Constraints
-6. Assumptions & Open Questions
-7. Success Metrics
-8. Next Steps
+1. Overview (Problema, Opportunità, Definizione Successo)
+2. Utenti e Contesto
+3. Requisiti Core (Funzionali, Non-Funzionali, Hardware se applicabile)
+4. Scope (Incluso/Escluso/Fasi Future)
+5. Vincoli (Risorse, Tecnici, Organizzativi)
+6. Assunzioni e Domande Aperte
+7. Metriche di Successo
+8. Prossimi Passi (Azioni, Timeline, Rischi)
 
 **Per dettagli completi del processo**: Vedi `phase_3.md`
 
