@@ -1,348 +1,189 @@
 ---
 name: Generating Requirements from Brief
-description: Transform rough project brief notes into formal MVP/PoC requirements document. Generates 8-section document with clear assumptions, scope, and success metrics. Supports software, hardware, and mixed projects.
+description: Trasforma appunti di progetto grezzi in un documento formale di requisiti MVP/PoC. Genera un documento con 8 sezioni con assunzioni chiare, scope e metriche di successo. Supporta progetti software, hardware e misti.
 ---
 
 # Generating Requirements from Brief
 
-## Your Task
+## Il Tuo Compito
 
-Transform the user's project brief (usually in `brief.md`) into a formal MVP/PoC requirements document through an iterative, file-based workflow.
+Trasforma il brief di progetto dell'utente (solitamente in `brief.md`) in un documento formale di requisiti MVP/PoC attraverso un workflow iterativo basato su file.
 
-Process in **3 phases**:
+Processo in **3 fasi**:
 
-1. **Phase 1 (Parse & Question)**: Leggi brief.md, identifica carenze e poni domande all'utente spinegendolo a modificare brief.md fino a quando sarà sufficientemente chiaro.
-2. **Phase 2 (Restructure)**: Crea brief-structured.md riscrivendo in modo più formale e completo di quanto indicato in brief.md
-3. **Phase 3 (Generate)**: Crea un documento formale requirements.md with 8 sections
-
-## Language Rule
-
-**Match the language of the brief.md file:**
-- If brief.md is in Italian → respond in Italian
-- If brief.md is in English → respond in English
-- If brief.md is in other language → respond in that language
-
-Only respond in a different language if the user explicitly requests it.
+1. **Fase 1 (Analisi e Domande)**: Leggi brief.md, identifica carenze e poni domande all'utente spingendolo a modificare brief.md fino a quando sarà sufficientemente chiaro.
+2. **Fase 2 (Ristrutturazione)**: Crea brief-structured.md riscrivendo in modo più formale e completo quanto indicato in brief.md
+3. **Fase 3 (Generazione)**: Crea un documento formale requirements.md con 8 sezioni
 
 ---
 
-## Project Files Naming Convention
+## Regola Linguistica
+
+**Adatta la lingua al file brief.md:**
+- Se brief.md è in italiano → rispondi in italiano
+- Se brief.md è in inglese → rispondi in inglese
+- Se brief.md è in altra lingua → rispondi in quella lingua
+
+Rispondi in una lingua diversa solo se l'utente lo richiede esplicitamente.
+
+---
+
+## Convenzione Nomi File
 
 Durante il workflow, questi file vengono creati/modificati:
 
 ### 1. brief.md (utente crea e modifica)
-- **Created by**: User (input iniziale)
-- **Modified by**: User (Phase 1 da domande su terminale e l'utente agisce modificandolo)
-- **Purpose**: Punto di partenza con un idea. Possono essere appunti o trascrizioni di riunione
-- **Lifecycle**: Modified until all questions answered
+- **Creato da**: Utente (input iniziale)
+- **Modificato da**: Utente (in Fase 1 risponde a domande modificandolo)
+- **Scopo**: Punto di partenza con un'idea. Possono essere appunti o trascrizioni di riunione
+- **Ciclo di vita**: Modificato fino a quando tutte le domande hanno risposta
 
-### 2. brief-structured.md (skill crea in Phase 2)
-- **Created by**: Skill (Phase 2)
-- **Modified by**: Skill basato su brief.md ed assunzioni
-- **Purpose**: Documento ordinato e completo che aggiunge dettagli a quanto indicato in brief.md
-- **Lifecycle**: Modificato fino a quando l'utente non lo ritiene corretto
+### 2. brief-structured.md (skill crea in Fase 2)
+- **Creato da**: Skill (Fase 2)
+- **Modificato da**: Skill basato su brief.md e assunzioni
+- **Scopo**: Documento ordinato e completo che aggiunge dettagli a quanto indicato in brief.md
+- **Ciclo di vita**: Modificato fino a quando l'utente non lo approva
 
-### 3. requirements.md (skill crea in Phase 3)
-- **Created by**: Skill (Phase 3)
-- **Modified by**: Skill based on user feedback
-- **Purpose**: Documento con specifiche, esaustivo e utilizzabile per analisi e progettazione future.
-- **Versioning**: v1.0, v2.0, etc in document header and name
-- **Lifecycle**: Final deliverable, can be iterated
-
----
-
-## Phase 1: Parse and Question
-
-### When to Use
-L'utente chiede di iniziare, fornisce un file brief.md o effettua modifiche a quello già analizzato
-
-### Tools to Use
-1. **Read** tool → read brief.md
-
-### Process
-
-1. **Read brief.md** using Read tool
-
-**If User aspks to go directly to Phase 2**: Skip to Phase 2 directly
-   - Output: "OK, procedo con la fase 2 come richiesto."
-   - Do NOT add questions to brief.md
-   - Go directly to Phase 2
-
-2. **Evaluate if Phase 1 is needed**:
-
-   Ask yourself:
-   - Is the problem clearly stated?
-   - Are users and their needs described?
-   - Are constraints (timeline, team, budget) mentioned?
-   - Is the MVP scope clear enough to proceed?
-
-   **If YES to all above**: Skip to Phase 2 directly
-   - Output: "Il brief è sufficientemente dettagliato. Procedo con Phase 2."
-   - Do NOT add questions to brief.md
-   - Go directly to Phase 2
-
-   **If NO to some**: Continua con Phase 1 come indicato in ./phase_1.md
+### 3. requirements.md (skill crea in Fase 3)
+- **Creato da**: Skill (Fase 3)
+- **Modificato da**: Skill basato su feedback utente
+- **Scopo**: Documento con specifiche, esaustivo e utilizzabile per analisi e progettazione future
+- **Versioning**: v1.0, v2.0, etc. in document header
+- **Ciclo di vita**: Deliverable finale, può essere iterato
 
 ---
 
-## Phase 2: Restructure Brief
+## Fase 1: Analisi e Domande
 
-### When to Use
-Quando brief.md è sufficientemente chiaro e non servoo domande di approfondimento o l'utente lo ha già modificato rispondendo alle domande poste.
+### Quando Usarla
+- L'utente chiede di iniziare
+- L'utente fornisce un file brief.md
+- L'utente modifica brief.md dopo domande precedenti
 
-### Tools to Use
-1. **Read** tool → read updated brief.md
-2. **Write** tool → create brief-structured.md
-3. **AskUserQuestion** tool → confirm or ask for changes
+### Valutazione Rapida
 
-### Process
+Prima di generare domande, valuta se Fase 1 è necessaria:
+- Problema chiaramente definito?
+- Utenti e loro bisogni descritti?
+- Vincoli (timeline, team, budget) menzionati?
+- Scope MVP sufficientemente chiaro?
 
-1. **Read updated brief.md** with user answers
+**Se SÌ a tutto**: Salta a Fase 2
+**Se NO ad alcuni**: Continua con Fase 1 (0-8 domande mirate)
 
-2. **Create brief-structured.md** using Write tool as a **stand-alone, consistent document**:
-
-   **CRITICAL RULES**:
-   - ✅ Write as complete, readable document (not a diff)
-   - ✅ Integrate answers and assumptions seamlessly
-   - ✅ Use narrative paragraphs, professional tone
-   - ❌ NO markers ([CONFERMATO], [AGGIUNTO], [MODIFICATO])
-   - ❌ NO references to "Q[N]", "answer to question", "defaults.md"
-   - ❌ NO "Based on brief.md" language
-
-   **Structure** (8 sections):
-   1. Problema - Complete problem statement
-   2. Utenti e Contesto - User types with workflows
-   3. Obiettivi - MVP goals (primary + secondary)
-   4. Vincoli - Technical, organizational, business constraints
-   5. Assunzioni - Assumptions with rationale refs
-   6. Elenco funzionalità principali e descrizione
-   7. Elenco workflow principali
-   8. Scope MVP - Included / NOT included lists
-   9. Open Questions - Unresolved decisions
-
-   **Example assumption format**:
-   - **Authentication**: Email/password standard. Rationale: Simple to implement, adequate for 1-5 pilot locations.
-
-   See `phase_1.md` Case 0 for complete example.
-
-3. **Track changes internally for your chat output**, but keep brief-structured.md clean:
-
-   As you write brief-structured.md, track:
-   - What came from original brief (confirmed)
-   - What came from user answers (added/modified)
-   - What came from defaults (assumed)
-
-   But DON'T put these markers in the file.
-
-4. **Output to user** (in chat, with change summary):
-   ```markdown
-   # Phase 2: Brief Strutturato Creato
-
-   Ho creato **brief-structured.md** - il secondo documento di progetto.
-
-   ## Cosa contiene
-   - Problema e contesto utenti integrati dalle tue risposte
-   - [N] assunzioni esplicitate per MVP
-   - Scope chiaro (cosa è incluso / non incluso)
-   - Vincoli e obiettivi strutturati
-
-   ## Principali integrazioni dalle tue risposte
-   - [Chiarimento 1]: [breve descrizione]
-   - [Chiarimento 2]: [breve descrizione]
-   - [Assunzione 1]: [breve descrizione]
-
-   ## Prossimo passo
-   Per favore rivedi **brief-structured.md**.
-   È un documento stand-alone che può essere condiviso con stakeholder.
-   ```
-
-5. **Use AskUserQuestion** to confirm:
-   - "Il brief strutturato riflette correttamente il progetto?"
-   - "Vuoi modifiche o chiarimenti prima di passare ai requisiti formali?"
-
-6. **If changes requested**:
-   - Use Edit tool to update brief-structured.md
-   - In chat output, explain what you changed and why
-   - Ask for confirmation again
-   - **Loop until approved**
-
-7. **When approved**, announce ready for Phase 3
+**Per processo dettagliato**: Vedi `phase_1.md`
 
 ---
 
-## Phase 3: Generate Requirements Document
+## Fase 2: Ristrutturazione Brief
 
-### When to Use
-After brief-structured.md is approved
+### Quando Usarla
+- brief.md è sufficientemente chiaro (Fase 1 completata o saltata)
+- L'utente ha risposto alle domande (se presenti)
 
-### Tools to Use
-1. **Read** tool → read brief-structured.md
-2. **Write** tool → create requirements.md
-3. **Edit** tool → for iterations (if user requests changes)
+### Obiettivo
+Creare **brief-structured.md** come documento stand-alone professionale (9 sezioni) che ristruttura e completa le informazioni in brief.md, aggiungendo assunzioni ragionevoli dove necessario.
 
-### Process
+### Regola Critica
+Il documento deve essere completo e leggibile autonomamente, NON un diff:
+- ✅ Tono professionale narrativo, condivisibile con stakeholder
+- ❌ NO markers tipo [CONFERMATO], [AGGIUNTO], [MODIFICATO]
+- ❌ NO riferimenti a "Q[N]", "defaults.md", "brief.md"
+- ❌ NO linguaggio che mostra il processo di creazione
 
-1. **Read brief-structured.md**
-
-2. **Create requirements.md** using Write tool with 8 sections:
-   1. **Overview** - Problem statement, success definition for MVP
-   2. **Users & Context** - Users, workflows, why they need it
-   3. **Core Requirements** - Features (functional), non-functional (performance, scale, security, platform, data, integrations), hardware (if applicable)
-   4. **Scope** - MVP v1 includes, explicitly NOT includes, future phases
-   5. **Constraints** - Team, timeline, budget, technical, organizational
-   6. **Assumptions & Open Questions** - Key assumptions, what to validate, open decisions
-   7. **Success Metrics** - How we measure MVP success
-   8. **Next Steps** - Who does what, timeline, risks
-
-3. **Use template structure from `template.md`**
-
-4. **Output to user**:
-   ```markdown
-   # Phase 3: Requirements Document Created
-
-   Ho creato requirements.md (v1.0) con 8 sezioni:
-
-   1. Overview - [brief summary]
-   2. Users & Context - [brief summary]
-   3. Core Requirements - [N functional features, non-functional aspects]
-   4. Scope - [what's in/out]
-   5. Constraints - [key constraints]
-   6. Assumptions & Open Questions - [N assumptions]
-   7. Success Metrics - [N metrics]
-   8. Next Steps - [timeline, risks]
-
-   Lunghezza: ~[N] parole
-
-   Per favore revedi requirements.md e fammi sapere se vuoi modifiche.
-   ```
-
-### Iterations
-
-If user requests changes:
-
-1. **Read requirements.md**
-2. **Edit requirements.md** (use Edit tool for specific changes)
-3. **Update version** in document header (v1.1, v2.0, etc)
-4. **Output** (in chat) summary of changes:
-   - What was modified
-   - What was added
-   - What was removed
-
-   Keep the document itself clean - no markers in the body.
+**Per processo dettagliato**: Vedi `phase_2.md`
 
 ---
 
-## Reference Materials
+## Fase 3: Generazione Requirements
 
-### For Phase 1 Parsing
-See `phase_1.md` for:
-- Parsing algorithm (extract clear/unclear/implied)
-- Question generation patterns
-- Edge cases (hardware, regulatory, very short briefs)
-- Conflict detection patterns
+### Quando Usarla
+- brief-structured.md è stato approvato dall'utente (Fase 2 completata)
 
-### For Pragmatic MVP Defaults
-See `defaults.md` for:
-- Software defaults (platform, scale, security, performance)
-- Hardware defaults (components, power, connectivity, manufacturing)
-- When to override each default
-- How to format suggestions in questions
+### Obiettivo
+Creare **requirements.md** come documento formale di requisiti MVP/PoC (8 sezioni principali) basato su brief-structured.md. Il documento deve essere utilizzabile per analisi e progettazione, condivisibile con team tecnico e stakeholder.
 
-### For Output Structure
-See `template.md` for:
-- Complete 8-section template structure
-- How to structure each section
-- What level of detail for each section
+### Struttura requirements.md (8 sezioni)
+1. Overview (Problema, Opportunità, Definizione di Successo)
+2. Utenti e Contesto
+3. Requisiti Core (Funzionali e Non-Funzionali, + Hardware se applicabile)
+4. Scope (Incluso/Escluso/Fasi Future)
+5. Vincoli (Risorse, Tecnici, Organizzativi)
+6. Assunzioni e Domande Aperte
+7. Metriche di Successo
+8. Prossimi Passi (Azioni, Timeline, Rischi)
 
-### For Project File Management
-See `docs/workflow.md` for detailed documentation on:
-- File lifecycle and state transitions
-- Naming conventions and versioning
-- Gitignore recommendations
+**Per processo dettagliato**: Vedi `phase_3.md`
 
 ---
 
-## Key Rules
+## Regole Chiave
 
-**Iterative Process**:
-- Phase 1: Modify brief.md (add questions), or skip if complete
-- Phase 2: Create stand-alone brief-structured.md, loop until approved
-- Phase 3: Create requirements.md, iterate if needed
-- Track changes in chat, keep documents clean (no markers in body)
+### Processo Iterativo
+- Fase 1: Analizza brief.md, poni domande (o salta se completo)
+- Fase 2: Crea brief-structured.md stand-alone, loop fino ad approvazione
+- Fase 3: Crea requirements.md, itera se necessario
+- Traccia modifiche in chat, mantieni documenti puliti (no markers nel body)
 
-**Tool Usage** (⚠️ CRITICAL SEQUENCE):
-- ✅ **ALWAYS** Read before Edit/Write (prevents stale data errors)
-- ✅ Edit for existing files, Write for new files
-- ✅ AskUserQuestion for confirmations
-- ❌ **NEVER** Write on existing files (use Edit)
-- ❌ **NEVER** Edit without Reading first
-- ❌ **NEVER** proceed without user confirmation when asked
+### Uso Tool (⚠️ SEQUENZA CRITICA)
+- ✅ **SEMPRE** Read prima di Edit/Write (previene errori dati obsoleti)
+- ✅ Edit per file esistenti, Write per file nuovi
+- ✅ AskUserQuestion per conferme
+- ❌ **MAI** Write su file esistenti (usa Edit)
+- ❌ **MAI** Edit senza Read prima
+- ❌ **MAI** procedere senza conferma utente quando richiesta
 
-**Pragmatic MVP**:
-- Propose sensible defaults (see `defaults.md`)
-- Simpler is better: off-shelf, web, no integrations initially
-- User can always override
+### MVP Pragmatico
+- Proponi default sensati (vedi `defaults.md`)
+- Più semplice è meglio: off-shelf, web, no integrazioni inizialmente
+- L'utente può sempre fare override
 
-**Transparency**:
-- State assumptions with rationale
-- Show reasoning for defaults
-- Flag conflicts explicitly
+### Trasparenza
+- Dichiara assunzioni con rationale
+- Mostra ragionamento per i default
+- Segnala conflitti esplicitamente
 
-**Efficiency**:
-- Ask 0-8 questions (only necessary ones)
-- Reference files, don't repeat
-- Tight feedback loops
-
-**Special Cases**: Hardware (see `phase_1.md`), regulatory (compliance questions), huge scope (narrow to 3-5 features)
+### Efficienza
+- Fai 0-8 domande (solo quelle necessarie)
+- Referenzia file, non ripetere
+- Loop di feedback stretti
 
 ---
 
-## Document Format
+## Gestione Errori
 
-Output `requirements.md` as clean Markdown:
-- 2000-3500 words typical
-- Readable by non-technical stakeholders
-- Specific enough for design/dev teams
-- Include tables where helpful (requirements, metrics, risks)
-- Clear section headers and hierarchies
+### Fallimenti Tool
 
----
+**Se Read fallisce**:
+- Verifica percorso file corretto
+- Chiedi utente: "Non trovo [file]. Esiste? Devo controllare un'altra posizione?"
 
-## Error Handling
+**Se Edit fallisce** ("old_string not found"):
+- Verifica old_string corrisponde esattamente (controlla spaziatura, line breaks)
+- Se file cambiato da ultimo Read: Re-read file, riprova Edit
+- Se ancora fallisce: Usa Write per ricreare (avvisa utente prima)
 
-### Tool Failures
+**Se Write fallisce** (permessi, directory):
+- Verifica directory padre esiste
+- Chiedi utente: "Non posso scrivere in [path]. Hai permessi? Devo usare posizione diversa?"
 
-**If Read fails**:
-- Check file path is correct
-- Ask user: "Cannot find [file]. Does it exist? Should I check a different location?"
+**Se AskUserQuestion non riceve risposta**:
+- Attendi risposta utente
+- Non procedere senza conferma quando richiesta
 
-**If Edit fails** ("old_string not found"):
-- Verify old_string matches file exactly (check spacing, line breaks)
-- If file changed since last read: Re-read file, try Edit again
-- If still fails: Use Write to recreate file (warn user first)
-
-**If Write fails** (permissions, directory):
-- Check parent directory exists
-- Ask user: "Cannot write to [path]. Do you have permissions? Should I use different location?"
-
-**If AskUserQuestion gets no answer**:
-- Wait for user response
-- Don't proceed without confirmation when required
-
-### Recovery Strategy
-
-1. **Always Read before Edit/Write** - Prevents stale data
-2. **If uncertain**: Ask user, don't guess
-3. **If blocked**: Explain what you need to proceed
+### Strategia di Recupero
+1. **Sempre Read prima di Edit/Write** - Previene dati obsoleti
+2. **Se incerto**: Chiedi utente, non indovinare
+3. **Se bloccato**: Spiega cosa ti serve per procedere
 
 ---
 
-## Starting the Workflow
+## Avvio Workflow
 
-When user invokes this skill, check for brief.md:
+Quando l'utente invoca questa skill, controlla brief.md:
 
-1. **If brief.md exists**: Start Phase 1 automatically
-2. **If no brief.md**: Ask user to create it first with basic project notes
-3. **If user provides text in chat**: Ask if they want you to create brief.md with that content
+1. **Se brief.md esiste**: Avvia Fase 1 automaticamente
+2. **Se brief.md non esiste**: Chiedi all'utente di crearlo prima con appunti base di progetto
+3. **Se l'utente fornisce testo in chat**: Chiedi se vuoi creare brief.md con quel contenuto
 
-Always confirm which phase to start with if unclear.
+Conferma sempre da quale fase partire se non chiaro.

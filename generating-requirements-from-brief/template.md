@@ -1,8 +1,8 @@
-# Output Template and Structure
+# Template e Struttura Output
 
-## Requirements Document Template
+## Template Documento Requirements
 
-Use this structure when generating requirements.md in Phase 3.
+Usa questa struttura quando generi requirements.md nella Fase 3.
 
 ```markdown
 # Requirements: [PROJECT NAME]
@@ -249,98 +249,98 @@ How we know this MVP worked:
 
 ---
 
-## Section Guidelines
+## Linee Guida per Sezioni
 
 ### 1. Overview
-**Length**: ~200-300 words
-**Tone**: Clear, accessible to non-technical stakeholders
-**Focus**: Problem being solved, why it matters, what success looks like for THIS phase
+**Lunghezza**: ~200-300 parole
+**Tono**: Chiaro, accessibile a stakeholder non-tecnici
+**Focus**: Problema risolto, perché è importante, cosa significa successo per QUESTA fase
 
-### 2. Users & Context
-**Length**: ~300-400 words
-**Include**: Who (role/persona), how many, technical level, environment, main workflow
-**Avoid**: Named individuals (use roles), excessive detail about user background
+### 2. Utenti e Contesto
+**Lunghezza**: ~300-400 parole
+**Includere**: Chi (ruolo/persona), quanti, livello tecnico, ambiente, workflow principale
+**Evitare**: Nomi individuali (usa ruoli), dettagli eccessivi sul background utente
 
-### 3. Core Requirements
-**Length**: ~800-1200 words (largest section)
-**Functional**: 3-5 core features for MVP, each with What/Why/UX
-**Non-Functional**: Table format, 6-8 aspects (performance, scale, platform, etc)
-**Hardware** (if applicable): Device specs, components, manufacturing, integration
+### 3. Requisiti Core
+**Lunghezza**: ~800-1200 parole (sezione più grande)
+**Funzionali**: 3-5 funzionalità core per MVP, ognuna con Cosa/Perché/UX
+**Non-Funzionali**: Formato tabella, 6-8 aspetti (performance, scala, piattaforma, etc)
+**Hardware** (se applicabile): Specifiche dispositivo, componenti, produzione, integrazione
 
 ### 4. Scope
-**Length**: ~300-400 words
-**Be explicit**: What's in v1, what's explicitly NOT in v1, what's future
-**Avoid**: Vague statements like "we might add later" - be specific
+**Lunghezza**: ~300-400 parole
+**Essere espliciti**: Cosa c'è in v1, cosa esplicitamente NON c'è in v1, cosa è futuro
+**Evitare**: Affermazioni vaghe come "potremmo aggiungere dopo" - essere specifici
 
-### 5. Constraints
-**Length**: ~200-300 words
-**Include**: Team size, timeline, budget, technical constraints, organizational limits
-**Be realistic**: Don't hide constraints - they inform the design
+### 5. Vincoli
+**Lunghezza**: ~200-300 parole
+**Includere**: Dimensione team, timeline, budget, vincoli tecnici, limiti organizzativi
+**Essere realistici**: Non nascondere i vincoli - informano il design
 
-### 6. Assumptions & Open Questions
-**Length**: ~300-400 words
-**Format**: Table for assumptions (assumption/if wrong/signal)
-**Purpose**: Make bets explicit, identify what to validate early
+### 6. Assunzioni e Domande Aperte
+**Lunghezza**: ~300-400 parole
+**Formato**: Tabella per assunzioni (assunzione/se sbagliata/segnale)
+**Scopo**: Rendere le scommesse esplicite, identificare cosa validare presto
 
-### 7. Success Metrics
-**Length**: ~150-200 words
-**Format**: Table (metric/measurement/target)
-**Be specific**: Measurable targets, not vague goals
+### 7. Metriche di Successo
+**Lunghezza**: ~150-200 parole
+**Formato**: Tabella (metrica/misurazione/target)
+**Essere specifici**: Target misurabili, non obiettivi vaghi
 
-### 8. Next Steps
-**Length**: ~200-300 words
-**Include**: Immediate actions (checklist), timeline (table), risks (table)
-**Be actionable**: Who does what by when
-
----
-
-## Document Length Guidelines
-
-- **Small project**: 2000-2500 words
-- **Medium project**: 2500-3500 words
-- **Complex project**: 3500-4500 words
-
-Rarely more than 4500 words (already detailed for MVP phase).
+### 8. Prossimi Passi
+**Lunghezza**: ~200-300 parole
+**Includere**: Azioni immediate (checklist), timeline (tabella), rischi (tabella)
+**Essere attuabili**: Chi fa cosa e quando
 
 ---
 
-## Writing Tips
+## Linee Guida Lunghezza Documento
 
-1. **Use user's own language** - Makes them feel heard, easier to understand
-2. **Make tables readable** - Easier to scan than paragraphs
-3. **Highlight assumptions clearly** - Use tables and markers
-4. **Be specific**: "5 concurrent users" not "scalable"
-5. **Show tradeoffs**: "We chose X over Y because MVP phase"
-6. **Keep language simple** - Non-technical stakeholders read this
-7. **Use active voice** - "User clicks button" not "button is clicked"
-8. **Avoid jargon** - Or define it in Glossary
+- **Progetto piccolo**: 2000-2500 parole
+- **Progetto medio**: 2500-3500 parole
+- **Progetto complesso**: 3500-4500 parole
+
+Raramente più di 4500 parole (già dettagliato per fase MVP).
 
 ---
 
-## Common Mistakes to Avoid
+## Suggerimenti di Scrittura
 
-❌ **Too technical**: Don't specify implementation (React, PostgreSQL, AWS)
-✅ **Right level**: Specify requirements (web platform, relational DB, cloud hosted)
-
-❌ **Too vague**: "The system should be fast"
-✅ **Specific**: "Page loads in <2 seconds on standard broadband"
-
-❌ **Feature list only**: Just listing features without context
-✅ **Feature + Why**: Each feature explains problem it solves
-
-❌ **No scope boundaries**: Everything is "future phases"
-✅ **Explicit boundaries**: Clear what's in v1, NOT in v1, and future
-
-❌ **Hidden assumptions**: Assuming things without stating them
-✅ **Explicit assumptions**: Table of assumptions with if-wrong scenarios
+1. **Usa il linguaggio dell'utente** - Li fa sentire ascoltati, più facile da capire
+2. **Rendi le tabelle leggibili** - Più facili da scansionare dei paragrafi
+3. **Evidenzia chiaramente le assunzioni** - Usa tabelle e marker
+4. **Sii specifico**: "5 utenti concorrenti" non "scalabile"
+5. **Mostra i tradeoff**: "Abbiamo scelto X invece di Y perché fase MVP"
+6. **Mantieni linguaggio semplice** - Stakeholder non-tecnici leggono questo
+7. **Usa voce attiva** - "L'utente clicca il pulsante" non "il pulsante viene cliccato"
+8. **Evita jargon** - Oppure definiscilo nel Glossario
 
 ---
 
-## Examples
+## Errori Comuni da Evitare
 
-For complete worked examples, see separate project example files:
-- Software project example: Freelancer Invoice Platform
-- Hardware project example: IoT Plant Monitor
-- Mixed project example: Smart Home Security System
+❌ **Troppo tecnico**: Non specificare implementazione (React, PostgreSQL, AWS)
+✅ **Livello giusto**: Specifica requisiti (piattaforma web, DB relazionale, hosting cloud)
 
-These are kept in separate files to avoid bloating the skill prompt.
+❌ **Troppo vago**: "Il sistema dovrebbe essere veloce"
+✅ **Specifico**: "Caricamento pagina in <2 secondi su banda standard"
+
+❌ **Solo lista funzionalità**: Elencare solo funzionalità senza contesto
+✅ **Funzionalità + Perché**: Ogni funzionalità spiega il problema che risolve
+
+❌ **Nessun confine di scope**: Tutto è "fasi future"
+✅ **Confini espliciti**: Chiaro cosa c'è in v1, NON in v1, e futuro
+
+❌ **Assunzioni nascoste**: Assumere cose senza dichiararle
+✅ **Assunzioni esplicite**: Tabella di assunzioni con scenari se-sbagliata
+
+---
+
+## Esempi
+
+Per esempi completi, vedi file di esempio progetto separati:
+- Esempio progetto software: Piattaforma Fatturazione Freelancer
+- Esempio progetto hardware: Monitor Piante IoT
+- Esempio progetto misto: Sistema Sicurezza Smart Home
+
+Questi sono mantenuti in file separati per evitare di appesantire il prompt della skill.

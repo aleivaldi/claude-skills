@@ -1,10 +1,10 @@
-# MVP/PoC Pragmatic Defaults Reference
+# Riferimento Default Pragmatici MVP/PoC
 
-When the brief doesn't specify something, use these defaults unless the user tells you otherwise.
+Quando il brief non specifica qualcosa, usa questi default a meno che l'utente non indichi diversamente.
 
-## Architecture & Deployment
+## Architettura e Deploy
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **Single-tenant SaaS** (vs multi-tenant) | Saves 2-3 weeks (no data isolation, billing complexity) | Multiple orgs managing own data |
 | **Web + mobile responsive** (vs native apps) | 50% faster to market, all devices | Needs offline-first or app store |
@@ -12,9 +12,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## Hardware & IoT Defaults
+## Default Hardware e IoT
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **Single device type** (vs multiple SKUs) | Validates market fit first, iterate after | Market demands variants from day 1 |
 | **Off-shelf components** (vs custom PCB) | Faster prototype, lower NRE, easier sourcing | Specific performance/size/cost needs |
@@ -28,9 +28,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## Scale & Performance
+## Scala e Performance
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **<2sec response** (vs <500ms) | Acceptable web standard, matches expectations | Real-time or time-critical operations |
 | **Tens-hundreds users** (vs thousands+) | Realistic MVP scale, easier validation | Enterprise/platform ambitions from day 1 |
@@ -39,9 +39,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## Security & Compliance
+## Sicurezza e Compliance
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **GDPR if EU users** | Legal requirement | Different jurisdiction requirements |
 | **Standard security** (HTTPS, DB encryption vs HSM) | Managed cloud handles well | Financial/healthcare/regulated data |
@@ -50,9 +50,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## Features & Integrations
+## Funzionalità e Integrazioni
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **No integrations v1** | Each adds 1-2 weeks, focus core first | Integration core to solution |
 | **Manual data entry** (vs bulk import) | Small data volume for MVP | Large existing dataset to migrate |
@@ -61,9 +61,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## Platform Compatibility
+## Compatibilità Piattaforma
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **Modern browsers** (Chrome/Firefox/Safari/Edge 90+, vs IE11) | Avoid dev complexity, MVP users have modern browsers | Specific legacy customer base |
 | **Desktop-first** (vs mobile-first) | MVP users work at desks, responsive sufficient | Primary use genuinely mobile (field work) |
@@ -71,9 +71,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## Data & Storage
+## Dati e Storage
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **Relational DB** (PostgreSQL/MySQL vs NoSQL) | Structured data, ACID, well-understood | Unstructured data or extreme scale |
 | **Cloud file storage** (S3/GCS vs DB BLOBs/CDN) | Simpler, auto-scales | High-speed media delivery globally |
@@ -81,9 +81,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## DevOps & Deployment
+## DevOps e Deployment
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **Managed cloud** (AWS/GCP/Heroku vs K8s/self-managed) | Lower ops burden, auto-scaling, cost-effective | Specific cloud reqs or vendor lock-in concerns |
 | **Weekly deploys** (vs CD/multiple daily) | Reduced ops complexity for MVP | Needs rapid feedback loop or A/B testing |
@@ -91,9 +91,9 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## Cost & Operations
+## Costi e Operazioni
 
-| Default | Why MVP-Friendly | Override When |
+| Default | Perché Adatto per MVP | Quando Fare Override |
 |---------|------------------|---------------|
 | **$100-500/mo infrastructure** (vs enterprise) | MVP doesn't warrant expensive infra | Higher scale expectations from start |
 | **Email support only** (vs phone/chat/24-7) | Reduces ops cost, adequate for MVP | B2B enterprise expecting premium support |
@@ -101,18 +101,18 @@ When the brief doesn't specify something, use these defaults unless the user tel
 
 ---
 
-## When to Override
+## Quando Fare Override
 
-- **User explicitly states**: Always honor (e.g., "need real-time" → WebSocket)
-- **Constraint makes impossible**: Adapt (e.g., "HIPAA" → not standard security)
-- **Conflict with core need**: Choose MVP goal (e.g., "QuickBooks sync" → integration IS core)
-- **Industry norms**: Respect domain (e.g., financial → encryption, audit trails)
+- **L'utente lo afferma esplicitamente**: Rispetta sempre (es. "serve real-time" → WebSocket)
+- **Il vincolo lo rende impossibile**: Adatta (es. "HIPAA" → non sicurezza standard)
+- **Conflitto con bisogno core**: Scegli obiettivo MVP (es. "sync QuickBooks" → integrazione È core)
+- **Norme del settore**: Rispetta il dominio (es. finanziario → encryption, audit trail)
 
 ---
 
-## How to Use in Questions
+## Come Usare nelle Domande
 
-Integrate defaults into question suggestions:
+Integra i default nei suggerimenti delle domande:
 ```
 1. Che cosa intendi per "piattaforma"?
    Suggerimento: Web responsive
@@ -123,23 +123,23 @@ Integrate defaults into question suggestions:
    Perché: Scala realistica per validare prodotto
 ```
 
-User can accept with "OK" or provide different answer.
+L'utente può accettare con "OK" o fornire risposta diversa.
 
 ---
 
-## Checklist: Defaults Covered
+## Checklist: Default Coperti
 
-When presenting Phase 1 output, verify you've considered:
+Quando presenti l'output della Fase 1, verifica di aver considerato:
 
-- [ ] Platform (web, mobile, desktop?)
-- [ ] Scale (how many users/transactions?)
-- [ ] Architecture (single vs multi-tenant?)
-- [ ] Performance (response time expectations)
-- [ ] Availability (24/7 or business hours?)
-- [ ] Security (standard or custom?)
-- [ ] Compliance (GDPR, industry-specific?)
-- [ ] Integrations (any required for v1?)
-- [ ] Data (structure, storage, backups?)
-- [ ] Cost (infrastructure budget?)
-- [ ] Deployment (how often? where?)
+- [ ] Piattaforma (web, mobile, desktop?)
+- [ ] Scala (quanti utenti/transazioni?)
+- [ ] Architettura (single vs multi-tenant?)
+- [ ] Performance (aspettative tempo di risposta)
+- [ ] Disponibilità (24/7 o orario lavorativo?)
+- [ ] Sicurezza (standard o personalizzata?)
+- [ ] Compliance (GDPR, specifica del settore?)
+- [ ] Integrazioni (richieste per v1?)
+- [ ] Dati (struttura, storage, backup?)
+- [ ] Costi (budget infrastruttura?)
+- [ ] Deployment (quanto spesso? dove?)
 

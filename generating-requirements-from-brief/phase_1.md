@@ -1,30 +1,30 @@
-# Phase 1: Parse Brief and Identify Gaps
+# Fase 1: Analisi Brief e Identificazione Gap
 
-## Objective
+## Obiettivo
 
-Evaluate if Phase 1 is needed. If yes: extract clear information, identify gaps, match user's technical level, propose MVP pragmatic defaults, generate 0-8 clarification questions (ONLY necessary ones), ask user to add responses directly in brief.md.
+Valutare se la Fase 1 è necessaria. Se sì: estrarre informazioni chiare, identificare gap, adattarsi al livello tecnico dell'utente, proporre default pragmatici MVP, generare 0-8 domande di chiarimento (SOLO quelle necessarie), chiedere all'utente di aggiungere risposte direttamente in brief.md.
 
-If brief is already sufficiently detailed: skip Phase 1 and proceed directly to Phase 2.
+Se il brief è già sufficientemente dettagliato: saltare la Fase 1 e procedere direttamente alla Fase 2.
 
-## Parsing Algorithm
+## Algoritmo di Analisi
 
-### STEP 0: Evaluate if Phase 1 is Needed
+### STEP 0: Valutare se la Fase 1 è Necessaria
 
-**Before generating questions**, evaluate the brief completeness:
+**Prima di generare domande**, valuta la completezza del brief:
 
-Ask yourself:
-- Is the problem clearly stated?
-- Are users and their needs described?
-- Are constraints (timeline, team, budget) mentioned or reasonably inferable?
-- Is the MVP scope clear enough to proceed?
+Chiediti:
+- Il problema è chiaramente definito?
+- Gli utenti e i loro bisogni sono descritti?
+- I vincoli (timeline, team, budget) sono menzionati o ragionevolmente deducibili?
+- Lo scope MVP è sufficientemente chiaro per procedere?
 
-**Decision**:
-- **If YES to all**: Skip Phase 1, proceed to Phase 2
-  - Output: "Il brief è sufficientemente dettagliato. Procedo con Phase 2."
-  - Do NOT add questions
-  - Go directly to Phase 2
+**Decisione**:
+- **Se SÌ a tutto**: Salta la Fase 1, procedi alla Fase 2
+  - Output: "Il brief è sufficientemente dettagliato. Procedo con la Fase 2."
+  - NON aggiungere domande
+  - Vai direttamente alla Fase 2
 
-- **If NO to some**: Continue with STEP 1
+- **Se NO ad alcuni**: Continua con STEP 1
 
 # STEP 1: Estrazione Informazioni e Analisi Gap
 
@@ -47,84 +47,83 @@ Ask yourself:
   ---
 
   ### 1. Definizione del Problema
-  **Always Need**:
+  **Sempre Necessario**:
 - [ ] problema che la soluzione vuole risolvere
 
   ### 2. Obiettivi del Progetto
-  **Always Need**:
+  **Sempre Necessario**:
 - [ ] risultati attesi
-  **Usually Need**:
-- [ ]  modello di business
-**Often Needed**:
+  **Solitamente Necessario**:
+- [ ] modello di business
+**Spesso Necessario**:
 - [ ] come lo si vuole risolvere
 
   ### 3. Utenti Target
-   **Always Need**:
-   - [ ] Primary users identified (role/type, not names)
-   **Usually Need**:
-   - [ ] Utenti secondari, di amministrativi o indiretti
+   **Sempre Necessario**:
+   - [ ] Utenti primari identificati (ruolo/tipo, non nomi)
+   **Solitamente Necessario**:
+   - [ ] Utenti secondari, amministrativi o indiretti
    - [ ] numero di utenti
-  ### 4. Funzionalità Core
-   **Always Need**:
-   - [ ] funzionalità core
-   **Usually Need**:
-   - [ ] workflow principali
-   **Often Needed**:
-   - [ ] differenza fra must-have e nice-to have
 
-  
+  ### 4. Funzionalità Core
+   **Sempre Necessario**:
+   - [ ] funzionalità core
+   **Solitamente Necessario**:
+   - [ ] workflow principali
+   **Spesso Necessario**:
+   - [ ] differenza fra must-have e nice-to-have
 
   ### 5. Vincoli Tecnici
-   **Always Need**:
-   - [ ] 
-   **Usually Need**:
-   - [ ] 
-   **Often Needed**:
-   - [ ] richieste di tecnologie
-   - [ ] linguaggi
-   - [ ] sistemi esistenti in cui si sviluppa
-   - [ ] cloud provider
+   **Sempre Necessario**:
+   - [ ] nessuno specifico obbligatorio
+   **Solitamente Necessario**:
+   - [ ] nessuno specifico obbligatorio
+   **Spesso Necessario**:
+   - [ ] richieste di tecnologie specifiche
+   - [ ] linguaggi preferiti
+   - [ ] sistemi esistenti in cui integrare
+   - [ ] cloud provider preferito
 
   ### 6. Integrazioni Esterne
-  **Always Need**:
-   - [ ] 
-   **Usually Need**:
-   - [ ] 
-   **Often Needed**:
-   - [ ] API
-   - [ ] Servizio di terze parti
-   - [ ] Sistema legacy
-  
+  **Sempre Necessario**:
+   - [ ] nessuna specifica obbligatoria
+   **Solitamente Necessario**:
+   - [ ] nessuna specifica obbligatoria
+   **Spesso Necessario**:
+   - [ ] API da integrare
+   - [ ] Servizi di terze parti
+   - [ ] Sistemi legacy
 
   ### 7. Requisiti Hardware
   Solo se dal brief si deduce che siano necessari prodotti fisici.
-  **Always Need**:
-   - [ ] funzionalità
-   **Usually Need**:
+  **Sempre Necessario**:
+   - [ ] funzionalità hardware
+   **Solitamente Necessario**:
    - [ ] vincoli di dimensioni
-   - [ ] costo massimo
-   **Often Needed**:
-   - [ ] certificazioni
+   - [ ] costo massimo per unità
+   **Spesso Necessario**:
+   - [ ] certificazioni richieste
+
   ### 8. Vincoli di Sicurezza e Privacy
-  **Always Need**:
-   - [ ] presenza di sensibili da gestire
-   **Usually Need**:
-   - [ ] GDPR
-   **Often Needed**:
-   - [ ] compliancy con altre regolamentazioni
+  **Sempre Necessario**:
+   - [ ] presenza di dati sensibili da gestire
+   **Solitamente Necessario**:
+   - [ ] conformità GDPR
+   **Spesso Necessario**:
+   - [ ] conformità con altre regolamentazioni
 
   ### 9. Contesto e Timeline
-   **Always Need**:
-   - [ ] Urgenza
-   **Usually Need**:
-   - [ ] Contesto aziendale
-   - [ ] Milestones
-   **Often Needed**:
-   - [ ] Deadline
+   **Sempre Necessario**:
+   - [ ] livello di urgenza
+   **Solitamente Necessario**:
+   - [ ] contesto aziendale
+   - [ ] milestone principali
+   **Spesso Necessario**:
+   - [ ] deadline specifiche
 
   ### 10. Budget e Risorse
-   **Often Needed**:
-   - [ ] Budget del progetto
+   **Spesso Necessario**:
+   - [ ] budget del progetto disponibile
 
   ## Riepilogo Gap Identificati
   **Informazioni Critiche Mancanti**:
@@ -137,83 +136,83 @@ Ask yourself:
   ---
 
 
-### STEP 3: Identify User Technical Level
+### STEP 3: Identificare il Livello Tecnico dell'Utente
 
-Before generating questions, identify the technical level from the brief:
+Prima di generare domande, identifica il livello tecnico dal brief:
 
-**Non-technical indicators**:
-- No technical terms (e.g., API, database, cloud)
-- Focus on business problem and user needs
-- Describes workflows in user terms, not technical implementation
-- Example: "I clienti devono poter prenotare facilmente"
+**Indicatori non-tecnici**:
+- Nessun termine tecnico (es. API, database, cloud)
+- Focus su problema di business e bisogni utente
+- Descrive workflow in termini utente, non implementazione tecnica
+- Esempio: "I clienti devono poter prenotare facilmente"
 
-**Semi-technical indicators**:
-- Some technical mentions but not detailed
-- Mentions "app" or "website" without specifics
-- Mix of business and technical language
-- Example: "Serve un'app web per gestire ordini"
+**Indicatori semi-tecnici**:
+- Alcune menzioni tecniche ma non dettagliate
+- Menziona "app" o "sito web" senza specifiche
+- Mix di linguaggio business e tecnico
+- Esempio: "Serve un'app web per gestire ordini"
 
-**Technical indicators**:
-- Specific technologies mentioned (React, PostgreSQL, AWS)
-- Architecture concerns (microservices, API, authentication)
-- Technical constraints or preferences
-- Example: "Vogliamo usare Next.js con autenticazione OAuth"
+**Indicatori tecnici**:
+- Tecnologie specifiche menzionate (React, PostgreSQL, AWS)
+- Preoccupazioni architetturali (microservizi, API, autenticazione)
+- Vincoli o preferenze tecniche
+- Esempio: "Vogliamo usare Next.js con autenticazione OAuth"
 
-**Rule**: Match your questions to their level
-- Non-technical → Ask ONLY business questions
-- Semi-technical → Mix business + high-level technical
-- Technical → Can ask technical questions
+**Regola**: Adatta le tue domande al loro livello
+- Non-tecnico → Chiedi SOLO domande di business
+- Semi-tecnico → Mix business + tecnico ad alto livello
+- Tecnico → Puoi fare domande tecniche
 
-### STEP 4: Formulate Clarification Questions 
+### STEP 4: Formulare Domande di Chiarimento 
 
-Generate **0-8 questions** (ONLY necessary ones) using the **suggestion-based format**:
+Genera **0-8 domande** (SOLO quelle necessarie) usando il **formato basato su suggerimenti**:
 
-**Template for Questions**:
+**Template per le Domande**:
 ```
-N. Che cosa intendi per [specific aspect]?
-   Suggerimento: [proposed approach/default]
-   Perché: [why this matters for requirements]
+N. Che cosa intendi per [aspetto specifico]?
+   Suggerimento: [approccio/default proposto]
+   Perché: [perché è importante per i requisiti]
 ```
 
-**Question Quality Examples**:
+**Esempi di Qualità delle Domande**:
 
-✓ Good: "Che cosa intendi per 'accesso mobile'? Suggerimento: Web responsive. Perché: Più veloce da sviluppare."
-✗ Bad (technical): "Dovremmo usare GraphQL o REST?" → Better: "L'API deve supportare real-time?"
-✗ Bad (vague): "Come dovrebbe funzionare?" → Better: "Qual è il flusso principale per [action]?"
-✗ Bad (already answered): "Quanti utenti?" when brief says "50 utenti" → Skip
-✗ Bad (implementation): "Che database?" → Skip (dev team decides)
-✗ Bad (obvious): "Volete HTTPS?" → Skip (always yes)
+✓ Buona: "Che cosa intendi per 'accesso mobile'? Suggerimento: Web responsive. Perché: Più veloce da sviluppare."
+✗ Cattiva (troppo tecnica): "Dovremmo usare GraphQL o REST?" → Meglio: "L'API deve supportare real-time?"
+✗ Cattiva (vaga): "Come dovrebbe funzionare?" → Meglio: "Qual è il flusso principale per [azione]?"
+✗ Cattiva (già risposta): "Quanti utenti?" quando il brief dice "50 utenti" → Salta
+✗ Cattiva (implementazione): "Che database?" → Salta (il team dev decide)
+✗ Cattiva (ovvia): "Volete HTTPS?" → Salta (sempre sì)
 
-### STEP 5: Filter Questions - Ask Only What's Needed
+### STEP 5: Filtrare le Domande - Chiedi Solo Ciò Che Serve
 
-**DO NOT ask if**:
-- ✗ Information is already stated in brief.md
-- ✗ It's a technical implementation detail (DB choice, framework, hosting)
-- ✗ User is non-technical and question requires technical knowledge
-- ✗ Default assumption is sufficient and low-risk for MVP
-- ✗ Answer doesn't impact MVP scope significantly
+**NON chiedere se**:
+- ✗ L'informazione è già indicata in brief.md
+- ✗ È un dettaglio di implementazione tecnica (scelta DB, framework, hosting)
+- ✗ L'utente è non-tecnico e la domanda richiede conoscenze tecniche
+- ✗ L'assunzione di default è sufficiente e a basso rischio per MVP
+- ✗ La risposta non impatta significativamente lo scope MVP
 
-**DO ask if**:
-- ✓ Information significantly impacts MVP scope or timeline
-- ✓ Assumption would be high-risk if wrong
-- ✓ User explicitly mentioned topic but without clarity
-- ✓ Needed to resolve conflicts or ambiguities in brief
-- ✓ Critical for estimating team/time/cost
+**CHIEDI se**:
+- ✓ L'informazione impatta significativamente scope o timeline MVP
+- ✓ L'assunzione sarebbe ad alto rischio se sbagliata
+- ✓ L'utente ha menzionato esplicitamente l'argomento ma senza chiarezza
+- ✓ Necessario per risolvere conflitti o ambiguità nel brief
+- ✓ Critico per stimare team/tempo/costi
 
-**Result**:
-- 0 questions = Brief is complete and detailed
-- 1-3 questions = Brief needs minor clarification
-- 4-6 questions = Brief has some gaps
-- 7-8 questions = Brief is very vague (rare if you filter well)
+**Risultato**:
+- 0 domande = Il brief è completo e dettagliato
+- 1-3 domande = Il brief necessita chiarimenti minori
+- 4-6 domande = Il brief ha alcuni gap
+- 7-8 domande = Il brief è molto vago (raro se filtri bene)
 
-**Filter Example**:
+**Esempio di Filtro**:
 Brief: "App web responsive per ordini. 50 ristoranti, 5-10 camerieri ciascuno."
-✗ Skip: "Piattaforma?" (already: web responsive), "Quanti utenti?" (already: 250-500), "Database?" (impl. detail)
-✓ Ask: "Tablet propri o del ristorante?" (UX impact), "Solo al tavolo o anche delivery?" (scope impact)
+✗ Salta: "Piattaforma?" (già: web responsive), "Quanti utenti?" (già: 250-500), "Database?" (dettaglio impl.)
+✓ Chiedi: "Tablet propri o del ristorante?" (impatto UX), "Solo al tavolo o anche delivery?" (impatto scope)
 
-### STEP 4: Add Questions in temrinal
+### STEP 6: Aggiungere Domande nel Terminale
 
-**IMPORTANT**: Don't modify the file directly. Just ask questions in chat.
+**IMPORTANTE**: Non modificare il file direttamente. Fai solo domande in chat.
 Come suggerimenti scrivi frasi che possano essere copiate e incollate in brief.md
 
 ```markdown
@@ -238,81 +237,81 @@ Come suggerimenti scrivi frasi che possano essere copiate e incollate in brief.m
 
 ---
 
-## Edge Cases - Quick Reference
+## Casi Limite - Riferimento Rapido
 
-### Complete Brief (0 questions)
-**Signal**: Problem, users, constraints, scope all clearly stated
-**Action**: Output "Il brief è sufficientemente dettagliato. Procedo con Phase 2." → Skip to Phase 2
+### Brief Completo (0 domande)
+**Segnale**: Problema, utenti, vincoli, scope tutti chiaramente definiti
+**Azione**: Output "Il brief è sufficientemente dettagliato. Procedo con la Fase 2." → Salta alla Fase 2
 
-### Very Short Brief (4-6 basic questions)
-**Signal**: "Need expense tracking app" (no details)
-**Action**: Ask 4 basic questions: who uses, main problem, timeline/team, platform preference
+### Brief Molto Breve (4-6 domande base)
+**Segnale**: "Serve app per tracciare spese" (senza dettagli)
+**Azione**: Fai 4 domande base: chi usa, problema principale, timeline/team, preferenza piattaforma
 
-### Technical Stack Mentioned (ignore, ask business)
-**Signal**: "Want React + GraphQL + microservices..."
-**Action**: Output "Chiedi di specificare le motivazioni per cui sono state richieste determinate tecnologie.
+### Stack Tecnico Menzionato (ignora, chiedi business)
+**Segnale**: "Vogliamo React + GraphQL + microservizi..."
+**Azione**: Chiedi di specificare le motivazioni per cui sono state richieste determinate tecnologie
 
-### Huge Scope (narrow down)
-**Signal**: "Complete financial system with accounting, invoicing, tax, multi-currency..."
-**Action**: Verifica ed evidenzia eventuali incongruenze chiedendo all'utente di dettaglaire come risolvere (sempre proponendo un default)"
+### Scope Enorme (restringi)
+**Segnale**: "Sistema finanziario completo con contabilità, fatturazione, tasse, multi-valuta..."
+**Azione**: Verifica ed evidenzia eventuali incongruenze chiedendo all'utente di dettagliare come risolvere (sempre proponendo un default)
 
-### Regulatory Keywords (compliance questions)
-**Signal**: "healthcare data", "financial transactions", "EU users"
-**Action**: Ask 1-2 compliance questions (GDPR? HIPAA? jurisdiction?)
+### Parole Chiave Regolamentari (domande compliance)
+**Segnale**: "dati sanitari", "transazioni finanziarie", "utenti EU"
+**Azione**: Fai 1-2 domande di compliance (GDPR? HIPAA? giurisdizione?)
 
-### Hardware/IoT Project (device + software questions)
-**Signal**: "IoT sensor", "device", "hardware"
-**Action**: 3-5 hardware-specific questions: device type, volume, connectivity, power, form factor
-**Assumptions**: Off-shelf components, WiFi, cloud backend, 50-200 units MVP
-
----
-
-
-## Conflict Detection
-
-**When you spot conflicts**, flag them and add clarifying question:
-
-Examples:
-- "50 users" + "1M transactions/month" → Verify scale (20K tx/user/month?)
-- "3 months" + "15 features" → Narrow to 4-5 core MVP features
-
-**Action**: Flag in chat + add question to brief.md with pragmatic suggestion
+### Progetto Hardware/IoT (domande dispositivo + software)
+**Segnale**: "sensore IoT", "dispositivo", "hardware"
+**Azione**: 3-5 domande specifiche hardware: tipo dispositivo, volume, connettività, alimentazione, fattore di forma
+**Assunzioni**: Componenti off-shelf, WiFi, backend cloud, 50-200 unità MVP
 
 ---
 
-## Checklist: Phase 1 Complete
 
-### If Brief is Complete (0 questions):
-- [ ] brief.md has been read with Read tool
-- [ ] Evaluated that problem, users, constraints, scope are clear
-- [ ] Output provided: "Il brief è sufficientemente dettagliato. Procedo con Phase 2."
-- [ ] Proceed immediately to Phase 2
+## Rilevamento Conflitti
 
- ### If Questions Needed:
-- [ ] brief.md has been read with Read tool
-- [ ] Core problem extracted and stated clearly
-- [ ] Project scope is clear
-- [ ] Primary users identified
-- [ ] Core functionalities and workflows identified
-- [ ] User's technical level identified
-- [ ] 0-8 clarification questions generated (ONLY necessary ones)
-- [ ] Questions filtered: no technical questions for non-technical users
-- [ ] Questions filtered: no questions about info already in brief
-- [ ] Questions asked user with reasonable defaults/suggestions proposed for each question
-- [ ] Any conflicts flagged and questioned
-- [ ] User has clear instructions to answer in brief.md
-- [ ] Output provided in chat with summary
+**Quando rilevi conflitti**, segnalali e aggiungi domanda di chiarimento:
 
-**Then wait for user to answer questions in brief.md before Phase 2.**
+Esempi:
+- "50 utenti" + "1M transazioni/mese" → Verifica scala (20K tx/utente/mese?)
+- "3 mesi" + "15 funzionalità" → Restringi a 4-5 funzionalità core MVP
+
+**Azione**: Segnala in chat + aggiungi domanda con suggerimento pragmatico
 
 ---
 
-## Tools Summary for Phase 1
+## Checklist: Fase 1 Completata
 
-1. **Read tool**: Read brief.md at start
-2. **Output**: Provide structured response in chat (don't use tool for chat output)
+### Se il Brief è Completo (0 domande):
+- [ ] brief.md è stato letto con Read tool
+- [ ] Valutato che problema, utenti, vincoli, scope sono chiari
+- [ ] Output fornito: "Il brief è sufficientemente dettagliato. Procedo con la Fase 2."
+- [ ] Procedi immediatamente alla Fase 2
 
-**Do NOT**:
-- Use Write or Edit tool 
-- Skip the suggestion format in questions
-- Create any new files in Phase 1 (only users modifies brief.md)
+### Se Servono Domande:
+- [ ] brief.md è stato letto con Read tool
+- [ ] Problema core estratto e dichiarato chiaramente
+- [ ] Scope del progetto è chiaro
+- [ ] Utenti primari identificati
+- [ ] Funzionalità core e workflow identificati
+- [ ] Livello tecnico dell'utente identificato
+- [ ] 0-8 domande di chiarimento generate (SOLO quelle necessarie)
+- [ ] Domande filtrate: nessuna domanda tecnica per utenti non-tecnici
+- [ ] Domande filtrate: nessuna domanda su info già nel brief
+- [ ] Domande poste all'utente con default/suggerimenti ragionevoli proposti per ciascuna
+- [ ] Eventuali conflitti segnalati e messi in domanda
+- [ ] Utente ha istruzioni chiare per rispondere in brief.md
+- [ ] Output fornito in chat con riepilogo
+
+**Poi attendi che l'utente risponda alle domande in brief.md prima della Fase 2.**
+
+---
+
+## Riepilogo Tool per Fase 1
+
+1. **Read tool**: Leggere brief.md all'inizio
+2. **Output**: Fornire risposta strutturata in chat (non usare tool per output chat)
+
+**NON fare**:
+- Usare Write o Edit tool
+- Saltare il formato suggerimenti nelle domande
+- Creare nuovi file nella Fase 1 (solo l'utente modifica brief.md)
