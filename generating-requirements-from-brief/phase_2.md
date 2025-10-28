@@ -131,9 +131,15 @@ Mentre scrivi brief-structured.md, **traccia mentalmente** (per il tuo output in
 
 - **Confermato**: Cosa veniva dal brief originale (già chiaro)
 - **Aggiunto**: Cosa viene dalle risposte dell'utente alle domande
-- **Assunto**: Cosa viene da defaults.md perché non specificato
+- **Assunto dalla skill**: Scelte tecniche fatte usando defaults.md (es. piattaforma web, autenticazione email/password, scala MVP)
 
-⚠️ **IMPORTANTE**: Queste informazioni sono SOLO per il tuo output in chat all'utente. NON metterle nel file brief-structured.md.
+⚠️ **IMPORTANTE - Due tipi di assunzioni**:
+1. **Assunzioni TECNICHE della skill** (da defaults.md): Vanno comunicate SOLO in chat, NON nel documento brief-structured.md
+2. **Assunzioni DI PROGETTO concordate** (dall'utente): Vanno documentate nella sezione "Assunzioni" di brief-structured.md
+
+**Esempi**:
+- ❌ NON nel documento: "Web responsive", "Email/password auth", "50-100 utenti per MVP" → Queste vanno solo in chat
+- ✅ Nel documento: "Processore costa <10€/unità", "Utenti impiegano ~10min per task", "API pubblica disponibile" → Queste sono assunzioni concordate
 
 ---
 
@@ -160,12 +166,13 @@ Ho creato **brief-structured.md** - il secondo documento di progetto.
 - **[Aspetto 2]**: [Breve descrizione]
 - **[Aspetto 3]**: [Breve descrizione]
 
-## Assunzioni aggiunte per MVP
+## Scelte tecniche fatte per MVP (da defaults.md)
 
 - **[Aspetto X]**: Assunto [cosa]. Rationale: [perché]
 - **[Aspetto Y]**: Assunto [cosa]. Rationale: [perché]
 
-[Nota: Elenca solo le assunzioni più significative, max 3-4]
+[Nota: Qui vanno le SCELTE TECNICHE della skill (piattaforma, autenticazione, scala, etc.). Elenca solo le più significative, max 3-4]
+[Queste NON vanno nel documento brief-structured.md, sono solo per trasparenza in chat]
 
 ## Prossimo passo
 
@@ -258,33 +265,39 @@ Aspetta conferma prima di iniziare Fase 3.
 
 ---
 
-## Esempio di Formato Assunzioni
+## Esempio di Formato Assunzioni NEL DOCUMENTO
+
+⚠️ **IMPORTANTE**: Le assunzioni in brief-structured.md sono **assunzioni DI PROGETTO concordate**, NON scelte tecniche della skill.
 
 Le assunzioni in brief-structured.md devono seguire questo formato:
 
 ```markdown
 ## 5. Assunzioni
 
-Le seguenti assunzioni sono state fatte per definire l'MVP:
+Le seguenti assunzioni sono state concordate per definire l'MVP:
 
-- **Autenticazione**: Sistema email/password standard. Rationale: Semplice da implementare, adeguato per 1-5 location pilota iniziali.
+- **Costo processore**: Assumiamo che sia possibile trovare un processore adeguato a meno di 10€ per unità. Rationale: Budget hardware limitato a 50€/unità totali, processore è componente principale.
 
-- **Piattaforma**: Web responsive (non app native). Rationale: Più veloce da sviluppare (50% tempo risparmiato), accessibile da tutti i dispositivi.
+- **Tempo attività utente**: Assumiamo che gli utenti impieghino circa 10 minuti per completare l'attività principale. Rationale: Basato su osservazioni preliminari del workflow attuale manuale.
 
-- **Integrazioni**: Nessuna integrazione esterna in v1. Export via email/CSV. Rationale: Focus su funzionalità core prima di integrare sistemi esterni.
+- **Disponibilità API**: Assumiamo che l'API pubblica del fornitore X fornisca i dati necessari senza costi aggiuntivi. Rationale: Documentazione API indica disponibilità gratuita fino a 10k chiamate/mese, ampiamente sufficiente per MVP.
 
-- **Scala**: 50-100 utenti per MVP. Rationale: Sufficiente per validare prodotto con utenti reali prima di ottimizzare per migliaia.
-
-- **Performance**: Tempo di risposta <2 secondi. Rationale: Standard web accettabile, non serve ottimizzazione prematura per MVP.
+- **Connettività rete**: Assumiamo che la sede abbia connessione WiFi stabile con banda minima 10 Mbps. Rationale: Sede attuale ha infrastruttura WiFi, da verificare banda effettiva prima del deployment.
 ```
 
-Usa `defaults.md` per trovare assunzioni pragmatiche appropriate.
+**Caratteristiche delle assunzioni nel documento**:
+- Riguardano fattibilità, costi, tempi, vincoli di PROGETTO
+- Concordate o validate con l'utente
+- Hanno impatto sul successo MVP
+- Sono verificabili/misurabili
 
 ---
 
-## Riferimento a defaults.md
+## Riferimento a defaults.md (Solo per Chat Output)
 
-Quando aggiungi assunzioni, consulta `defaults.md` per:
+⚠️ **Usa `defaults.md` per SCELTE TECNICHE, comunica in CHAT, NON scrivere nel documento**
+
+Consulta `defaults.md` per scelte tecniche pragmatiche su:
 
 - **Architettura**: Single-tenant, web responsive, cloud managed
 - **Scala**: Decine-centinaia utenti, single-digit concurrent, business hours
@@ -293,6 +306,12 @@ Quando aggiungi assunzioni, consulta `defaults.md` per:
 - **Platform**: Modern browsers, desktop-first, no native apps
 - **Data**: Relational DB, cloud file storage, daily backups
 - **Hardware** (se applicabile): Off-shelf components, WiFi, USB charging, 50-200 units
+
+**Come usare defaults.md**:
+1. Usa i defaults per prendere decisioni tecniche dove il brief non specifica
+2. Comunica queste scelte nella sezione "Scelte tecniche fatte per MVP" nell'output chat (Passo 4)
+3. **NON scriverle** nella sezione "Assunzioni" di brief-structured.md
+4. La sezione "Assunzioni" del documento è solo per assunzioni di progetto concordate con l'utente
 
 **Quando fare override dei defaults**: Vedi `defaults.md` sezione "When to Override"
 
@@ -318,14 +337,15 @@ Prima di considerare Fase 2 completa, verifica:
 - [ ] Funzionalità secondarie elencate (se presenti nel brief)
 - [ ] Workflow principali documentati (se descritti nel brief)
 - [ ] Workflow secondari documentati (se presenti nel brief)
-- [ ] Assunzioni ragionevoli basate su defaults.md (dove necessarie)
+- [ ] Assunzioni di progetto concordate documentate (se presenti) - NON scelte tecniche da defaults.md
 - [ ] Scope MVP realistico
 
 ### Processo Seguito
 - [ ] brief.md letto con Read tool
 - [ ] Informazioni da brief.md integrate
 - [ ] Risposte utente (se Fase 1) integrate
-- [ ] Assunzioni aggiunte dove necessario
+- [ ] Assunzioni di progetto concordate documentate (se presenti nel brief/discussioni)
+- [ ] Scelte tecniche da defaults.md comunicate in chat (NON nel documento)
 - [ ] Output riepilogo fornito in chat (non nel file)
 - [ ] AskUserQuestion usato per conferma
 - [ ] Modifiche gestite con Edit tool (se richieste)
@@ -365,9 +385,11 @@ Basato su defaults.md, autenticazione email/password.
 **Corretto**:
 ```markdown
 ## 5. Assunzioni
-- **Piattaforma**: Web responsive. Rationale: Accessibile da tutti i dispositivi, più veloce da sviluppare.
-- **Autenticazione**: Email/password standard. Rationale: Semplice, adeguato per MVP.
+- **Tempo elaborazione dati**: Assumiamo che l'elaborazione dei dati richieda meno di 5 secondi. Rationale: Necessario per garantire un'esperienza utente fluida durante l'upload.
+- **Disponibilità connessione**: Assumiamo connettività internet stabile nelle sedi operative. Rationale: Sistema richiede sincronizzazione dati in tempo reale.
 ```
+
+**Nota**: Le scelte tecniche (piattaforma, autenticazione, etc.) NON vanno nella sezione Assunzioni del documento. Vanno solo comunicate in chat.
 
 ### ❌ Errore 3: Troppo Tecnico
 **Sbagliato**:

@@ -104,13 +104,18 @@ Per ognuno:
 ## 5. Assunzioni
 [SOLITAMENTE NECESSARIA - Per esplicitare assunzioni che sono state fatte nel brief o durante i confronti con l'utente]
 
-Le seguenti assunzioni sono state fatte per definire l'MVP:
+Le seguenti assunzioni sono state concordate per definire l'MVP:
 
 - **[Aspetto 1]**: [Assunzione fatta]. Rationale: [Perché questa assunzione è ragionevole per MVP]
 - **[Aspetto 2]**: [Assunzione fatta]. Rationale: [Perché questa assunzione è ragionevole per MVP]
 - **[Aspetto 3]**: [Assunzione fatta]. Rationale: [Perché questa assunzione è ragionevole per MVP]
 
-[Nota: Usa defaults.md per scegliere assunzioni pragmatiche per MVP]
+**Esempi di assunzioni di progetto**:
+- "Assumiamo che il processore target possa costare meno di 10€ per unità"
+- "Assumiamo che gli utenti impieghino circa 10 minuti per completare l'attività principale"
+- "Assumiamo che sia possibile ottenere i dati necessari tramite API pubblica del fornitore X"
+
+**NOTA**: Le assunzioni qui sono concordate con l'utente. Le scelte tecniche della skill (es. da defaults.md) vanno comunicate solo in chat, NON in questo documento.
 
 ## 6. Funzionalità Primarie (Must-Have per MVP)
 [SEMPRE NECESSARIA]
@@ -203,39 +208,39 @@ Workflow desiderabili ma non essenziali per MVP. Se descritti nel brief original
 ## 10. Criticità e Rischi
 [OPZIONALE - Solo se ci sono rischi concreti identificabili per il progetto]
 
-Identificazione dei rischi principali che potrebbero impattare il progetto. Vanno evidenziati solo quelli concreti, se presenti
+Identificazione dei rischi principali che potrebbero impattare il progetto. Vanno evidenziati solo quelli concreti, se presenti.
 
-### Fattibilità Tecnica
-**Rischio**: [Descrizione rischio tecnico]
+### Rischio 1: [Nome descrittivo del rischio]
+**Tipo**: [Fattibilità Tecnica / Time-to-Market / Costi / Dipendenze Esterne / Adozione Utente / Altro]
+**Descrizione**: [Descrizione dettagliata del rischio]
 **Probabilità**: [Bassa / Media / Alta]
 **Impatto**: [Basso / Medio / Alto]
 **Mitigazione**: [Come affrontiamo questo rischio]
 
-### Time-to-Market
-**Rischio**: [Rischio che possa ritardare il lancio]
+### Rischio 2: [Nome descrittivo del rischio]
+**Tipo**: [Fattibilità Tecnica / Time-to-Market / Costi / Dipendenze Esterne / Adozione Utente / Altro]
+**Descrizione**: [Descrizione dettagliata del rischio]
 **Probabilità**: [Bassa / Media / Alta]
 **Impatto**: [Basso / Medio / Alto]
 **Mitigazione**: [Come affrontiamo questo rischio]
 
-### Costi
-**Rischio**: [Rischio di superamento budget]
+### Rischio 3: [Nome descrittivo del rischio]
+**Tipo**: [Fattibilità Tecnica / Time-to-Market / Costi / Dipendenze Esterne / Adozione Utente / Altro]
+**Descrizione**: [Descrizione dettagliata del rischio]
 **Probabilità**: [Bassa / Media / Alta]
 **Impatto**: [Basso / Medio / Alto]
 **Mitigazione**: [Come affrontiamo questo rischio]
 
-### Dipendenze Esterne
-**Rischio**: [Dipendenze da terze parti, API, fornitori]
-**Probabilità**: [Bassa / Media / Alta]
-**Impatto**: [Basso / Medio / Alto]
-**Mitigazione**: [Come affrontiamo questo rischio]
+**Tipi di rischio comuni**:
+- **Fattibilità Tecnica**: Incertezze su possibilità di implementare una soluzione tecnica
+- **Time-to-Market**: Rischi che possono ritardare il lancio
+- **Costi**: Rischi di superamento budget
+- **Dipendenze Esterne**: Dipendenze da terze parti, API, fornitori
+- **Adozione Utente**: Rischi legati all'adozione da parte degli utenti
+- **Compliance/Regolamentare**: Rischi legati a normative o certificazioni
+- **Scalabilità**: Rischi legati alla crescita futura
 
-### Adozione Utente
-**Rischio**: [Rischi legati all'adozione da parte degli utenti]
-**Probabilità**: [Bassa / Media / Alta]
-**Impatto**: [Basso / Medio / Alto]
-**Mitigazione**: [Come affrontiamo questo rischio]
-
-[Includere solo i rischi rilevanti per il progetto specifico. Non tutte le categorie sono sempre applicabili]
+[Includere solo i rischi concreti e rilevanti per il progetto specifico]
 
 ## 11. Scope MVP
 [SEMPRE NECESSARIA]
