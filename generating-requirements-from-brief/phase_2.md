@@ -16,7 +16,7 @@ Creare **brief-structured.md** come documento **completo, autosufficiente e defi
 
 **Fase 2 in 9 passi**:
 1. **Passo 1** - Leggere brief.md aggiornato (estrarre TUTTE le informazioni e risposte)
-2. **Passo 2** - Creare brief-structured.md (documento stand-alone, 11 sezioni)
+2. **Passo 2** - Creare brief-structured.md (documento stand-alone, struttura flessibile fino a 12 sezioni)
 3. **Passo 2.5** - Review anti-ridondanza (verificare completezza e eliminare ripetizioni)
 4. **Passo 3** - Tracciare modifiche internamente (per output chat, non nel file)
 5. **Passo 4** - Output riepilogo all'utente in chat
@@ -78,22 +78,27 @@ Usa **Write tool** per creare brief-structured.md come **documento stand-alone c
 - ❌ NO riferimenti al processo di creazione del documento
 - ❌ NO linguaggio "diff-like" che mostra cosa è cambiato
 
-#### Struttura brief-structured.md (11 sezioni)
+#### Struttura brief-structured.md (fino a 12 sezioni)
 
 **Vedi template completo**: `templates/brief-structured-template.md`
 
-Il documento include:
-1. Problema - Descrizione completa e impatto
-2. Utenti e Contesto - Primari, secondari, contesto operativo
-3. Obiettivi - Primario, secondari, criteri successo
-4. Vincoli - Tecnici, organizzativi, business
-5. Assunzioni - Con rationale per ognuna
-6. Funzionalità Primarie - Must-have per MVP (2-5 funzionalità)
-7. Funzionalità Secondarie - Nice-to-have (TUTTE quelle citate nel brief)
-8. Workflow Principali - 2-4 workflow documentati
-9. Criticità e Rischi - Fattibilità, time-to-market, costi, dipendenze, adozione
-10. Scope MVP - Incluso/Escluso/Fasi future
-11. Domande Aperte - Decisioni posticipabili
+⚠️ **IMPORTANTE**: Il documento è **flessibile**. Non tutte le sezioni devono essere presenti - includi solo quelle:
+- Presenti nel brief.md originale
+- Pertinenti e importanti per il progetto specifico
+
+**Sezioni possibili** (vedi template per dettagli su quali sono obbligatorie/opzionali):
+1. Problema - Descrizione completa e impatto [SEMPRE]
+2. Utenti e Contesto - Primari, secondari, contesto operativo [SEMPRE]
+3. Obiettivi - Primario, secondari, criteri successo [SEMPRE]
+4. Vincoli - Tecnici, organizzativi, business [SE PRESENTI NEL BRIEF]
+5. Assunzioni - Con rationale per ognuna [SE NECESSARIE]
+6. Funzionalità Primarie - Must-have per MVP (2-5 funzionalità) [SEMPRE]
+7. Funzionalità Secondarie - Nice-to-have (TUTTE quelle citate nel brief) [SE PRESENTI NEL BRIEF]
+8. Workflow Principali - 2-4 workflow documentati [SE DESCRITTI NEL BRIEF]
+9. Workflow Secondari - Nice-to-have (TUTTI quelli citati nel brief) [SE PRESENTI NEL BRIEF]
+10. Criticità e Rischi - Fattibilità, time-to-market, costi, dipendenze, adozione [SE RILEVANTI]
+11. Scope MVP - Incluso/Escluso/Fasi future [SEMPRE]
+12. Domande Aperte - Decisioni posticipabili [SE PRESENTI]
 
 ---
 
@@ -105,13 +110,16 @@ Il documento include:
 - [ ] TUTTE le informazioni dal brief.md originale sono presenti
 - [ ] TUTTE le risposte alle domande di Fase 1 sono integrate
 - [ ] TUTTE le funzionalità menzionate nel brief sono elencate (primarie o secondarie)
+- [ ] TUTTI i workflow menzionati nel brief sono elencati (principali o secondari)
+- [ ] Solo le sezioni pertinenti al progetto sono state incluse (no sezioni vuote o non rilevanti)
 - [ ] Nessuna informazione rilevante è stata persa o dimenticata
 
 **Checklist Anti-Ridondanza**:
 - [ ] Ogni informazione compare UNA SOLA VOLTA nel posto più appropriato
 - [ ] Nessuna sezione ripete informazioni già presenti in altre sezioni
 - [ ] Workflow non ripetono informazioni già nelle funzionalità (sono complementari)
-- [ ] Scope MVP non ripete lista funzionalità (referenzia sezioni 6-7)
+- [ ] Scope MVP non ripete lista funzionalità (referenzia sezioni 6-7 dove applicabile)
+- [ ] Scope MVP non ripete lista workflow (referenzia sezioni 8-9 dove applicabile)
 
 **Se trovi ridondanze o informazioni mancanti**: Usa Edit tool per correggere prima di procedere al Passo 3.
 
@@ -296,18 +304,21 @@ Prima di considerare Fase 2 completa, verifica:
 
 ### Documento brief-structured.md Creato
 - [ ] File brief-structured.md creato con Write tool
-- [ ] Tutte le 9 sezioni presenti
+- [ ] Solo le sezioni pertinenti al progetto incluse (no sezioni vuote o non rilevanti)
+- [ ] Sezioni sempre necessarie presenti (Problema, Utenti, Obiettivi, Funzionalità Primarie, Scope MVP)
 - [ ] Documento stand-alone completo (leggibile senza altri file)
 - [ ] Tono professionale narrativo (no markers, no riferimenti processo)
-- [ ] Assunzioni documentate con rationale
+- [ ] Assunzioni documentate con rationale (se presenti)
 - [ ] Scope MVP chiaramente definito (incluso/escluso)
 
 ### Qualità Contenuto
 - [ ] Problema chiaramente descritto
 - [ ] Utenti e contesto dettagliati
-- [ ] 3-5 funzionalità core descritte
-- [ ] 2-4 workflow principali documentati
-- [ ] Assunzioni ragionevoli basate su defaults.md
+- [ ] 2-5 funzionalità primarie descritte
+- [ ] Funzionalità secondarie elencate (se presenti nel brief)
+- [ ] Workflow principali documentati (se descritti nel brief)
+- [ ] Workflow secondari documentati (se presenti nel brief)
+- [ ] Assunzioni ragionevoli basate su defaults.md (dove necessarie)
 - [ ] Scope MVP realistico
 
 ### Processo Seguito

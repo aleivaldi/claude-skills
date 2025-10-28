@@ -87,7 +87,7 @@ Durante il workflow, questi file vengono creati/modificati:
 ### Processo Rapido
 
 1. **Leggi brief.md aggiornato** (estrarre TUTTE le informazioni)
-2. **Crea brief-structured.md** (11 sezioni, completo e autosufficiente)
+2. **Crea brief-structured.md** (struttura flessibile fino a 12 sezioni, completo e autosufficiente)
 3. **Review anti-ridondanza** (verificare completezza ed eliminare ripetizioni)
 4. **Chiedi conferma** all'utente con AskUserQuestion
 5. **Itera fino ad approvazione**
@@ -96,6 +96,7 @@ Durante il workflow, questi file vengono creati/modificati:
 ### Regola Critica
 brief-structured.md **SOSTITUISCE brief.md** e deve essere:
 - ✅ **Completo e autosufficiente** - Contiene TUTTE le info dal brief originale più tutto dedotto/fornito dall'utente
+- ✅ **Struttura flessibile** - Include solo sezioni pertinenti al progetto (sempre: Problema, Utenti, Obiettivi, Funzionalità Primarie, Scope MVP; opzionali: Vincoli, Assunzioni, Workflow, Funzionalità/Workflow Secondari, Rischi, Domande Aperte)
 - ✅ **Non ridondante** - Ogni info compare una sola volta nel posto appropriato
 - ✅ Tono professionale, condivisibile con stakeholder
 - ❌ NO markers o riferimenti al processo di creazione
@@ -134,11 +135,11 @@ Dopo che brief-structured.md è stato approvato
 
 **Processi Dettagliati**:
 - `phase_1.md` - Analisi brief, algoritmo parsing, generazione domande (0-8), edge cases hardware/regulatory
-- `phase_2.md` - Creazione brief-structured.md (11 sezioni), review anti-ridondanza, iterazioni, approvazioni
+- `phase_2.md` - Creazione brief-structured.md (struttura flessibile fino a 12 sezioni), review anti-ridondanza, iterazioni, approvazioni
 - `phase_3.md` - Generazione requirements.md (8 sezioni), versioning, mappatura sezioni, deliverable
 
 **Template**:
-- `templates/brief-structured-template.md` - Struttura 11 sezioni: funzionalità primarie/secondarie, criticità e rischi
+- `templates/brief-structured-template.md` - Struttura flessibile fino a 12 sezioni: funzionalità/workflow primari e secondari, criticità e rischi
 - `templates/requirements-template.md` - Struttura 8 sezioni per requirements.md, esempi, lunghezza documento
 
 **Supporto**:
