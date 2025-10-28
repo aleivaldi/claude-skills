@@ -1,6 +1,6 @@
 ---
 name: Generating Requirements from Brief
-description: Trasforma appunti di progetto grezzi, brief informali o trascrizioni riunioni in documenti formali di requisiti MVP/PoC. Genera requirements.md con 8 sezioni includendo assunzioni, scope e metriche di successo. Supporta progetti software, hardware e misti.
+description: Trasforma appunti di progetto grezzi in un documento formale di requisiti MVP/PoC. Genera un documento con 8 sezioni con assunzioni chiare, scope e metriche di successo. Supporta progetti software, hardware e misti.
 ---
 
 # Generating Requirements from Brief
@@ -60,73 +60,107 @@ Durante il workflow, questi file vengono creati/modificati:
 - L'utente fornisce un file brief.md
 - L'utente modifica brief.md dopo domande precedenti
 
-### Valutazione Rapida
+### Processo Rapido
 
-Prima di generare domande, valuta se Fase 1 è necessaria:
-- Problema chiaramente definito?
-- Utenti e loro bisogni descritti?
-- Vincoli (timeline, team, budget) menzionati?
-- Scope MVP sufficientemente chiaro?
+1. **Leggi brief.md** con Read tool
+2. **Valuta se Fase 1 è necessaria**:
+   - Problema chiaramente definito?
+   - Utenti e loro bisogni descritti?
+   - Vincoli (timeline, team, budget) menzionati?
+   - Scope MVP sufficientemente chiaro?
+   - funzionalità principali descritte?
 
-**Se SÌ a tutto**: Salta a Fase 2
-**Se NO ad alcuni**: Continua con Fase 1 (0-8 domande mirate)
+   **Se SÌ a tutto**: Salta a Fase 2
+   **Se NO ad alcuni**: Continua con Fase 1
 
-**Per processo dettagliato**: Vedi `phase_1.md`
+3. **Per dettagli completi del processo**: Vedi `phase_1.md`
 
 ---
 
 ## Fase 2: Ristrutturazione Brief
 
 ### Quando Usarla
-- brief.md è sufficientemente chiaro (Fase 1 completata o saltata)
-- L'utente ha risposto alle domande (se presenti)
+- brief.md è sufficientemente chiaro
+- Fase 1 completata (o saltata)
+- L'utente ha risposto in modo esaustivo alle domande in brief.md e non ci sono più grossi punti aperti
 
-### Obiettivo
-Creare **brief-structured.md** come documento stand-alone professionale (9 sezioni) che ristruttura e completa le informazioni in brief.md, aggiungendo assunzioni ragionevoli dove necessario.
+### Processo Rapido
+
+1. **Leggi brief.md aggiornato**
+2. **Crea brief-structured.md** come documento stand-alone professionale
+3. **Chiedi conferma** all'utente con AskUserQuestion
+4. **Itera fino ad approvazione**
+5. **Annuncia pronto per Fase 3**
 
 ### Regola Critica
-Il documento deve essere completo e leggibile autonomamente, NON un diff:
-- ✅ Tono professionale narrativo, condivisibile con stakeholder
-- ❌ NO markers tipo [CONFERMATO], [AGGIUNTO], [MODIFICATO]
-- ❌ NO riferimenti a "Q[N]", "defaults.md", "brief.md"
-- ❌ NO linguaggio che mostra il processo di creazione
+brief-structured.md deve essere un **documento completo e leggibile**, NON un diff:
+- ✅ Tono professionale narrativo
+- ❌ NO markers [CONFERMATO], [AGGIUNTO]
+- ❌ NO riferimenti a "defaults.md"
+- ❌ NO linguaggio "Basato su brief.md"
 
-**Per processo dettagliato**: Vedi `phase_2.md`
+**Per dettagli completi del processo**: Vedi `phase_2.md`
 
 ---
 
 ## Fase 3: Generazione Requirements
 
 ### Quando Usarla
-- brief-structured.md è stato approvato dall'utente (Fase 2 completata)
+Dopo che brief-structured.md è stato approvato
 
-### Obiettivo
-Creare **requirements.md** come documento formale di requisiti MVP/PoC (8 sezioni principali) basato su brief-structured.md. Il documento deve essere utilizzabile per analisi e progettazione, condivisibile con team tecnico e stakeholder.
+### Processo Rapido
+
+1. **Leggi brief-structured.md**
+2. **Crea requirements.md** usando struttura in `template.md`
+3. **Output riepilogo** all'utente
+4. **Gestisci iterazioni** se richieste
 
 ### Struttura requirements.md (8 sezioni)
-1. Overview (Problema, Opportunità, Definizione di Successo)
-2. Utenti e Contesto
-3. Requisiti Core (Funzionali e Non-Funzionali, + Hardware se applicabile)
-4. Scope (Incluso/Escluso/Fasi Future)
-5. Vincoli (Risorse, Tecnici, Organizzativi)
-6. Assunzioni e Domande Aperte
-7. Metriche di Successo
-8. Prossimi Passi (Azioni, Timeline, Rischi)
+1. Overview
+2. Users & Context
+3. Core Requirements
+4. Scope
+5. Constraints
+6. Assumptions & Open Questions
+7. Success Metrics
+8. Next Steps
 
-**Per processo dettagliato**: Vedi `phase_3.md`
+**Per dettagli completi del processo**: Vedi `phase_3.md`
 
 ---
 
 ## Materiali di Riferimento
 
-**Processi Dettagliati**:
-- `phase_1.md` - Analisi brief, algoritmo parsing, generazione domande (0-8), edge cases hardware/regulatory
-- `phase_2.md` - Creazione brief-structured.md (9 sezioni), iterazioni, gestione approvazioni
-- `phase_3.md` - Generazione requirements.md (8 sezioni), versioning, mappatura sezioni, deliverable
+### Per Fase 1
+Vedi `phase_1.md` per:
+- Algoritmo di parsing e analisi
+- Generazione domande
+- Edge cases (hardware, regulatory, brief molto corti)
+- Rilevamento conflitti
 
-**Supporto**:
-- `defaults.md` - Default pragmatici MVP (architettura, scala, sicurezza, performance, hardware IoT)
-- `template.md` - Struttura requirements.md, linee guida sezioni, lunghezza documento, errori comuni
+### Per Fase 2
+Vedi `phase_2.md` per:
+- Processo dettagliato creazione brief-structured.md
+- Regole di scrittura documento stand-alone
+- Gestione iterazioni e conferme
+
+### Per Fase 3
+Vedi `phase_3.md` per:
+- Processo dettagliato creazione requirements.md
+- Gestione versioning
+- Gestione iterazioni
+Vedi `template-requirements.md` per:
+- Template completo con 8 sezioni
+- Come strutturare ogni sezione
+- Livello di dettaglio per ogni sezione
+
+### Per Default MVP Pragmatici
+Vedi `defaults.md` per:
+- Default software (platform, scale, security, performance)
+- Default hardware (components, power, connectivity, manufacturing)
+- Quando fare override di ogni default
+- Come formattare suggerimenti nelle domande
+
 
 ---
 
