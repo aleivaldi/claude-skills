@@ -110,7 +110,7 @@ Dopo che brief-structured.md è stato approvato
 ### Processo Rapido
 
 1. **Leggi brief-structured.md**
-2. **Crea requirements.md** usando struttura in `template.md`
+2. **Crea requirements.md** usando struttura in `templates/requirements-template.md`
 3. **Output riepilogo** all'utente
 4. **Gestisci iterazioni** se richieste
 
@@ -130,35 +130,17 @@ Dopo che brief-structured.md è stato approvato
 
 ## Materiali di Riferimento
 
-### Per Fase 1
-Vedi `phase_1.md` per:
-- Algoritmo di parsing e analisi
-- Generazione domande
-- Edge cases (hardware, regulatory, brief molto corti)
-- Rilevamento conflitti
+**Processi Dettagliati**:
+- `phase_1.md` - Analisi brief, algoritmo parsing, generazione domande (0-8), edge cases hardware/regulatory
+- `phase_2.md` - Creazione brief-structured.md (9 sezioni), iterazioni, gestione approvazioni
+- `phase_3.md` - Generazione requirements.md (8 sezioni), versioning, mappatura sezioni, deliverable
 
-### Per Fase 2
-Vedi `phase_2.md` per:
-- Processo dettagliato creazione brief-structured.md
-- Regole di scrittura documento stand-alone
-- Gestione iterazioni e conferme
+**Template**:
+- `templates/brief-structured-template.md` - Struttura 9 sezioni per brief-structured.md, linee guida scrittura
+- `templates/requirements-template.md` - Struttura 8 sezioni per requirements.md, esempi, lunghezza documento
 
-### Per Fase 3
-Vedi `phase_3.md` per:
-- Processo dettagliato creazione requirements.md
-- Gestione versioning
-- Gestione iterazioni
-Vedi `template-requirements.md` per:
-- Template completo con 8 sezioni
-- Come strutturare ogni sezione
-- Livello di dettaglio per ogni sezione
-
-### Per Default MVP Pragmatici
-Vedi `defaults.md` per:
-- Default software (platform, scale, security, performance)
-- Default hardware (components, power, connectivity, manufacturing)
-- Quando fare override di ogni default
-- Come formattare suggerimenti nelle domande
+**Supporto**:
+- `defaults.md` - Default pragmatici MVP (architettura, scala, sicurezza, performance, hardware IoT)
 
 
 ---

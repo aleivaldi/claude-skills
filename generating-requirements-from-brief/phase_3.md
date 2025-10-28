@@ -469,9 +469,9 @@ Usa questo schema per versioning:
 
 ---
 
-## Riferimento a template.md
+## Riferimento a Template
 
-Quando crei requirements.md, consulta `template.md` per:
+Quando crei requirements.md, consulta `templates/requirements-template.md` per:
 
 - Template completo con tutte le sezioni
 - Linee guida per lunghezza sezioni (Overview ~300 parole, Core Requirements ~1000 parole, etc.)
@@ -530,7 +530,7 @@ Prima di considerare Fase 3 completa, verifica:
 ### Processo Seguito
 - [ ] brief-structured.md letto con Read tool
 - [ ] Informazioni mappate correttamente alle sezioni
-- [ ] template.md consultato per struttura
+- [ ] templates/requirements-template.md consultato per struttura
 - [ ] defaults.md consultato per assunzioni
 - [ ] Output riepilogo fornito in chat
 - [ ] Modifiche gestite con Edit + versioning (se richieste)
