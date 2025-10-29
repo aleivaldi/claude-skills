@@ -5,7 +5,7 @@ description: Trasforma appunti di progetto grezzi in brief strutturato professio
 
 # Generating Structured Brief
 
-## Il Tuo Compito
+## Il Tuo Compito 
 
 Trasforma il brief di progetto dell'utente (solitamente in `brief.md`) in un documento strutturato e professionale (`brief-structured.md`).
 
@@ -13,8 +13,6 @@ Processo in **2 fasi**:
 
 1. **Fase 1 (Analisi e Domande)**: Leggi brief.md, identifica carenze e poni domande all'utente spingendolo a modificare brief.md fino a quando sarà sufficientemente chiaro.
 2. **Fase 2 (Ristrutturazione)**: Crea brief-structured.md riscrivendo in modo più formale e completo quanto indicato in brief.md
-
-**Per requirements completo**: Usa skill `generating-requirements-document` che genera requirements.md con architettura, elementi sistema, sottoprogetti, PoC critici.
 
 ---
 
@@ -118,11 +116,6 @@ brief-structured.md **SOSTITUISCE brief.md** e deve essere:
 
 **Supporto**:
 - `defaults.md` - Default pragmatici MVP (architettura, scala, sicurezza, performance, hardware IoT)
-
-**Skill Correlate**:
-- `generating-requirements-document` - Per generare requirements.md completo con architettura, elementi sistema, sottoprogetti
-- `competitor-market-analysis` - Per analisi competitor e posizionamento mercato
-
 
 ---
 
