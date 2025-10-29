@@ -25,13 +25,14 @@ Il documento brief-structured.md è **flessibile**. Non tutte le sezioni devono 
 2. **Utenti e Contesto** - Chi userà la soluzione
 3. **Obiettivi** - Cosa si vuole ottenere
 4. **Funzionalità Primarie** - Must-have per MVP
-5. **Scope MVP** - Cosa è incluso/escluso
+5. **Scope MVP** - Cosa è incluso/escluso- 
+6. **Workflow Principali** - Se il brief descrive processi o casi d'uso vanno dettagliati. In caso contrario vanno dedotti e ipotizzati
 
 
 ### Sezioni Solitamente Necessarie
 - **Vincoli** - Se ci sono vincoli tecnici, organizzativi o di business menzionati o dedotti
 - **Assunzioni** - Per esplicitare assunzioni fatte dove non si hanno informazioni sufficienti
-- **Workflow Principali** - Se il brief descrive processi o casi d'uso
+
 - **Funzionalità Secondarie** - Funzionalità emerse ma ch epossono non essere sviluppate in MVP
 
 ### Sezioni Opzionali (solo se presenti nel brief o rilevanti)
@@ -162,7 +163,7 @@ Funzionalità desiderabili ma non bloccanti. Se citate nel brief originale, devo
 [Includere TUTTE le funzionalità menzionate nel brief, anche quelle non prioritarie]
 
 ## 8. Workflow Principali
-[SOLITAMENTE NECESSARIA - Se il brief descrive processi o casi d'uso principali]
+[SEMPRE NECESSARIA - Se il brief non descrive processi o casi d'uso principali vanno ipotizzati]
 
 ### Workflow 1: [Nome]
 1. [Step 1]
