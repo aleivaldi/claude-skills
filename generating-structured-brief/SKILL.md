@@ -1,6 +1,6 @@
 ---
 name: Generating Structured Brief
-description: Trasforma appunti di progetto grezzi in brief strutturato professionale. Analizza brief.md, identifica gap, pone domande all'utente, genera brief-structured.md completo con fino a 12 sezioni (problema, utenti, obiettivi, funzionalità primarie/secondarie, workflow, rischi, scope MVP). Output stand-alone condivisibile con stakeholder. Supporta progetti software, hardware e misti.
+description: Trasforma appunti di progetto grezzi in brief strutturato professionale. Analizza brief.md, identifica gap, pone domande all'utente, genera brief-structured.md completo con fino a 12 sezioni (problema, utenti, obiettivi, funzionalità primarie/secondarie, workflow, rischi, scope MVP). Sistema di feedback flessibile (modifica diretta file, commenti inline, feedback chat). Output stand-alone condivisibile con stakeholder. Supporta progetti software, hardware e misti.
 ---
 
 # Generating Structured Brief
@@ -82,10 +82,14 @@ Durante il workflow, questi file vengono creati/modificati:
 
 1. **Leggi brief.md aggiornato** (estrarre TUTTE le informazioni)
 2. **Crea brief-structured.md** (struttura flessibile fino a 12 sezioni, completo e autosufficiente)
-3. **Review anti-ridondanza** (verificare completezza ed eliminare ripetizioni)
-4. **Chiedi conferma** all'utente con AskUserQuestion
-5. **Itera fino ad approvazione**
-6. **Annuncia completamento** (suggerisci skill `generating-requirements-document` se serve requirements completo)
+3. **Review anti-ridondanza e completezza** (verificare completezza ed eliminare ripetizioni)
+4. **Chiedi conferma e metodo feedback** all'utente con AskUserQuestion
+5. **Gestisci feedback con metodo scelto**:
+   - **Metodo A (Modifica Diretta)**: Utente modifica file, skill rileva e valida
+   - **Metodo B (Commenti Inline)**: Utente aggiunge marker `<!-- FEEDBACK: ... -->`, skill parsa e applica
+   - **Metodo C (Feedback Chat)**: Utente descrive modifiche in chat, skill applica
+6. **Itera fino ad approvazione**
+7. **Annuncia completamento** (suggerisci skill `generating-requirements-document` se serve requirements completo)
 
 ### Regola Critica
 brief-structured.md **SOSTITUISCE brief.md** e deve essere:

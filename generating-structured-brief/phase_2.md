@@ -17,7 +17,8 @@ Creare **brief-structured.md** come documento **completo, autosufficiente e defi
 **Fase 2 in 8 passi**:
 1. **Passo 1** - Leggere brief.md aggiornato (estrarre TUTTE le informazioni e risposte)
 2. **Passo 2** - Creare brief-structured.md (documento stand-alone, struttura flessibile fino a 12 sezioni)
-3. **Passo 2.5** - Review anti-ridondanza (verificare completezza e eliminare ripetizioni)
+3. **Passo 2.1** - Review anti-ridondanza (verificare completezza e eliminare ripetizioni)
+3. **Passo 2.2** - Review competezza (verificare che non vi siano informazioni presenti in brief.md e assenti in brief-structured.md)
 4. **Passo 3** - Tracciare modifiche internamente (per output chat, non nel file)
 5. **Passo 4** - Output riepilogo all'utente in chat
 6. **Passo 5** - Chiedere conferma con AskUserQuestion
@@ -102,9 +103,24 @@ Usa **Write tool** per creare brief-structured.md come **documento stand-alone c
 
 ---
 
-### Passo 2.5: Review Anti-Ridondanza e Completezza
+### Passo 2.1: Review Anti-Ridondanza
 
 **Prima di procedere**, rivedi mentalmente il documento appena creato per verificare:
+
+**Checklist Anti-Ridondanza**:
+- [ ] Ogni informazione compare UNA SOLA VOLTA nel posto più appropriato
+- [ ] Nessuna sezione ripete informazioni già presenti in altre sezioni
+- [ ] Workflow non ripetono informazioni già nelle funzionalità (sono complementari)
+- [ ] Scope MVP non ripete lista funzionalità (referenzia sezioni 6-7 dove applicabile)
+- [ ] Scope MVP non ripete lista workflow (referenzia sezioni 8-9 dove applicabile)
+
+**Se trovi ridondanze**: Usa Edit tool per correggere prima di procedere al Passo 2.2.
+
+---
+
+### Passo 2.2: Review Completezza
+
+**Verifica che TUTTE le informazioni dal brief.md siano presenti**:
 
 **Checklist Completezza**:
 - [ ] TUTTE le informazioni dal brief.md originale sono presenti
@@ -114,14 +130,7 @@ Usa **Write tool** per creare brief-structured.md come **documento stand-alone c
 - [ ] Solo le sezioni pertinenti al progetto sono state incluse (no sezioni vuote o non rilevanti)
 - [ ] Nessuna informazione rilevante è stata persa o dimenticata
 
-**Checklist Anti-Ridondanza**:
-- [ ] Ogni informazione compare UNA SOLA VOLTA nel posto più appropriato
-- [ ] Nessuna sezione ripete informazioni già presenti in altre sezioni
-- [ ] Workflow non ripetono informazioni già nelle funzionalità (sono complementari)
-- [ ] Scope MVP non ripete lista funzionalità (referenzia sezioni 6-7 dove applicabile)
-- [ ] Scope MVP non ripete lista workflow (referenzia sezioni 8-9 dove applicabile)
-
-**Se trovi ridondanze o informazioni mancanti**: Usa Edit tool per correggere prima di procedere al Passo 3.
+**Se trovi informazioni mancanti**: Usa Edit tool per correggere prima di procedere al Passo 3.
 
 ---
 
@@ -184,54 +193,269 @@ Ti chiedo conferma: il brief strutturato riflette correttamente il progetto?
 
 ---
 
-### Passo 5: Chiedere Conferma con AskUserQuestion
+## Metodi di Feedback Supportati
+
+La skill supporta **3 modalità** per fornire feedback su brief-structured.md. Scegli quella più comoda per il tuo caso specifico:
+
+### Metodo A: Modifica Diretta del File
+
+**Quando usarlo**: Hai molte modifiche (4+) o preferisci usare il tuo editor
+
+**Come funziona**:
+1. Tu modifichi direttamente `brief-structured.md` nel tuo editor preferito
+2. Salvi le modifiche
+3. Dici alla skill "ho finito le modifiche" o "rivedi il documento"
+4. La skill rileva le modifiche, mostra un riepilogo, chiede conferma finale
+
+**Vantaggi**:
+- Massima flessibilità (editor, search/replace, copia/incolla)
+- Comodo per modifiche multiple
+- Nessun overhead di comunicazione
+
+**Esempio workflow**:
+```
+Skill: "brief-structured.md creato. Come vuoi procedere?"
+Tu: "Voglio modificarlo direttamente"
+Skill: "Ok, modifica il file. Quando hai finito dimmi di rivederlo."
+[Tu modifichi brief-structured.md nel tuo editor]
+Tu: "rivedi"
+Skill: [Legge file, mostra summary modifiche, chiede conferma]
+```
+
+---
+
+### Metodo B: Commenti Inline per Discussione
+
+**Quando usarlo**: Hai dubbi su alcune parti e vuoi discuterle prima di applicare modifiche
+
+**Come funziona**:
+1. Aggiungi marker `<!-- FEEDBACK: [descrizione] -->` nel documento dove hai dubbi
+2. Salvi il file
+3. Dici alla skill "ho aggiunto commenti" o "leggi i feedback"
+4. La skill legge i commenti, discute con te, poi applica le modifiche concordate
+
+**Formato marker**:
+```markdown
+<!-- FEEDBACK: Questa sezione è troppo tecnica, semplifica il linguaggio -->
+
+<!-- FEEDBACK: Aggiungi qui informazione su [topic X] -->
+
+<!-- FEEDBACK: Rimuovi questa parte, non è rilevante -->
+```
+
+**Vantaggi**:
+- Contestuale (il commento è dove serve la modifica)
+- Permette discussione prima di applicare
+- Utile per incertezze o validazioni
+
+**Esempio workflow**:
+```markdown
+## 3. Obiettivi
+
+L'obiettivo primario è ridurre il time-to-market del 40%.
+<!-- FEEDBACK: Questo target è troppo ambizioso, cambia in 25% -->
+
+Gli obiettivi secondari includono...
+```
+
+Tu: "leggi i feedback"
+Skill: [Legge marker, discute target realistico, applica modifica concordata]
+
+---
+
+### Metodo C: Feedback Testuale in Chat
+
+**Quando usarlo**: Hai 1-3 modifiche rapide e puntuali
+
+**Come funziona**:
+1. Riferisci le modifiche in chat usando sezioni o frasi specifiche
+2. La skill applica le modifiche con Edit tool
+3. Mostra cosa ha cambiato
+4. Chiede conferma
+
+**Formato suggerito**:
+- Per sezione: "Sezione 3: cambia X con Y"
+- Per frase specifica: "Nella sezione Obiettivi, 'ridurre del 40%' → 'ridurre del 25%'"
+- Per aggiunta: "Aggiungi in Sezione 5 Assunzioni: [nuovo contenuto]"
+- Per rimozione: "Rimuovi da Sezione 7 la funzionalità secondaria [nome]"
+
+**Vantaggi**:
+- Rapido per poche modifiche
+- Non richiede di aprire il file
+- Ideale per correzioni minori
+
+**Esempio workflow**:
+```
+Tu: "Sezione 3: cambia il target da 40% a 25%"
+Skill: [Legge file, applica modifica, mostra diff]
+Skill: "Ho cambiato 'ridurre del 40%' in 'ridurre del 25%'. Confermi?"
+```
+
+---
+
+## Quale Metodo Scegliere?
+
+| Situazione | Metodo Consigliato |
+|------------|-------------------|
+| 1-3 modifiche rapide | C - Feedback in Chat |
+| 4+ modifiche | A - Modifica Diretta |
+| Hai dubbi su cosa cambiare | B - Commenti Inline |
+| Riorganizzazioni complesse | A - Modifica Diretta |
+| Riformulazioni estese | A - Modifica Diretta |
+| Correzioni puntuali | C - Feedback in Chat |
+| Validazioni con discussione | B - Commenti Inline |
+
+**Puoi anche combinare i metodi**: es. modifiche dirette + commenti inline per parti da discutere.
+
+---
+
+### Passo 5: Chiedere Conferma e Metodo di Feedback
 
 Usa **AskUserQuestion** tool per chiedere:
 
 ```
-Domanda: "Il brief strutturato riflette correttamente il progetto?"
+Domanda: "Il brief strutturato riflette correttamente il progetto? Come vuoi procedere?"
 
 Opzioni:
-- "Sì, è perfetto"
-- "Sì, ma voglio alcune modifiche prima"
-- "No, ci sono errori da correggere"
+- "Sì, è perfetto così"
+- "Voglio modificarlo direttamente nel file (Metodo A)"
+- "Voglio aggiungere commenti inline da discutere (Metodo B)"
+- "Voglio dare feedback testuale in chat (Metodo C)"
 ```
+
+**In base alla risposta**:
+- **"Sì, è perfetto così"** → Procedi a Passo 8 (Annunciare completamento)
+- **Metodo A, B, o C** → Procedi a Passo 6 con la sottosezione corrispondente (6A, 6B, o 6C)
 
 ---
 
 ### Passo 6: Gestire Modifiche Richieste
 
-Se l'utente richiede modifiche:
+In base al metodo scelto dall'utente nel Passo 5, segui la sottosezione corrispondente:
 
-1. **Ascolta le modifiche** richieste dall'utente
-2. **Leggi brief-structured.md** con Read tool (sempre!)
-3. **Usa Edit tool** per applicare le modifiche specifiche
-4. **Comunica in chat** cosa hai modificato e perché
-5. **Chiedi conferma di nuovo** con AskUserQuestion
-6. **Ripeti** fino a quando l'utente approva
+---
 
-#### Esempio Output Dopo Modifica
+#### Passo 6A: Gestire Modifica Diretta del File
+
+**Quando**: L'utente ha scelto "Voglio modificarlo direttamente nel file (Metodo A)"
+
+**Processo**:
+1. **Comunica all'utente**: "Perfetto. Modifica `brief-structured.md` nel tuo editor. Quando hai finito, dimmi 'rivedi' o 'ho finito le modifiche'."
+2. **Aspetta** che l'utente finisca le modifiche e ti dia conferma
+3. **Leggi il file aggiornato** con Read tool
+4. **Analizza mentalmente** le modifiche (cosa è cambiato rispetto alla versione precedente)
+5. **Mostra riepilogo** delle modifiche rilevate:
+
+```markdown
+# Modifiche Rilevate in brief-structured.md
+
+Ho rilevato le seguenti modifiche:
+
+## Sezioni modificate
+- **Sezione [N]**: [Breve descrizione delle modifiche]
+- **Sezione [M]**: [Breve descrizione delle modifiche]
+
+## Contenuto aggiunto
+- [Cosa è stato aggiunto]
+
+## Contenuto rimosso
+- [Cosa è stato rimosso]
+
+Il documento aggiornato riflette correttamente il progetto?
+```
+
+6. **Chiedi conferma finale** con AskUserQuestion (opzioni: "Sì, è perfetto" / "Ho altre modifiche" / "No, ripristina versione precedente")
+7. **Se "Ho altre modifiche"**: Ripeti Passo 6A
+8. **Se "Sì, è perfetto"**: Procedi a Passo 8 (Completamento)
+
+---
+
+#### Passo 6B: Gestire Commenti Inline
+
+**Quando**: L'utente ha scelto "Voglio aggiungere commenti inline da discutere (Metodo B)"
+
+**Processo**:
+1. **Comunica all'utente**: "Perfetto. Aggiungi marker `<!-- FEEDBACK: [descrizione] -->` in `brief-structured.md` dove hai dubbi o vuoi modifiche. Quando hai finito, dimmi 'leggi i feedback' o 'ho aggiunto commenti'."
+2. **Aspetta** che l'utente aggiunga i marker e ti dia conferma
+3. **Leggi il file** con Read tool
+4. **Parsa tutti i marker** `<!-- FEEDBACK: ... -->` presenti nel documento
+5. **Per ogni feedback trovato**:
+   - Mostra il contesto (sezione + testo circostante)
+   - Mostra il feedback richiesto
+   - Discuti con l'utente la modifica appropriata
+   - Applica la modifica concordata con Edit tool
+   - Rimuovi il marker dal documento
+6. **Mostra riepilogo** di tutte le modifiche applicate:
+
+```markdown
+# Feedback Applicati a brief-structured.md
+
+Ho processato [N] commenti e applicato le seguenti modifiche:
+
+## Feedback 1: [Descrizione]
+**Posizione**: Sezione [N]
+**Richiesta**: [Testo del marker FEEDBACK]
+**Modifica applicata**: [Cosa hai fatto]
+
+## Feedback 2: [Descrizione]
+**Posizione**: Sezione [M]
+**Richiesta**: [Testo del marker FEEDBACK]
+**Modifica applicata**: [Cosa hai fatto]
+
+Tutti i marker sono stati rimossi. Il documento è ora aggiornato.
+```
+
+7. **Chiedi conferma finale** con AskUserQuestion (opzioni: "Sì, è perfetto" / "Ho altri feedback" / "Rivedi alcune modifiche")
+8. **Se "Ho altri feedback"**: Ripeti Passo 6B
+9. **Se "Sì, è perfetto"**: Procedi a Passo 8 (Completamento)
+
+**Note sul parsing dei marker**:
+- Usa Read tool e cerca pattern `<!-- FEEDBACK: ... -->`
+- Estrai testo tra `<!-- FEEDBACK:` e `-->`
+- Identifica la sezione circostante per contesto
+- Dopo aver applicato la modifica, rimuovi il marker con Edit tool
+
+---
+
+#### Passo 6C: Gestire Feedback Testuale in Chat
+
+**Quando**: L'utente ha scelto "Voglio dare feedback testuale in chat (Metodo C)"
+
+**Processo**:
+1. **Comunica all'utente**: "Perfetto. Dimmi quali modifiche vuoi fare. Puoi riferire sezioni specifiche o frasi da cambiare. Esempi: 'Sezione 3: cambia X con Y' oppure 'Aggiungi in Assunzioni: [nuovo contenuto]'"
+2. **Ascolta le modifiche** richieste dall'utente in chat
+3. **Per ogni modifica richiesta**:
+   - **Leggi brief-structured.md** con Read tool (sempre prima di ogni Edit!)
+   - Identifica la parte da modificare
+   - **Usa Edit tool** per applicare la modifica specifica
+   - Mostra cosa hai cambiato
+4. **Mostra riepilogo** dopo aver applicato tutte le modifiche:
 
 ```markdown
 # Modifiche Applicate a brief-structured.md
 
-Ho aggiornato il documento con le tue richieste:
+Ho applicato le seguenti modifiche:
 
-## Cosa ho modificato
+## Modifica 1
+**Sezione**: [Sezione X]
+**Richiesta**: [Cosa hai chiesto]
+**Applicato**: [Cosa ho fatto]
+**Old**: `[testo vecchio]`
+**New**: `[testo nuovo]`
 
-- **[Sezione X]**: [Cosa hai cambiato e perché]
-- **[Sezione Y]**: [Cosa hai cambiato e perché]
+## Modifica 2
+**Sezione**: [Sezione Y]
+**Richiesta**: [Cosa hai chiesto]
+**Applicato**: [Cosa ho fatto]
 
-## Cosa ho rimosso
-
-- [Cosa hai rimosso e perché]
-
-## Cosa ho aggiunto
-
-- [Cosa hai aggiunto e perché]
-
-Per favore rivedi di nuovo brief-structured.md.
+Per favore rivedi brief-structured.md.
 ```
+
+5. **Chiedi conferma** con AskUserQuestion (opzioni: "Sì, perfetto" / "Ho altre modifiche" / "Correggi [specifica]")
+6. **Se "Ho altre modifiche"**: Ripeti Passo 6C
+7. **Se "Sì, perfetto"**: Procedi a Passo 8 (Completamento)
+
+**Nota importante**: SEMPRE leggi il file con Read tool prima di ogni Edit, per evitare errori da dati obsoleti.
 
 ---
 
@@ -319,6 +543,126 @@ Consulta `defaults.md` per scelte tecniche pragmatiche su:
 
 ---
 
+## Parser Commenti Inline - Dettagli Implementazione
+
+Questa sezione fornisce dettagli per implementare il **Metodo B (Commenti Inline)** nel Passo 6B.
+
+### Formato Marker
+
+I marker devono seguire questo formato esatto:
+```markdown
+<!-- FEEDBACK: [descrizione della modifica richiesta] -->
+```
+
+**Caratteristiche**:
+- Inizia con `<!--` (inizio commento HTML)
+- Contiene la keyword `FEEDBACK:` (case-sensitive, seguito da spazio)
+- Termina con `-->` (fine commento HTML)
+- La descrizione può essere multi-riga
+- I marker sono invisibili quando il markdown viene renderizzato
+
+### Esempi di Marker Validi
+
+```markdown
+<!-- FEEDBACK: Questa sezione è troppo tecnica, semplifica il linguaggio -->
+
+<!-- FEEDBACK: Aggiungi qui informazione sulla scalabilità prevista -->
+
+<!-- FEEDBACK: Rimuovi questa funzionalità, non è critica per MVP -->
+
+<!-- FEEDBACK: Cambia "40%" in "25%" - target troppo ambizioso -->
+
+<!-- FEEDBACK:
+Questa sezione necessita maggiori dettagli:
+- Aggiungi timeline
+- Specifica team coinvolto
+- Chiarisci dipendenze
+-->
+```
+
+### Algoritmo di Parsing
+
+Quando l'utente dice "leggi i feedback" o "ho aggiunto commenti":
+
+1. **Leggi il file** con Read tool
+2. **Cerca tutti i pattern** che matchano `<!-- FEEDBACK: ... -->`
+3. **Per ogni match trovato**:
+   - Estrai il numero di linea
+   - Estrai il testo del feedback (tra `FEEDBACK:` e `-->`)
+   - Identifica la sezione circostante (heading markdown più vicino)
+   - Leggi 3-5 righe prima e dopo per contesto
+4. **Ordina i feedback** dall'alto verso il basso del documento (per numero linea)
+5. **Processa sequenzialmente** ogni feedback:
+   - Mostra contesto all'utente
+   - Chiedi conferma della modifica
+   - Applica con Edit tool
+   - Rimuovi il marker con Edit tool
+
+### Esempio di Processing
+
+**Input documento** (brief-structured.md con marker):
+```markdown
+## 3. Obiettivi
+
+L'obiettivo primario è ridurre il time-to-market del 40% entro 6 mesi.
+<!-- FEEDBACK: Target troppo ambizioso, cambia 40% in 25% -->
+
+Gli obiettivi secondari includono:
+- Migliorare soddisfazione utente
+<!-- FEEDBACK: Aggiungi metrica: "da 3.5 a 4.2 su 5" -->
+- Ridurre costi operativi
+```
+
+**Output skill** (in chat):
+```markdown
+# Feedback Trovati in brief-structured.md
+
+Ho trovato 2 commenti da processare:
+
+---
+
+## Feedback 1/2
+**Posizione**: Sezione 3 (Obiettivi), linea 125
+**Contesto**:
+> L'obiettivo primario è ridurre il time-to-market del 40% entro 6 mesi.
+
+**Richiesta**: "Target troppo ambizioso, cambia 40% in 25%"
+
+Vuoi che cambi "del 40%" in "del 25%"? (Sì/No/Altro)
+```
+
+**Dopo conferma utente**:
+- Usa Edit tool per cambiare "del 40%" in "del 25%"
+- Usa Edit tool per rimuovere marker `<!-- FEEDBACK: ... -->`
+
+**Ripeti per Feedback 2/2**, poi mostra riepilogo finale.
+
+### Note Importanti
+
+**Gestione Multi-linea**:
+- I marker possono contenere a capo
+- Parsing deve gestire `<!-- FEEDBACK:\nDescrizione\nMulti\nLinea\n-->`
+- Usa regex multi-line o parser completo
+
+**Rimozione Sicura dei Marker**:
+- Dopo aver applicato modifica, SEMPRE rimuovi il marker
+- Usa Edit tool con old_string esatto (inclusi `<!--` e `-->`)
+- Verifica rimozione leggendo di nuovo il file
+
+**Errori Comuni da Evitare**:
+- ❌ Non rimuovere marker dopo aver applicato modifica
+- ❌ Processare marker in ordine casuale (rischio linee sbagliate)
+- ❌ Non fornire contesto all'utente prima di applicare
+- ❌ Applicare modifiche senza conferma utente
+
+**Vantaggi del Metodo**:
+- ✅ Feedback contestuale (esattamente dove serve)
+- ✅ Permette discussione prima di applicare
+- ✅ Utente può aggiungere tutti i feedback in un colpo solo
+- ✅ Skill processa sistematicamente dall'alto al basso
+
+---
+
 ## Checklist: Fase 2 Completata
 
 Prima di considerare Fase 2 completa, verifica:
@@ -349,8 +693,16 @@ Prima di considerare Fase 2 completa, verifica:
 - [ ] Assunzioni di progetto concordate documentate (se presenti nel brief/discussioni)
 - [ ] Scelte tecniche da defaults.md comunicate in chat (NON nel documento)
 - [ ] Output riepilogo fornito in chat (non nel file)
-- [ ] AskUserQuestion usato per conferma
-- [ ] Modifiche gestite con Edit tool (se richieste)
+- [ ] AskUserQuestion usato per conferma e scelta metodo feedback
+
+### Gestione Feedback (se richieste modifiche)
+- [ ] Metodo di feedback scelto dall'utente (A, B, o C)
+- [ ] Se Metodo A: File modificato dall'utente, skill ha rilevato modifiche e mostrato riepilogo
+- [ ] Se Metodo B: Marker FEEDBACK parsati correttamente, discussi, applicati, e rimossi
+- [ ] Se Metodo C: Feedback in chat ascoltati, applicati con Edit tool, mostrato riepilogo
+- [ ] Read tool usato prima di ogni Edit (dati sempre aggiornati)
+- [ ] Riepilogo modifiche mostrato all'utente
+- [ ] Conferma finale richiesta dopo modifiche
 - [ ] Utente ha approvato esplicitamente
 
 ### Skill Completata
