@@ -67,7 +67,14 @@ Durante il workflow, questi file vengono creati/modificati:
    **Se SÌ a tutto**: Salta a Fase 2
    **Se NO ad alcuni**: Continua con Fase 1
 
-3. **Per dettagli completi del processo**: Vedi `phase_1.md`
+3. ⚠️ **FORMATO DOMANDE OBBLIGATORIO** (vedi `phase_1.md` STEP 4 e 6):
+   - UNA domanda = UNA cosa da chiarire
+   - SEMPRE: Domanda + Suggerimento + Perché
+   - Suggerimenti = frasi complete copiabili
+   - **NO elenchi puntati dentro le domande**
+   - **NO raggruppamenti** tipo "Problema e Valore"
+
+4. **Per dettagli completi del processo**: Vedi `phase_1.md`
 
 ---
 

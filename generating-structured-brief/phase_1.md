@@ -169,25 +169,137 @@ Prima di generare domande, identifica il livello tecnico dal brief:
 - Semi-tecnico → Mix business + tecnico ad alto livello
 - Tecnico → Puoi fare domande tecniche
 
-### STEP 4: Formulare Domande di Chiarimento 
+### STEP 4: Formulare Domande di Chiarimento
 
-Genera **0-8 domande** (SOLO quelle necessarie) usando il **formato basato su suggerimenti**:
+Genera **0-8 domande** (SOLO quelle necessarie) usando **ESATTAMENTE** il **formato basato su suggerimenti**.
 
-**Template per le Domande**:
+⚠️ **IMPORTANTE**: Il formato è OBBLIGATORIO. Deve essere seguito ALLA LETTERA. L'utente deve poter copiare il suggerimento direttamente.
+
+**Template OBBLIGATORIO per le Domande**:
 ```
 N. Che cosa intendi per [aspetto specifico]?
-   Suggerimento: [approccio/default proposto]
+   Suggerimento: [approccio/default proposto - frase completa copiabile]
    Perché: [perché è importante per i requisiti]
 ```
 
-**Esempi di Qualità delle Domande**:
+**OGNI domanda DEVE avere tutte e 3 le parti**:
+1. Domanda specifica (una sola domanda, non elenchi puntati)
+2. Suggerimento (risposta completa copiabile, non solo keyword)
+3. Perché (motivazione chiara e concisa)
 
-✓ Buona: "Che cosa intendi per 'accesso mobile'? Suggerimento: Web responsive. Perché: Più veloce da sviluppare."
-✗ Cattiva (troppo tecnica): "Dovremmo usare GraphQL o REST?" → Meglio: "L'API deve supportare real-time?"
-✗ Cattiva (vaga): "Come dovrebbe funzionare?" → Meglio: "Qual è il flusso principale per [azione]?"
-✗ Cattiva (già risposta): "Quanti utenti?" quando il brief dice "50 utenti" → Salta
-✗ Cattiva (implementazione): "Che database?" → Salta (il team dev decide)
-✗ Cattiva (ovvia): "Volete HTTPS?" → Salta (sempre sì)
+---
+
+**Esempi CORRETTI di Domande Ben Formattate**:
+
+✅ **Esempio 1 - Accesso Mobile**:
+```
+1. Che cosa intendi per "accesso mobile"?
+   Suggerimento: Applicazione web responsive accessibile da browser mobile (no app nativa).
+   Perché: Più veloce da sviluppare per MVP, validabile con utenti reali prima di investire in app nativa.
+```
+
+✅ **Esempio 2 - Volume Utenti**:
+```
+2. Quanti locali karaoke prevedi di coinvolgere nel pilota MVP?
+   Suggerimento: 3-5 locali per validare il sistema prima di scalare.
+   Perché: Critico per dimensionare infrastruttura e stimare costi server.
+```
+
+✅ **Esempio 3 - Problema Principale**:
+```
+3. Qual è il problema principale che MyKaraoke risolve per i gestori di locali?
+   Suggerimento: Eliminare gestione manuale delle code e prenotazioni brani, riducendo tempi morti e migliorando esperienza utente.
+   Perché: Definisce il valore core del prodotto e guida priorità funzionalità.
+```
+
+✅ **Esempio 4 - Timeline**:
+```
+4. Entro quando deve essere pronto il sistema per il pilota?
+   Suggerimento: 3-4 mesi per MVP funzionante in un locale test.
+   Perché: Impatta team size, scope MVP, e scelte tecniche (build vs buy).
+```
+
+---
+
+**Esempi SBAGLIATI - NON fare così**:
+
+❌ **Errore 1 - Domanda con elenco puntato** (NON copiabile come suggerimento):
+```
+1. Problema e Valore (CRITICO per brief)
+   Aggiungi una sezione all'inizio che risponda:
+   - Qual è il problema principale che questo sistema risolve?
+   - Perché dovrebbero usare MyKaraoke invece di gestire manualmente?
+   - Qual è il valore principale offerto?
+```
+**Problema**: Più domande insieme, nessun suggerimento copiabile, formato sbagliato.
+
+❌ **Errore 2 - Domanda troppo vaga**:
+```
+2. Come dovrebbe funzionare?
+   Suggerimento: Bene
+   Perché: Per sapere
+```
+**Problema**: Domanda vaga, suggerimento inutile, perché poco chiaro.
+
+❌ **Errore 3 - Manca suggerimento**:
+```
+3. Quanti utenti?
+```
+**Problema**: Mancano suggerimento e perché.
+
+❌ **Errore 4 - Domanda tecnica per utente non-tecnico**:
+```
+4. Dovremmo usare GraphQL o REST per le API?
+   Suggerimento: GraphQL
+   Perché: Più flessibile
+```
+**Problema**: Dettaglio implementativo, non rilevante per brief, utente non può rispondere.
+
+❌ **Errore 5 - Suggerimento non copiabile** (solo keyword):
+```
+5. Che piattaforma?
+   Suggerimento: Web
+   Perché: Più veloce
+```
+**Problema**: Troppo sintetico, "Web" non è una risposta completa copiabile in brief.md.
+
+---
+
+**Come Correggere l'Errore 1** (esempio del karaoke):
+
+❌ **Sbagliato**:
+```
+1. Problema e Valore (CRITICO per brief)
+   Aggiungi una sezione che risponda:
+   - Qual è il problema principale?
+   - Perché usare MyKaraoke?
+   - Qual è il valore?
+```
+
+✅ **Corretto** (3 domande separate):
+```
+1. Qual è il problema principale che MyKaraoke risolve per i gestori di locali?
+   Suggerimento: Eliminare la gestione manuale delle code e prenotazioni brani, che crea tempi morti e frustrazioni per gli utenti.
+   Perché: Definisce il valore core del prodotto e guida le priorità delle funzionalità.
+
+2. Perché un gestore dovrebbe usare MyKaraoke invece di gestire le serate manualmente con carta o Excel?
+   Suggerimento: Risparmio di tempo operativo (30-40 minuti/serata), riduzione errori, e maggior engagement degli utenti grazie a esperienza digitale moderna.
+   Perché: Quantifica il valore e aiuta a definire metriche di successo MVP.
+
+3. Qual è il valore principale offerto agli utenti finali (cantanti)?
+   Suggerimento: Prenotare brani in anticipo da smartphone senza fare code, vedere quando sarà il proprio turno, e condividere performance sui social.
+   Perché: Differenzia MyKaraoke da soluzioni esistenti e guida funzionalità primarie.
+```
+
+---
+
+**Altri Esempi di Domande Mal Formattate**:
+
+✗ Cattiva (troppo tecnica): "Dovremmo usare GraphQL o REST?" → Non rilevante per brief
+✗ Cattiva (vaga): "Come dovrebbe funzionare?" → Troppo generica, non actionable
+✗ Cattiva (già risposta): "Quanti utenti?" quando il brief dice "50 utenti" → Informazione già presente
+✗ Cattiva (implementazione): "Che database?" → Dettaglio tecnico, non per brief
+✗ Cattiva (ovvia): "Volete HTTPS?" → Sempre sì, non serve chiedere
 
 ### STEP 5: Filtrare le Domande - Chiedi Solo Ciò Che Serve
 
@@ -216,30 +328,119 @@ Brief: "App web responsive per ordini. 50 ristoranti, 5-10 camerieri ciascuno."
 ✗ Salta: "Piattaforma?" (già: web responsive), "Quanti utenti?" (già: 250-500), "Database?" (dettaglio impl.)
 ✓ Chiedi: "Tablet propri o del ristorante?" (impatto UX), "Solo al tavolo o anche delivery?" (impatto scope)
 
-### STEP 6: Aggiungere Domande nel Terminale
+### STEP 6: Output Domande in Chat
 
-**IMPORTANTE**: Non modificare il file direttamente. Fai solo domande in chat.
-Come suggerimenti scrivi frasi che possano essere copiate e incollate in brief.md
+⚠️ **CRITICO**: Non modificare brief.md. Genera SOLO l'output in chat con domande nel formato ESATTO definito in STEP 4.
+
+**Regole OBBLIGATORIE per l'Output**:
+1. ✅ Usa **ESATTAMENTE** il template: Domanda + Suggerimento + Perché
+2. ✅ Ogni domanda è **separata** (NO elenchi puntati dentro una domanda)
+3. ✅ Suggerimenti sono **frasi complete copiabili**, non keyword
+4. ✅ **UNA domanda = UNA cosa da chiarire** (no raggruppamenti tipo "Problema e Valore")
+5. ❌ **MAI** usare sottopunti puntati dopo la domanda
+6. ❌ **MAI** raggruppare più domande insieme
+7. ❌ **MAI** omettere Suggerimento o Perché
+
+**Template OUTPUT in Chat** (da seguire ALLA LETTERA):
 
 ```markdown
 ## Domande da chiarire
 
-1. Che cosa intendi per [specific aspect]?
-   Suggerimento: [proposed approach/default]
-   Perché: [impact on requirements]
+Per completare il brief, ho bisogno di alcune informazioni. Ho preparato suggerimenti per velocizzare le risposte - puoi copiarli direttamente se vanno bene.
 
-2. Ho bisogno che mi indichi [specific aspect]?
-   Suggerimento: [proposed approach/default]
-   Perché: [impact on requirements]
+1. [Domanda specifica su un aspetto]?
+   Suggerimento: [Risposta completa copiabile come frase intera]
+   Perché: [Motivazione chiara del perché serve questa info]
 
-[... continue for 0-8 questions]
+2. [Altra domanda specifica]?
+   Suggerimento: [Altra risposta completa copiabile]
+   Perché: [Motivazione chiara]
+
+[... continua per 0-8 domande totali]
 
 ---
-**Istruzioni**: 
-   1. Apri brief.md
-   2. Modificalo per far si che vi sia risposta alle domande poste sopra.  Se il suggerimento è corretto puoi copiarlo direttamente, oppure puoi scrivere quello che ritieni corretto.
-   4. Quando hai finito, dimmi di procedere con Phase 2
+**Istruzioni per l'utente**:
+1. Apri brief.md nel tuo editor
+2. Per ogni domanda sopra, aggiungi la risposta nel brief
+3. Puoi copiare il "Suggerimento" se è corretto, oppure scrivere la tua versione
+4. Quando hai finito, dimmi "procedi con Fase 2"
 ```
+
+---
+
+**Esempio OUTPUT Corretto** (da seguire):
+
+```markdown
+## Domande da chiarire
+
+Per completare il brief, ho bisogno di alcune informazioni. Ho preparato suggerimenti per velocizzare le risposte - puoi copiarli direttamente se vanno bene.
+
+1. Qual è il problema principale che MyKaraoke risolve per i gestori di locali?
+   Suggerimento: Eliminare la gestione manuale delle code e prenotazioni brani, che crea tempi morti e frustrazioni per gli utenti.
+   Perché: Definisce il valore core del prodotto e guida le priorità delle funzionalità.
+
+2. Quanti locali karaoke prevedi di coinvolgere nel pilota MVP?
+   Suggerimento: 3-5 locali per validare il sistema prima di scalare.
+   Perché: Critico per dimensionare infrastruttura e stimare costi server.
+
+3. Entro quando deve essere pronto il sistema per il pilota?
+   Suggerimento: 3-4 mesi per MVP funzionante in un locale test.
+   Perché: Impatta team size, scope MVP, e scelte tecniche (build vs buy).
+
+---
+**Istruzioni**:
+1. Apri brief.md nel tuo editor
+2. Per ogni domanda sopra, aggiungi la risposta nel brief
+3. Puoi copiare il "Suggerimento" se è corretto, oppure scrivere la tua versione
+4. Quando hai finito, dimmi "procedi con Fase 2"
+```
+
+---
+
+**Esempio OUTPUT SBAGLIATO** (NON fare così):
+
+❌ **Sbagliato**:
+```markdown
+## Domande da chiarire
+
+Per completare il brief, ho bisogno che tu modifichi il file brief.md aggiungendo le risposte a queste domande critiche:
+
+1. Problema e Valore (CRITICO per brief)
+
+   Aggiungi una sezione all'inizio che risponda:
+   - Qual è il problema principale che questo sistema risolve per i gestori?
+   - Perché dovrebbero usare MyKaraoke invece di gestire manualmente?
+   - Qual è il valore principale offerto?
+
+2. Timeline e Risorse
+
+   Specifica:
+   - Entro quando serve il sistema?
+   - Quante persone nel team?
+   - Budget disponibile?
+```
+
+**Problemi**:
+- ❌ Domande raggruppate invece che separate
+- ❌ Elenchi puntati al posto di domanda singola
+- ❌ Nessun suggerimento copiabile
+- ❌ Manca "Perché" per ogni domanda
+- ❌ Formato non rispettato
+
+---
+
+**Checklist di Verifica Prima di Inviare Output**:
+
+Prima di inviare le domande all'utente, verifica SEMPRE:
+- [ ] Ogni domanda ha ESATTAMENTE 3 parti: Domanda, Suggerimento, Perché
+- [ ] Nessuna domanda contiene elenchi puntati interni
+- [ ] Ogni suggerimento è una frase completa copiabile (non solo keyword)
+- [ ] Nessuna domanda raggruppa più aspetti insieme
+- [ ] Il formato segue ESATTAMENTE il template (indentazione corretta)
+- [ ] Numero totale domande: 0-8 (filtrate per rilevanza)
+- [ ] Tutte le domande sono appropriate per il livello tecnico dell'utente
+
+**Se anche UNA sola di queste checkbox non è spuntata**: CORREGGI prima di inviare.
 
 ---
 
@@ -303,6 +504,9 @@ Esempi:
 - [ ] 0-8 domande di chiarimento generate (SOLO quelle necessarie)
 - [ ] Domande filtrate: nessuna domanda tecnica per utenti non-tecnici
 - [ ] Domande filtrate: nessuna domanda su info già nel brief
+- [ ] ⚠️ **FORMATO RISPETTATO**: Ogni domanda ha Domanda + Suggerimento + Perché (vedi STEP 6)
+- [ ] ⚠️ **NO ELENCHI PUNTATI**: Nessuna domanda contiene sottopunti (una domanda = un aspetto)
+- [ ] ⚠️ **SUGGERIMENTI COPIABILI**: Ogni suggerimento è frase completa, non keyword
 - [ ] Domande poste all'utente con default/suggerimenti ragionevoli proposti per ciascuna
 - [ ] Eventuali conflitti segnalati e messi in domanda
 - [ ] Utente ha istruzioni chiare per rispondere in brief.md
