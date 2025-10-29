@@ -1,5 +1,5 @@
 ---
-name: Generating Structured Brief
+name: generating-structured-brief
 description: Trasforma appunti di progetto grezzi in brief strutturato professionale. Analizza brief.md, identifica gap, pone domande all'utente, genera brief-structured.md completo con fino a 12 sezioni (problema, utenti, obiettivi, funzionalità primarie/secondarie, workflow, rischi, scope MVP). Sistema di feedback flessibile (modifica diretta file, commenti inline, feedback chat). Output stand-alone condivisibile con stakeholder. Supporta progetti software, hardware e misti.
 ---
 
@@ -24,6 +24,74 @@ Processo in **2 fasi**:
 - Se brief.md è in altra lingua → rispondi in quella lingua
 
 Rispondi in una lingua diversa solo se l'utente lo richiede esplicitamente.
+
+---
+
+## Esempi di Utilizzo
+
+<example>
+Context: Utente ha creato brief.md con appunti iniziali di progetto
+User: "Ho creato brief.md con le mie idee. Puoi aiutarmi a strutturarlo?"
+Assistant: Leggo brief.md con Read tool per analizzare il contenuto...
+
+[Dopo analisi]
+
+Il brief ha alcune informazioni ma necessita di chiarimenti. Ho 4 domande:
+
+1. Qual è il problema principale che il progetto risolve?
+   Suggerimento: Gestori di locali karaoke devono gestire manualmente code e prenotazioni brani, causando tempi morti e frustrazione utenti.
+   Perché: Definisce il valore core del prodotto e guida le priorità.
+
+2. Chi sono gli utenti primari?
+   Suggerimento: Gestori di locali karaoke (10-50 clienti/sera) e clienti che prenotano brani.
+   Perché: Necessario per definire funzionalità e workflow appropriati.
+
+[User modifica brief.md aggiungendo le risposte]
+
+User: "Ho aggiornato brief.md con le risposte"
+Assistant: Ottimo! brief.md ora è sufficientemente completo. Procedo con Fase 2 per creare brief-structured.md...
+
+[Crea brief-structured.md con Write tool]
+
+Ho creato brief-structured.md. Il documento include:
+- Problema e contesto utenti dettagliati
+- 3 assunzioni esplicitate per MVP
+- Scope chiaro (cosa è incluso/escluso)
+- 4 funzionalità core descritte
+- 3 workflow principali documentati
+
+Il brief strutturato riflette correttamente il progetto?
+</example>
+
+<example>
+Context: Brief già completo, Fase 1 può essere saltata
+User: "Struttura questo brief"
+Assistant: Leggo brief.md con Read tool...
+
+Il brief è sufficientemente dettagliato. Procedo direttamente con la Fase 2.
+
+[Crea brief-structured.md]
+
+Ho creato brief-structured.md - documento stand-alone completo con 8 sezioni. Per favore rivedi il documento.
+</example>
+
+<example>
+Context: Utente vuole modificare brief-structured.md dopo creazione
+User: "Il documento è buono ma vorrei modificare la sezione Obiettivi"
+Assistant: Come vuoi procedere con le modifiche?
+[Usa AskUserQuestion con 3 metodi: Modifica Diretta / Commenti Inline / Feedback Chat]
+
+User: "Preferisco feedback in chat"
+Assistant: Perfetto. Dimmi quali modifiche vuoi fare alla sezione Obiettivi.
+
+User: "Sezione 3: cambia 'ridurre del 40%' in 'ridurre del 25%'"
+Assistant: [Legge file con Read, applica modifica con Edit]
+
+Ho cambiato "ridurre del 40%" in "ridurre del 25%" nella sezione Obiettivi. Altre modifiche?
+
+User: "No, perfetto così"
+Assistant: Ottimo! brief-structured.md è completo e approvato. Questa skill ha terminato il suo compito.
+</example>
 
 ---
 

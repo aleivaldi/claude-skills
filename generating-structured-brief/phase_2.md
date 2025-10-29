@@ -543,123 +543,49 @@ Consulta `defaults.md` per scelte tecniche pragmatiche su:
 
 ---
 
-## Parser Commenti Inline - Dettagli Implementazione
+## Parser Commenti Inline - Riferimento Rapido
 
-Questa sezione fornisce dettagli per implementare il **Metodo B (Commenti Inline)** nel Passo 6B.
+Questa sezione fornisce riferimento per implementare il **Metodo B (Commenti Inline)** nel Passo 6B.
 
 ### Formato Marker
 
-I marker devono seguire questo formato esatto:
 ```markdown
-<!-- FEEDBACK: [descrizione della modifica richiesta] -->
+<!-- FEEDBACK: [descrizione modifica] -->
 ```
 
-**Caratteristiche**:
-- Inizia con `<!--` (inizio commento HTML)
-- Contiene la keyword `FEEDBACK:` (case-sensitive, seguito da spazio)
-- Termina con `-->` (fine commento HTML)
-- La descrizione può essere multi-riga
-- I marker sono invisibili quando il markdown viene renderizzato
-
-### Esempi di Marker Validi
-
-```markdown
-<!-- FEEDBACK: Questa sezione è troppo tecnica, semplifica il linguaggio -->
-
-<!-- FEEDBACK: Aggiungi qui informazione sulla scalabilità prevista -->
-
-<!-- FEEDBACK: Rimuovi questa funzionalità, non è critica per MVP -->
-
-<!-- FEEDBACK: Cambia "40%" in "25%" - target troppo ambizioso -->
-
-<!-- FEEDBACK:
-Questa sezione necessita maggiori dettagli:
-- Aggiungi timeline
-- Specifica team coinvolto
-- Chiarisci dipendenze
--->
-```
+Marker HTML invisibili nel rendering. Supportano multi-riga.
 
 ### Algoritmo di Parsing
 
-Quando l'utente dice "leggi i feedback" o "ho aggiunto commenti":
+1. Read file → cerca pattern `<!-- FEEDBACK: ... -->`
+2. Per ogni match: estrai linea, testo feedback, sezione circostante
+3. Ordina dall'alto in basso
+4. Processa sequenzialmente: mostra contesto → chiedi conferma → applica Edit → rimuovi marker
 
-1. **Leggi il file** con Read tool
-2. **Cerca tutti i pattern** che matchano `<!-- FEEDBACK: ... -->`
-3. **Per ogni match trovato**:
-   - Estrai il numero di linea
-   - Estrai il testo del feedback (tra `FEEDBACK:` e `-->`)
-   - Identifica la sezione circostante (heading markdown più vicino)
-   - Leggi 3-5 righe prima e dopo per contesto
-4. **Ordina i feedback** dall'alto verso il basso del documento (per numero linea)
-5. **Processa sequenzialmente** ogni feedback:
-   - Mostra contesto all'utente
-   - Chiedi conferma della modifica
-   - Applica con Edit tool
-   - Rimuovi il marker con Edit tool
+### Esempio
 
-### Esempio di Processing
-
-**Input documento** (brief-structured.md con marker):
+**Input**:
 ```markdown
-## 3. Obiettivi
-
-L'obiettivo primario è ridurre il time-to-market del 40% entro 6 mesi.
-<!-- FEEDBACK: Target troppo ambizioso, cambia 40% in 25% -->
-
-Gli obiettivi secondari includono:
-- Migliorare soddisfazione utente
-<!-- FEEDBACK: Aggiungi metrica: "da 3.5 a 4.2 su 5" -->
-- Ridurre costi operativi
+L'obiettivo primario è ridurre il time-to-market del 40%.
+<!-- FEEDBACK: Cambia 40% in 25% - troppo ambizioso -->
 ```
 
-**Output skill** (in chat):
-```markdown
-# Feedback Trovati in brief-structured.md
+**Output in chat**:
+```
+Feedback 1/1:
+Posizione: Sezione Obiettivi
+Contesto: "...ridurre il time-to-market del 40%..."
+Richiesta: "Cambia 40% in 25% - troppo ambizioso"
 
-Ho trovato 2 commenti da processare:
-
----
-
-## Feedback 1/2
-**Posizione**: Sezione 3 (Obiettivi), linea 125
-**Contesto**:
-> L'obiettivo primario è ridurre il time-to-market del 40% entro 6 mesi.
-
-**Richiesta**: "Target troppo ambizioso, cambia 40% in 25%"
-
-Vuoi che cambi "del 40%" in "del 25%"? (Sì/No/Altro)
+Applico la modifica? (Sì/No)
 ```
 
-**Dopo conferma utente**:
-- Usa Edit tool per cambiare "del 40%" in "del 25%"
-- Usa Edit tool per rimuovere marker `<!-- FEEDBACK: ... -->`
+### Regole Critiche
 
-**Ripeti per Feedback 2/2**, poi mostra riepilogo finale.
-
-### Note Importanti
-
-**Gestione Multi-linea**:
-- I marker possono contenere a capo
-- Parsing deve gestire `<!-- FEEDBACK:\nDescrizione\nMulti\nLinea\n-->`
-- Usa regex multi-line o parser completo
-
-**Rimozione Sicura dei Marker**:
-- Dopo aver applicato modifica, SEMPRE rimuovi il marker
-- Usa Edit tool con old_string esatto (inclusi `<!--` e `-->`)
-- Verifica rimozione leggendo di nuovo il file
-
-**Errori Comuni da Evitare**:
-- ❌ Non rimuovere marker dopo aver applicato modifica
-- ❌ Processare marker in ordine casuale (rischio linee sbagliate)
-- ❌ Non fornire contesto all'utente prima di applicare
-- ❌ Applicare modifiche senza conferma utente
-
-**Vantaggi del Metodo**:
-- ✅ Feedback contestuale (esattamente dove serve)
-- ✅ Permette discussione prima di applicare
-- ✅ Utente può aggiungere tutti i feedback in un colpo solo
-- ✅ Skill processa sistematicamente dall'alto al basso
+- ✅ Ordina feedback top-down (evita linee sbagliate)
+- ✅ Mostra contesto prima di applicare
+- ✅ Rimuovi marker dopo modifica applicata
+- ✅ Processa sequenzialmente, non in parallelo
 
 ---
 
