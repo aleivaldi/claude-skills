@@ -9,23 +9,47 @@ Usa questa checklist per validare qualità e completezza di una skill Claude.
 - [ ] **File SKILL.md esiste** nella root directory della skill
 - [ ] **Frontmatter presente** con delimitatori `---`
 - [ ] **Campo `name` presente**
-  - [ ] Max 50 caratteri
-  - [ ] Descrittivo e specifico
-  - [ ] NO "Claude" o "Skill" nel nome
+  - [ ] Max 64 caratteri
+  - [ ] SOLO lowercase letters, numbers, hyphens (no spaces, underscores, maiuscole)
+  - [ ] Preferibilmente gerund form (verb+ing) o noun phrase
+  - [ ] NO XML tags, NO reserved words (anthropic, claude)
 - [ ] **Campo `description` presente**
-  - [ ] 100-200 caratteri idealmente (max 280)
-  - [ ] Spiega cosa fa la skill
-  - [ ] Specifica input attesi
-  - [ ] Specifica output generati
-  - [ ] Indica quando usarla
+  - [ ] Max 1024 caratteri
+  - [ ] Terza persona (NON "I can help you")
+  - [ ] Specifica COSA FA la skill
+  - [ ] Specifica QUANDO USARLA (contesti trigger, termini chiave)
+  - [ ] Include input/output se rilevanti
 
 **Esempi Frontmatter Valido**:
 ```markdown
 ---
-name: Generate API Documentation
-description: Analyzes Express.js routes and generates comprehensive API documentation in Markdown. Input: route files. Output: docs/api.md with endpoints, parameters, responses.
+name: analyzing-api-performance
+description: Analyzes Express.js API endpoints for performance bottlenecks, suggests optimizations, generates detailed report with metrics. Use when analyzing API performance or when user mentions slow endpoints. Input: route files. Output: performance-report.md.
 ---
 ```
+
+---
+
+## 1.5. Principi Architetturali (CRITICO)
+
+- [ ] **SKILL.md < 500 righe** (Conciseness is Critical)
+  - [ ] Se > 500 righe: usa progressive disclosure, sposta dettagli in file reference
+- [ ] **Progressive Disclosure Architecture**
+  - [ ] File ausiliari sono UN LIVELLO di profondità da SKILL.md (no nested references)
+  - [ ] SKILL.md è overview che punta a references
+  - [ ] Reference files > 100 righe hanno table of contents
+- [ ] **Assume Claude is Smart**
+  - [ ] NO spiegazioni di concetti base che Claude già conosce
+  - [ ] Focus su informazioni uniche al dominio specifico
+- [ ] **Match Specificity to Task Fragility**
+  - [ ] High freedom tasks: istruzioni testuali
+  - [ ] Medium freedom: pseudocodice/template
+  - [ ] Low freedom: script specifici per operazioni fragili
+- [ ] **Consistent Terminology**
+  - [ ] Stesso termine usato consistentemente (es. sempre "API endpoint", mai alternare con "URL")
+- [ ] **Avoid Time-Sensitive Information**
+  - [ ] NO date, versioni, info che diventano obsolete
+  - [ ] Usa "old patterns" sections per approcci deprecati
 
 ---
 
@@ -167,6 +191,14 @@ Per skills medie/complesse:
 
 ## 13. Testing e Validazione
 
+- [ ] **Build Evaluations First** (BEST PRACTICE)
+  - [ ] Minimo 3 evaluations create PRIMA di documentazione estesa
+  - [ ] Baseline stabilita senza skill
+  - [ ] Iterazione basata su failure reali
+- [ ] **Test Across Models**
+  - [ ] Testata con Haiku (veloce, economico)
+  - [ ] Testata con Sonnet (bilanciato)
+  - [ ] Testata con Opus (potente) - se applicabile
 - [ ] **Skill testata** con caso reale
 - [ ] **Mental simulation eseguita**:
   - [ ] Input realistici → output corretti
@@ -177,10 +209,31 @@ Per skills medie/complesse:
 
 ---
 
-## 14. Maintainability
+## 14. Advanced Patterns (se applicabili)
+
+- [ ] **Utility Scripts** (se la skill include script)
+  - [ ] Script hanno error handling esplicito (non fail silently)
+  - [ ] Package dependencies documentati
+  - [ ] Messaggi errore chiari ("Field X not found. Available: Y, Z")
+  - [ ] Path con forward slashes (cross-platform)
+  - [ ] Configuration parameters giustificati (NO magic numbers)
+  - [ ] Default to execution (chiaro che vanno eseguiti, non solo letti)
+- [ ] **Verifiable Intermediate Outputs** (per batch operations)
+  - [ ] Analyze → create plan → validate → execute → verify
+  - [ ] User può review prima di applicare cambiamenti
+- [ ] **Template Pattern** (se output richiede formato specifico)
+  - [ ] Template fornito e marcato come strict se necessario
+- [ ] **Examples Pattern** (per task stilistici)
+  - [ ] Coppie input/output mostrano stile e dettaglio desiderati
+- [ ] **MCP Tool References** (se usa MCP)
+  - [ ] Formato fully qualified: "ServerName:tool_name"
+
+---
+
+## 15. Maintainability
 
 - [ ] **Struttura modulare** per skills complesse
-- [ ] **File non troppo lunghi** (split se > 1000 righe)
+- [ ] **File non troppo lunghi** (SKILL.md < 500, reference files < 1000)
 - [ ] **Sezioni ben organizzate** e facili da trovare
 - [ ] **Changelog presente** se skill è stata modificata (opzionale)
 - [ ] **Facile identificare** cosa modificare per aggiornamenti futuri
@@ -193,11 +246,13 @@ Per skills medie/complesse:
 
 Questi DEVONO essere tutti ✅ per skill funzionante:
 
-1. Frontmatter completo (name + description)
-2. Tool usage esplicito
-3. Read before Edit pattern
-4. Error handling base presente
-5. Scope definito
+1. **Frontmatter completo e conforme** (name lowercase+hyphens max 64, description terza persona max 1024)
+2. **SKILL.md < 500 righe** (se più lungo, usa progressive disclosure)
+3. **Tool usage esplicito** (quale tool, parametri, sequenza)
+4. **Read before Edit pattern** (SEMPRE)
+5. **Error handling base presente** (per ogni tool usato)
+6. **Scope definito** (cosa FA e NON FA)
+7. **Progressive disclosure** (references un livello deep da SKILL.md)
 
 **Se anche solo UNO è ❌ → skill NON è production-ready**
 
@@ -205,11 +260,14 @@ Questi DEVONO essere tutti ✅ per skill funzionante:
 
 Questi dovrebbero essere ✅ per skill di qualità:
 
-1. Esempi concreti
-2. Edge cases gestiti
-3. Validazione utente per azioni critiche
-4. Output specificato chiaramente
-5. Anti-pattern documentati
+1. **Esempi concreti** (con tag `<example>` per casi complessi)
+2. **Edge cases gestiti** (file mancanti, permessi, input invalido)
+3. **Validazione utente** per azioni critiche (AskUserQuestion)
+4. **Output specificato** chiaramente (nome file, formato, struttura)
+5. **Anti-pattern documentati** (cosa NON fare)
+6. **Terminologia consistente** (stesso termine per stesso concetto)
+7. **Assume Claude is Smart** (no spiegazioni concetti base)
+8. **Build evaluations first** (3+ evaluations prima di docs estese)
 
 **Percentuale target: 80%+ ✅**
 
@@ -217,11 +275,14 @@ Questi dovrebbero essere ✅ per skill di qualità:
 
 Questi migliorano qualità ma non essenziali:
 
-1. Changelog/versioning
-2. Test cases documentati
-3. Examples directory
-4. Reference documentation estesa
-5. Multiple language support
+1. **Changelog/versioning** (per tracking evoluzioni)
+2. **Test cases documentati** (con expected input/output)
+3. **Examples directory** (con esempi complessi separati)
+4. **Reference documentation estesa** (API docs, datasets)
+5. **Multiple language support** (con Regola Linguistica)
+6. **Test across models** documentato (Haiku, Sonnet, Opus)
+7. **Utility scripts** per operazioni ripetitive
+8. **Visual analysis** (per PDFs/immagini quando layout importa)
 
 **Percentuale target: 50%+ ✅**
 
@@ -250,11 +311,16 @@ Questi migliorano qualità ma non essenziali:
 
 Domande rapide per validation veloce:
 
-1. ❓ **Posso eseguire questa skill senza fare domande?** (tutto è chiaro?)
-2. ❓ **So esattamente quali tool usare in ogni step?**
-3. ❓ **So cosa fare se qualcosa fallisce?**
-4. ❓ **So cosa aspettarmi come output?**
-5. ❓ **Ci sono situazioni in cui sarei bloccato?**
+1. ❓ **SKILL.md è sotto 500 righe?** (conciseness critical)
+2. ❓ **Frontmatter è conforme?** (name lowercase+hyphens, description terza persona con "quando usarla")
+3. ❓ **Posso eseguire questa skill senza fare domande?** (tutto è chiaro?)
+4. ❓ **So esattamente quali tool usare in ogni step?** (espliciti, non impliciti)
+5. ❓ **So cosa fare se qualcosa fallisce?** (error handling presente)
+6. ❓ **So cosa aspettarmi come output?** (deliverable specificato)
+7. ❓ **Ci sono situazioni in cui sarei bloccato?** (fallback paths presenti)
+8. ❓ **References sono un livello deep?** (no nested references)
+9. ❓ **Terminologia è consistente?** (stesso termine per stesso concetto)
+10. ❓ **Assume Claude is smart?** (no spiegazioni concetti base)
 
 Se risposta è "NO" a qualsiasi domanda → skill ha problemi di qualità.
 

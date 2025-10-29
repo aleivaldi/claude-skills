@@ -1,9 +1,9 @@
 ---
-name: Create Perfect Claude Skill
-description: Guida esperta per creare e migliorare skills Claude seguendo tutte le best practices ufficiali. Analizza skills esistenti, genera nuove skills con struttura ottimale, valida qualità, suggerisce miglioramenti. Supporta workflow completo dalla ideazione al testing. Output: skills professionali, ben documentate e maintainable.
+name: creating-claude-skills
+description: Guides creation and improvement of Claude skills following official best practices. Analyzes existing skills, generates new skills with optimal structure, validates quality, suggests improvements. Supports complete workflow from ideation to testing. Use when creating new skills, improving existing ones, or validating skill quality. Output: professional, well-documented, maintainable skills.
 ---
 
-# Create Perfect Claude Skill
+# Creating Claude Skills
 
 ## Il Tuo Compito
 
@@ -95,145 +95,38 @@ skill-name/
 #### Fase 3: Scrittura SKILL.md
 **Obiettivo**: Creare il prompt principale della skill
 
-Usa questa struttura (OBBLIGATORIA):
+**Struttura Obbligatoria** - Consulta `templates/skill-template.md` per template completo:
 
 ```markdown
 ---
-name: Skill Name Here
-description: Breve descrizione (1-2 frasi) che spiega: cosa fa, input/output, quando usarla. Max 200 caratteri idealmente.
+name: skill-name-here  # lowercase+hyphens, gerund form, max 64 char
+description: [Cosa fa + quando usarla, terza persona, max 1024 char]
 ---
 
-# Skill Name Here
+# Skill Name
 
 ## Il Tuo Compito
+[Cosa fa, perché esiste, overview processo]
 
-[Paragrafo introduttivo chiaro: cosa fa la skill, perché esiste]
-
-[Se multi-workflow]: Processo in **N fasi/workflow**:
-1. **Fase/Workflow 1**: Breve descrizione
-2. **Fase/Workflow 2**: Breve descrizione
-
----
-
-## Regola Linguistica
-
-[Includi SEMPRE se la skill può operare in multiple lingue]
-
-**Adatta la lingua al [contesto appropriato]:**
-- Se [condizione] → rispondi in [lingua]
-- Se [condizione] → rispondi in [lingua]
-
----
-
-## [Workflow/Fase 1 Name]
-
+## [Workflow/Fase Name]
 ### Quando Usarlo/Usarla
-[Lista situazioni specifiche]
-
-### Processo [Rapido/Dettagliato]
-
-[Step numerati chiari e actionable]
-
-1. **Step 1**: [Azione] con [Tool]
-2. **Step 2**: [Azione] condizionale:
-   - Se [condizione]: [azione]
-   - Altrimenti: [azione]
-
+### Processo
 ### Regole Critiche
-[Elenco puntato con ✅ DO e ❌ DON'T]
 
----
-
-## [Sezioni aggiuntive per workflow/fasi successive]
-
----
-
-## Materiali di Riferimento
-
-[Solo se hai file ausiliari]
-
-**Processi Dettagliati**:
-- `phase_X.md` - Descrizione contenuto
-
-**Template**:
-- `templates/name.md` - Descrizione template
-
-**Supporto**:
-- `defaults.md` - Descrizione defaults
-
-**Skill Correlate**:
-- `other-skill` - Quando usarla invece/insieme
-
----
-
+## Materiali di Riferimento  # Se hai file ausiliari
 ## Uso Tool (⚠️ CRITICO)
-
-[Linee guida specifiche per tool usage]
-
-- ✅ **SEMPRE** Read prima di Edit/Write
-- ✅ [Altri pattern corretti]
-- ❌ **MAI** [Anti-pattern]
-
----
-
 ## Gestione Errori
-
-[Come gestire fallimenti comuni]
-
-**Se [Tool] fallisce**:
-- [Azione 1]
-- [Azione 2]
-
----
-
-## Avvio Workflow
-
-[Come inizia l'esecuzione della skill]
-
-Quando l'utente invoca questa skill:
-1. [Check 1]
-2. [Check 2]
-3. [Azione iniziale]
-
----
-
 ## Output Finale
-
-[Descrizione chiara del deliverable]
-
-Il deliverable di questa skill è **[nome file/artifact]**: [descrizione caratteristiche].
 ```
 
-**Best Practices da Seguire**:
+**Best Practices Critiche**:
+- **Frontmatter**: name lowercase+hyphens only, max 64; description terza persona, max 1024
+- **SKILL.md < 500 righe**: Usa progressive disclosure, sposta dettagli in file reference
+- **Specificità**: Tool espliciti, parametri chiari, sequenza definita
+- **Read before Edit SEMPRE**: Previeni dati obsoleti
+- **Error handling**: Per ogni tool, con fallback paths
 
-1. **Frontmatter**:
-   - `name`: Max 50 caratteri, descrittivo, no "Claude" o "Skill" nel nome
-   - `description`: 100-200 caratteri, specifica cosa fa, input/output, quando usarla
-
-2. **Struttura**:
-   - Headers chiari e gerarchici (H1 → H2 → H3)
-   - Sezioni ben separate con `---`
-   - Liste numerate per processi sequenziali
-   - Liste puntate per opzioni/features
-
-3. **Tono e Stile**:
-   - Diretto e imperativo ("Leggi", "Crea", "Valuta")
-   - Specifico e actionable (no vaghi "handle appropriately")
-   - Esempi concreti quando possibile
-   - Emoji solo se necessari per categorizzazione (✅ ❌ ⚠️)
-
-4. **Tool Usage**:
-   - Specifica ESATTAMENTE quali tool usare
-   - Dai ordine di esecuzione (es. "Read PRIMA di Edit")
-   - Includi error handling per ogni tool
-
-5. **Edge Cases**:
-   - Anticipa situazioni non standard
-   - Dai istruzioni chiare per ognuna
-
-6. **Validazione**:
-   - Usa AskUserQuestion per conferme critiche
-   - Non procedere senza conferma quando richiesto
+Vedi `best-practices.md` per guida completa.
 
 #### Fase 4: File Ausiliari (se necessario)
 
@@ -372,48 +265,16 @@ Per ogni problema:
 
 ## Best Practices Chiave
 
-### 1. Specificità e Chiarezza
-- ✅ "Leggi brief.md con Read tool"
-- ❌ "Ottieni il contenuto del brief"
-- ✅ "Se brief.md non esiste, chiedi all'utente di crearlo"
-- ❌ "Gestisci file mancanti appropriately"
+**Consulta `best-practices.md` per documentazione completa.** Principi critici:
 
-### 2. Tool Usage Esplicito
-- ✅ "SEMPRE Read prima di Edit per prevenire dati obsoleti"
-- ❌ "Modifica il file se necessario"
-- ✅ "Usa AskUserQuestion per confermare prima di sovrascrivere"
-- ❌ "Chiedi conferma"
-
-### 3. Structured Output
-- Usa headers gerarchici (H1 > H2 > H3)
-- Separa sezioni con `---`
-- Liste numerate per processi
-- Liste puntate per features/opzioni
-
-### 4. Error Handling
-- Anticipa fallimenti tool comuni
-- Dai azioni specifiche di recovery
-- Non lasciare utente bloccato
-
-### 5. Edge Cases
-- Pensa a situazioni non standard
-- Documenta come gestirle
-- Non assumere happy path sempre valido
-
-### 6. Validazione e Feedback
-- Usa AskUserQuestion per decisioni critiche
-- Conferma prima di azioni irreversibili
-- Loop di feedback stretti
-
-### 7. Scope Boundaries
-- Definisci cosa FA la skill
-- Definisci cosa NON FA
-- Riferisci ad altre skills quando appropriato
-
-### 8. Esempi e Anti-Pattern
-- Mostra esempi concreti quando possibile
-- Documenta cosa NON fare (❌)
-- Usa format `<example>` per casi complessi
+1. **SKILL.md < 500 righe** - Usa progressive disclosure per dettagli
+2. **Specificità assoluta** - Tool espliciti, parametri chiari, sequenza definita
+3. **Read before Edit SEMPRE** - Previene dati obsoleti
+4. **Error handling per ogni tool** - Fallback paths chiari
+5. **Frontmatter conforme** - name: lowercase+hyphens, max 64 char; description: max 1024 char, terza persona
+6. **Scope boundaries** - Definisci cosa FA e NON FA
+7. **Test First** - Build 3+ evaluations prima di docs estese
+8. **Assume Claude is Smart** - No spiegazioni concetti base
 
 ---
 
@@ -514,8 +375,10 @@ Tutti gli output sono conformi alle **best practices ufficiali Claude** e pronti
 ## Principi Guida
 
 1. **Qualità > Velocità**: Meglio skill ben fatta che skill veloce
-2. **Chiarezza > Brevità**: Meglio verboso e chiaro che conciso e ambiguo
+2. **Conciseness + Clarity**: SKILL.md < 500 righe, usa progressive disclosure per dettagli. Chiarezza E concisione insieme, non uno a scapito dell'altro
 3. **Specifico > Generico**: Istruzioni precise battono linee guida vaghe
-4. **Testabile**: Ogni skill deve essere testabile con caso concreto
-5. **Maintainable**: Struttura chiara facilita manutenzione futura
-6. **User-Centric**: Skill deve aiutare utente, non confonderlo
+4. **Test First**: Build 3+ evaluations prima di documentazione estesa
+5. **Testabile**: Ogni skill deve essere testabile con caso concreto
+6. **Maintainable**: Struttura chiara facilita manutenzione futura
+7. **User-Centric**: Skill deve aiutare utente, non confonderlo
+8. **Assume Claude is Smart**: No spiegazioni di concetti base che Claude già conosce
