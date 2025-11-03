@@ -253,6 +253,7 @@ Questi DEVONO essere tutti ✅ per skill funzionante:
 5. **Error handling base presente** (per ogni tool usato)
 6. **Scope definito** (cosa FA e NON FA)
 7. **Progressive disclosure** (references un livello deep da SKILL.md)
+8. **Assume Claude is Smart** (no spiegazioni concetti base)
 
 **Se anche solo UNO è ❌ → skill NON è production-ready**
 
@@ -266,8 +267,7 @@ Questi dovrebbero essere ✅ per skill di qualità:
 4. **Output specificato** chiaramente (nome file, formato, struttura)
 5. **Anti-pattern documentati** (cosa NON fare)
 6. **Terminologia consistente** (stesso termine per stesso concetto)
-7. **Assume Claude is Smart** (no spiegazioni concetti base)
-8. **Build evaluations first** (3+ evaluations prima di docs estese)
+7. **Build evaluations first** (3+ evaluations prima di docs estese)
 
 **Percentuale target: 80%+ ✅**
 
