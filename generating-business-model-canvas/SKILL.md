@@ -1,47 +1,56 @@
 ---
 name: generating-business-model-canvas
-description: Genera Business Model Canvas completo da brief strutturato e analisi competitor opzionale. Crea business-model-canvas.md con i 9 blocchi standard (Customer Segments, Value Propositions, Channels, Customer Relationships, Revenue Streams, Key Resources, Key Activities, Key Partners, Cost Structure). Sistema di feedback flessibile (modifica diretta file, commenti inline, feedback chat). Output stand-alone condivisibile con stakeholder. Supporta progetti software, hardware e misti.
+description: Genera Business Model Canvas professionale in Excel + Markdown. Input flessibile da file o chat. Workflow step-by-step con 5 canvas (Business Model, Lean, Customer Personas, Channel Implementation, Value Proposition). Usa skill xlsx per manipolazione Excel. Output doppio per visual reference e documentazione dettagliata.
 ---
 
 # Generating Business Model Canvas
 
 ## Il Tuo Compito
 
-Genera un Business Model Canvas completo in **2 formati** partendo dal brief strutturato e opzionalmente dall'analisi competitor.
+Genera un Business Model Canvas professionale in **2 formati complementari**: Excel per visual reference e Markdown per documentazione dettagliata.
 
-**Input**:
-- **brief-structured.md** (obbligatorio) - Brief strutturato con problema, utenti, obiettivi, funzionalità
-- **competitor-analysis.md** (opzionale) - Analisi competitor per insights e differenziazione
+**Input (Flessibile)**:
+- **Brief del progetto**: Può essere fornito come:
+  - File markdown (es. `brief-structured.md`, `brief.md`, o altro nome)
+  - Uno o più file allegati dall'utente
+  - Informazioni comunicate direttamente in chat
+- **Analisi competitor (opzionale)**: Può essere fornita come:
+  - File markdown (es. `competitor-analysis.md` o altro nome)
+  - Informazioni in chat
+  - Non fornita (skill procede ugualmente)
+- **Template Excel**: Incluso nella skill (`templates/business-model-canvas-template.xlsx`)
 
-**Output** (2 file generati):
+**Output (2 File)**:
+1. **business-model-canvas.xlsx** - File Excel con 5 canvas compilati:
+   - Business Model Canvas (9 blocchi classici)
+   - Lean Canvas (focus problem-solution)
+   - Customer Personas Canvas (profili dettagliati)
+   - Channel Implementation Canvas (strategie go-to-market)
+   - Value Proposition Canvas I & II (jobs-pains-gains)
 
-1. **business-model-canvas.md** (150-300 righe) - Versione completa sintetica
-   - Formato: Bullet points + tabelle per sezioni chiave
-   - Uso: Documento stand-alone leggibile
+2. **business-model-canvas.md** - Documento Markdown con:
+   - Dettagli estesi per ogni canvas
+   - Rationale dietro le scelte strategiche
+   - Riferimenti a brief e competitor analysis
+   - Note e considerazioni aggiuntive
 
-2. **business-model-canvas-visual.md** (~100-150 righe) - Versione tabellare visuale
-   - Formato: Layout canvas canonico in tabella markdown
-   - Uso: Visual reference per pitch deck, workshop
-
-**I 9 blocchi del BMC** (in entrambi i file):
-1. Customer Segments (Chi)
-2. Value Propositions (Cosa)
-3. Channels (Come raggiungiamo)
-4. Customer Relationships (Come interagiamo)
-5. Revenue Streams (Quanto guadagniamo)
-6. Key Resources (Di cosa abbiamo bisogno)
-7. Key Activities (Cosa facciamo)
-8. Key Partners (Con chi collaboriamo)
-9. Cost Structure (Quanto costa)
+**Caratteristiche distintive**:
+- **Input flessibile**: Brief da file, allegati, o chat
+- **Workflow step-by-step**: Un canvas alla volta per ridurre contesto
+- **Risposte proposte**: AI suggerisce risposte basate su brief, utente personalizza
+- **Priorità colorate**: 🔴 (alta), 🟡 (media), 🟢 (bassa)
+- **Usa skill xlsx**: Delega manipolazione Excel alla skill specializzata
+- **Dual output**: Excel visuale + Markdown documentazione
 
 ---
 
 ## Regola Linguistica
 
-**Adatta la lingua al file brief-structured.md:**
-- Se brief-structured.md è in italiano → rispondi in italiano
-- Se brief-structured.md è in inglese → rispondi in inglese
-- Se brief-structured.md è in altra lingua → rispondi in quella lingua
+**Adatta la lingua al brief fornito:**
+- Se brief in italiano → rispondi in italiano
+- Se brief in inglese → rispondi in inglese
+- Se brief in altra lingua → rispondi in quella lingua
+- Se brief in chat → usa lingua della conversazione
 
 Rispondi in una lingua diversa solo se l'utente lo richiede esplicitamente.
 
@@ -50,141 +59,364 @@ Rispondi in una lingua diversa solo se l'utente lo richiede esplicitamente.
 ## Esempi di Utilizzo
 
 <example>
-Context: Utente ha brief-structured.md completo e vuole creare BMC
+Context: Utente ha file brief-structured.md e vuole BMC
 User: "Genera il Business Model Canvas per il progetto"
-Assistant: Leggo brief-structured.md con Read tool per analizzare il contenuto...
+Assistant: Perfetto! Prima di iniziare, ho bisogno del brief del progetto.
 
-[Dopo lettura]
+Vedo che hai menzionato brief-structured.md. Posso leggerlo? O preferisci:
+- Passarmi altri file con il brief
+- Descrivere il progetto direttamente in chat
 
-Ho analizzato il brief strutturato. Verifico se esiste anche competitor-analysis.md...
+[Usa AskUserQuestion per confermare]
 
-[Dopo verifica]
+User: "Sì, leggi brief-structured.md"
+Assistant: [Legge brief-structured.md con Read tool]
 
-Procedo a generare business-model-canvas.md con i 9 blocchi del BMC.
+Ho analizzato il brief. Hai anche un'analisi competitor da includere? (opzionale, posso procedere senza)
 
-[Crea business-model-canvas.md con Write tool]
+User: "No, procedi senza"
+Assistant: Perfetto! Procedo con generazione BMC.
 
-Ho creato business-model-canvas.md. Il documento include:
-- 3 Customer Segments identificati
-- Value Proposition unica e differenziante
-- 4 Channels per raggiungere i clienti
-- Revenue model chiaro (subscription + freemium)
-- Cost structure realistica per MVP
+Ti proporrò risposte per ogni canvas basandomi sul brief. Potrai confermare o modificare.
 
-Il Business Model Canvas riflette correttamente il progetto?
+**Canvas 1/5: Business Model Canvas**
+...
 </example>
 
 <example>
-Context: Utente vuole modificare BMC dopo creazione
-User: "Il documento è buono ma vorrei modificare la sezione Revenue Streams"
-Assistant: Come vuoi procedere con le modifiche?
-[Usa AskUserQuestion con 3 metodi: Modifica Diretta / Commenti Inline / Feedback Chat]
+Context: Utente fornisce brief in chat senza file
+User: "Voglio creare un BMC per una piattaforma SaaS di automazione workflow per PMI"
+Assistant: Ottimo! Per creare un Business Model Canvas completo, ho bisogno di più informazioni sul progetto.
 
-User: "Preferisco feedback in chat"
-Assistant: Perfetto. Dimmi quali modifiche vuoi fare alla sezione Revenue Streams.
+Preferisci:
+1. Fornirmi un file con il brief del progetto
+2. Rispondere a domande in chat per raccogliere le info necessarie
+3. Allegare documenti con dettagli progetto
 
-User: "Cambia subscription mensile da €29 a €19 per MVP"
-Assistant: [Legge file con Read, applica modifica con Edit]
+[Usa AskUserQuestion]
 
-Ho cambiato il prezzo subscription da €29 a €19. Altre modifiche?
+User: "Rispondo in chat"
+Assistant: Perfetto! Ti farò domande per raccogliere le informazioni chiave.
 
-User: "No, perfetto così"
-Assistant: Ottimo! business-model-canvas.md è completo e approvato. Questa skill ha terminato il suo compito.
+**Domanda 1/8**: Problema principale
+Quale problema specifico risolve la tua piattaforma per le PMI?
+...
 </example>
 
----
+<example>
+Context: Utente allega più file
+User: [Allega project-overview.md, market-research.pdf, competitor-notes.md]
+"Usa questi file per generare il BMC"
+Assistant: Perfetto! Ho ricevuto 3 file. Li leggo per analizzare il progetto.
 
-## Convenzione Nomi File
+[Legge project-overview.md con Read tool]
+[Legge competitor-notes.md con Read tool]
+[Nota: PDF richiede conversione, chiede se prioritario]
 
-Durante il workflow, questi file vengono utilizzati:
+Ho analizzato project-overview.md e competitor-notes.md. Procedo con la generazione del BMC basandomi su questi documenti.
 
-### 1. brief-structured.md (input obbligatorio)
-- **Creato da**: Skill `generating-structured-brief`
-- **Letto da**: Questa skill
-- **Scopo**: Fonte primaria per generare BMC (problema, utenti, obiettivi, funzionalità, scope)
-
-### 2. competitor-analysis.md (input opzionale)
-- **Creato da**: Skill `competitor-market-analysis` o manualmente
-- **Letto da**: Questa skill (se presente)
-- **Scopo**: Insights su competitor per differenziazione e posizionamento
-
-### 3. business-model-canvas.md (output - versione completa)
-- **Creato da**: Questa skill
-- **Modificato da**: Skill o utente (iterazioni)
-- **Formato**: 150-300 righe, bullet points + tabelle
-- **Scopo**: Documento stand-alone completo e leggibile con i 9 blocchi del BMC.
-- **Uso**: Documento di lavoro, condivisibile con stakeholder/investitori/team
-- **Ciclo di vita**: Modificato fino a quando l'utente non lo approva.
-
-### 4. business-model-canvas-visual.md (output - versione tabellare)
-- **Creato da**: Questa skill (generato insieme al file completo)
-- **Modificato da**: Skill (si aggiorna automaticamente quando si modifica il file completo)
-- **Formato**: ~100-150 righe, layout tabellare canvas canonico
-- **Scopo**: Visual reference con disposizione classica BMC (Partners sx, Customer dx)
-- **Uso**: Copy/paste per pitch deck slide, workshop, presentazioni
-- **Ciclo di vita**: Aggiornato automaticamente quando si modifica business-model-canvas.md
+**Canvas 1/5: Business Model Canvas**
+...
+</example>
 
 ---
 
 ## Processo Principale
 
-### Quando Usare Questa Skill
-- Hai **brief-structured.md** completo
-- Necessiti di **Business Model Canvas** per strategia business
-- Vuoi documento condivisibile con **stakeholder/investitori**
-- Devi validare **sostenibilità economica** del progetto
-- Opzionalmente hai **competitor-analysis.md** per insights
+### Fase 1: Raccolta Input (Flessibile)
 
-### Processo Rapido
+**Step 1**: Identifica fonte brief
+- Chiedi all'utente come vuole fornire il brief
+- Opzioni: file esistente, allegati, chat interattiva
+- Usa **AskUserQuestion** per confermare approccio
 
-1. **Leggi input** con Read tool:
-   - brief-structured.md (obbligatorio)
-   - competitor-analysis.md (se presente)
-2. **Genera 2 file** con Write tool:
-   - business-model-canvas.md (150-300 righe, completo sintetico)
-   - business-model-canvas-visual.md (~100-150 righe, layout tabellare)
-3. **Chiedi conferma e metodo feedback** all'utente con AskUserQuestion
-4. **Gestisci feedback con metodo scelto**:
-   - **Metodo A (Modifica Diretta)**: Utente modifica file, skill rileva e valida
-   - **Metodo B (Commenti Inline)**: Utente aggiunge marker `<!-- FEEDBACK: ... -->`, skill parsa e applica
-   - **Metodo C (Feedback Chat)**: Utente descrive modifiche in chat, skill applica
-5. **Itera fino ad approvazione** (aggiorna entrambi i file)
-6. **Annuncia completamento**
+**Step 2**: Raccogli brief progetto
+- **Se file**: Usa **Read** tool per leggere file indicato
+- **Se allegati**: Leggi file allegati dall'utente
+- **Se chat**: Poni domande essenziali per raccogliere info:
+  1. Problema risolto
+  2. Target customer
+  3. Soluzione proposta
+  4. Differenziatori chiave
+  5. Revenue model iniziale
+  6. Scope MVP
+  7. Budget/risorse disponibili
+  8. Timeline progetto
 
-### Regola Critica
+**Step 3**: Raccogli competitor analysis (opzionale)
+- Chiedi se disponibile
+- **Se sì**: Leggi file o raccogli info in chat
+- **Se no**: Procedi senza, genera BMC basandoti solo su brief
 
-**business-model-canvas.md** (versione completa):
-- ✅ **SINTETICO** - 150-300 righe totali (BMC tradizionale sta in 1-2 pagine)
-- ✅ **Formato bullet points** - NO paragrafi narrativi lunghi
-- ✅ **3-7 punti chiave per blocco** - Essenziale, no dettagli eccessivi
-- ✅ **Tabelle markdown** per Revenue, Channels, Partners, Cost
-- ✅ **Completo e autosufficiente** - Tutti i 9 blocchi del BMC compilati
-- ✅ **Basato su dati concreti** - Usa info da brief-structured.md, non generici
-- ✅ **Realistico per fase MVP** - Revenue e Cost coerenti con scope MVP
+**Step 4**: Prepara template Excel
+- Template skill: `templates/business-model-canvas-template.xlsx` (incluso nella skill)
+- Copia template in working directory come `business-model-canvas.xlsx`
+- Template sempre disponibile, nessuna dipendenza esterna
 
-**business-model-canvas-visual.md** (versione tabellare):
-- ✅ **ULTRA-SINTETICO** - ~100-150 righe (layout canvas canonico)
-- ✅ **Tabella unica** con disposizione blocchi classica (Partners sx, Customer dx)
-- ✅ **3-5 punti per blocco** - Ultra-essenziale per visualizzazione
-- ✅ **Copy/paste ready** per pitch deck slide
+### Fase 2: Generazione Canvas (Step-by-Step)
 
-**Entrambi i file**:
-- ✅ Tono professionale, condivisibili con stakeholder/investitori
-- ❌ NO markers o riferimenti al processo di creazione
-- ❌ NO sezioni vuote o "TBD"
-- ❌ NO narrativo lungo - BMC è strumento visuale
+**Per ogni canvas (5 totali)**:
 
-**Per dettagli completi del processo**: Vedi `bmc-generation.md`
+1. **Genera risposte proposte**:
+   - Analizza brief + competitor (se presente)
+   - Consulta `canvas-questions.md` per domande
+   - Proponi 3-7 risposte per sezione canvas
+   - Assegna priorità: 🔴 (alta), 🟡 (media), 🟢 (bassa)
+   - Fornisci rationale per ogni proposta
+
+2. **Presenta all'utente**:
+   - Mostra canvas corrente (X/5)
+   - Elenca domande e risposte proposte
+   - Chiedi conferma o modifiche
+
+3. **Raccogli feedback**:
+   - Utente conferma, modifica, o aggiunge
+   - Registra risposte finali validate
+
+4. **Salva progresso**:
+   - Memorizza risposte per canvas corrente
+   - Pronto per canvas successivo
+
+**Ordine canvas**:
+1. Business Model Canvas (fondamentale)
+2. Lean Canvas (startup focus)
+3. Customer Personas (target deep dive)
+4. Channel Implementation (go-to-market)
+5. Value Proposition Canvas (value alignment)
+
+### Fase 3: Generazione Output
+
+**Step 1**: Genera Markdown (business-model-canvas.md)
+- Usa **Write** tool per creare file
+- Include tutti i 5 canvas con dettagli estesi
+- Aggiungi rationale e riferimenti a brief
+- Formato: 300-500 righe, bullet points + tabelle
+- Sezioni:
+  - Executive Summary
+  - Canvas 1: Business Model Canvas (dettagliato)
+  - Canvas 2: Lean Canvas (dettagliato)
+  - Canvas 3: Customer Personas (dettagliato)
+  - Canvas 4: Channel Implementation (dettagliato)
+  - Canvas 5: Value Proposition Canvas (dettagliato)
+  - Appendix: Note e Considerazioni
+
+**Step 2**: Genera Excel (business-model-canvas.xlsx)
+- Invoca **Skill(xlsx)** per manipolazione Excel
+- All'interno della skill xlsx:
+  - Carica template con `load_workbook`
+  - Popola ogni foglio canvas con risposte validate
+  - Aggiungi priorità colorate: 🔴 (alta), 🟡 (media), 🟢 (bassa)
+  - Abilita text wrapping per celle
+  - Salva file Excel finale
+  - Recalcola formule se presenti
+
+**Step 3**: Annuncia completamento
+- Riepilogo canvas compilati
+- Conferma 2 file generati (Excel + Markdown)
+- Segnala se utente vuole iterare su qualche canvas
+
+---
+
+## Uso Tool (⚠️ SEQUENZA CRITICA)
+
+### Raccolta Input
+1. ✅ **AskUserQuestion**: Chiedi come utente vuole fornire brief
+2. ✅ **Read**: Leggi file brief (se fornito come file)
+3. ✅ **Read**: Leggi competitor analysis (se presente)
+4. ❌ **NON assumere** nomi file fissi (brief-structured.md, competitor-analysis.md)
+
+### Generazione Canvas
+1. ✅ **Consulta** canvas-questions.md per domande
+2. ✅ **Proponi** risposte basate su brief analizzato
+3. ✅ **AskUserQuestion**: Chiedi conferma/modifiche per ogni canvas
+4. ✅ **Memorizza** risposte validate per uso successivo
+
+### Generazione Output
+1. ✅ **Write**: Crea business-model-canvas.md (nuovo file)
+2. ✅ **Bash**: Copia template Excel dalla skill a working directory:
+   - Template path: `~/.claude/skills/generating-business-model-canvas/templates/business-model-canvas-template.xlsx`
+   - Comando: `cp ~/.claude/skills/generating-business-model-canvas/templates/business-model-canvas-template.xlsx ./business-model-canvas.xlsx`
+   - Template sempre disponibile (incluso nella skill)
+3. ✅ **Skill(xlsx)**: Invoca skill xlsx per manipolazione Excel
+4. ✅ All'interno skill xlsx:
+   - Carica workbook con openpyxl
+   - Popola canvas con dati strutturati
+   - Aggiungi priorità colorate (🔴🟡🟢) all'inizio di ogni item
+   - Abilita text wrapping per celle
+   - Salva Excel
+5. ❌ **MAI** scrivere codice Python diretto (usa skill xlsx)
+
+### Iterazioni (se richieste)
+1. ✅ **Read**: Leggi business-model-canvas.md per revisione
+2. ✅ **Edit**: Applica modifiche a Markdown
+3. ✅ **Skill(xlsx)**: Re-invoca per aggiornare Excel
+4. ✅ **AskUserQuestion**: Chiedi conferma finale
+
+---
+
+## Gestione Errori
+
+### Brief Non Fornito
+- **Scenario**: Utente invoca skill senza fornire brief
+- **Azione**: Chiedi come vuole fornire brief (file, chat, allegati)
+- **Fallback**: Se rifiuta, spiega che brief è necessario per generazione BMC
+
+### File Brief Non Trovato
+- **Scenario**: Utente indica file che non esiste
+- **Azione**: Verifica path, chiedi path alternativo
+- **Fallback**: Offri di raccogliere info in chat
+
+### Template Excel Non Accessibile
+- **Scenario**: Template skill non accessibile (molto raro)
+- **Azione**: Verifica path skill, controlla permessi
+- **Fallback**: Genera solo Markdown (senza Excel) e segnala problema
+
+### Skill xlsx Non Disponibile
+- **Scenario**: Skill xlsx fallisce o non installata
+- **Azione**: Spiega problema, suggerisci installazione skill
+- **Fallback**: Genera solo Markdown (senza Excel)
+
+### Competitor Analysis Mancante (Opzionale)
+- **Scenario**: Competitor analysis non fornito
+- **Azione**: NON bloccare, procedi senza
+- **Nota**: Avvisa che alcuni differenziatori potrebbero essere generici
+
+---
+
+## Avvio Workflow
+
+Quando l'utente invoca questa skill:
+
+1. **Saluta e spiega processo**:
+   - "Genererò un Business Model Canvas in Excel + Markdown"
+   - "Processo step-by-step, un canvas alla volta"
+   - "Output: 2 file complementari"
+
+2. **Raccogli brief** (input flessibile):
+   - Chiedi come utente vuole fornire brief
+   - Leggi file, allegati, o raccogli in chat
+   - Valida che hai info sufficienti per procedere
+
+3. **Raccogli competitor analysis** (opzionale):
+   - Chiedi se disponibile
+   - Se sì, leggi; se no, procedi senza
+
+4. **Prepara template Excel**:
+   - Template incluso nella skill (sempre disponibile)
+   - Copia da `templates/` a working directory
+
+5. **Esegui workflow canvas**:
+   - Genera risposte per ogni canvas (1/5 → 5/5)
+   - Raccogli feedback utente
+   - Salva progresso dopo ogni canvas
+
+6. **Genera output**:
+   - Crea business-model-canvas.md
+   - Crea business-model-canvas.xlsx (via skill xlsx)
+
+7. **Annuncia completamento**:
+   - Conferma 2 file generati
+   - Offri iterazioni se necessario
+
+---
+
+## Output Finale
+
+### 1. business-model-canvas.md (Documentazione Dettagliata)
+
+Documento Markdown **completo** (300-500 righe) con:
+
+**Executive Summary** (50-100 righe):
+- Visione strategica del modello di business
+- Key highlights da tutti i canvas
+- Differenziatori principali vs competitor (se analisi disponibile)
+
+**Canvas 1: Business Model Canvas** (60-80 righe):
+- 9 blocchi dettagliati con bullet points
+- Rationale per ogni scelta strategica
+- Riferimenti a sezioni brief
+
+**Canvas 2: Lean Canvas** (50-70 righe):
+- Focus problem-solution fit
+- Metriche chiave per validazione
+- Unfair advantage e differenziatori
+
+**Canvas 3: Customer Personas** (60-80 righe):
+- 2-3 persona dettagliate
+- Demographics, behaviors, goals, pains
+- Buying process e decision criteria
+
+**Canvas 4: Channel Implementation** (50-70 righe):
+- Strategia per ogni canale
+- Customer journey (awareness → retention)
+- Budget allocation e CAC target
+
+**Canvas 5: Value Proposition Canvas** (50-70 righe):
+- Jobs-Pains-Gains (customer profile)
+- Products-Pain relievers-Gain creators (value map)
+- Fit analysis
+
+**Appendix: Note e Considerazioni** (30-50 righe):
+- Assunzioni chiave
+- Rischi e mitigazioni
+- Next steps suggeriti
+
+**Caratteristiche**:
+- ✅ Formato: Bullet points + tabelle markdown
+- ✅ Tono professionale, condivisibile con stakeholder
+- ✅ Dati concreti da brief, NO generici
+- ✅ Riferimenti espliciti a brief/competitor
+- ❌ NO markers di processo nel body
+
+### 2. business-model-canvas.xlsx (Visual Reference)
+
+File Excel **interattivo** con 5 fogli compilati:
+
+**Foglio 1: Business Model Canvas**
+- 9 blocchi posizionati secondo layout canonico
+- Priorità colorate per ogni elemento
+- Text wrapping abilitato
+
+**Foglio 2: Lean Canvas**
+- Layout startup-focused
+- Problem-solution-metrics alignment
+- Priorità colorate
+
+**Foglio 3: Customer Personas Canvas**
+- 2-3 persona visivamente separati
+- Sezioni: demographics, behaviors, goals, pains, buying
+
+**Foglio 4: Channel Implementation Canvas**
+- Matrice canali × fasi customer journey
+- Budget e CAC per canale
+- Metriche chiave
+
+**Foglio 5: Value Proposition Canvas I & II**
+- Customer profile (jobs, pains, gains)
+- Value map (products, relievers, creators)
+- Visual fit mapping
+
+**Caratteristiche**:
+- 🔴🟡🟢 Priorità colorate: 🔴 (alta/critico), 🟡 (media/importante), 🟢 (bassa/nice-to-have)
+- ✅ Text wrapping per leggibilità
+- ✅ Basato su template professionale
+- ✅ Pronto per presentazioni/pitch deck
+- ❌ NO shape/post-it complessi (solo testo con priorità)
+
+**Usi complementari**:
+- **Excel**: Visual reference, presentazioni, workshop
+- **Markdown**: Documentazione dettagliata, onboarding team, archivio strategico
 
 ---
 
 ## Materiali di Riferimento
 
-**Processi Dettagliati**:
-- `bmc-generation.md` - Generazione BMC step-by-step, 9 blocchi dettagliati, iterazioni, approvazioni
+**Guida Domande**:
+- `canvas-questions.md` - Domande complete per ogni canvas con esempi di risposte
 
 **Template**:
-- `templates/bmc-template.md` - Struttura completa BMC con i 9 blocchi e linee guida
+- Template Excel: `templates/business-model-canvas-template.xlsx` (incluso nella skill)
+- Template risposte utente: `templates/bmc-answers-template.md`
 
 **Supporto**:
 - `defaults.md` - Default pragmatici per progetti MVP (pricing, cost structure, channels tipici)
@@ -193,184 +425,68 @@ Durante il workflow, questi file vengono utilizzati:
 
 ## Regole Chiave
 
-### Processo Iterativo
-- Genera business-model-canvas.md stand-alone
-- Loop feedback fino ad approvazione (3 metodi supportati)
-- Traccia modifiche in chat, mantieni documento pulito (no markers nel body)
-- Suggerisci skill `generating-requirements-document` se utente vuole requirements tecnici
+### Input Flessibile
+- ❌ **MAI** assumere nomi file fissi (brief-structured.md, etc.)
+- ✅ **SEMPRE** chiedi all'utente come vuole fornire brief
+- ✅ Supporta: file, allegati, chat interattiva
+- ✅ Competitor analysis è **opzionale**, non bloccare se manca
 
-### Uso Tool (⚠️ SEQUENZA CRITICA)
-- ✅ **SEMPRE** Read prima di Edit/Write (previene errori dati obsoleti)
-- ✅ Write per business-model-canvas.md nuovo
-- ✅ Edit per modifiche successive (sempre Read prima)
-- ✅ AskUserQuestion per conferme
-- ❌ **MAI** Write su file esistenti (usa Edit)
-- ❌ **MAI** Edit senza Read prima
-- ❌ **MAI** procedere senza conferma utente quando richiesta
+### Workflow Step-by-Step
+- ✅ Un canvas alla volta (1/5 → 5/5)
+- ✅ Proponi risposte, chiedi conferma/modifiche
+- ✅ Salva progresso dopo ogni canvas
+- ✅ Mostra rationale per risposte proposte
 
-### BMC Pragmatico
-- Usa defaults sensati per MVP (vedi `defaults.md`)
-- Revenue model semplice inizialmente (es. subscription, one-time, freemium)
-- Cost structure realistica (team, infra, tools)
-- L'utente può sempre fare override
+### Uso Skill xlsx
+- ✅ **SEMPRE** usa Skill(xlsx) per manipolazione Excel
+- ❌ **MAI** scrivere codice Python diretto in skill BMC
+- ✅ Delega formattazione/popolamento a skill xlsx
+- ✅ Skill xlsx ha expertise su openpyxl e Excel
+
+### Dual Output
+- ✅ **Genera entrambi** Excel e Markdown
+- ✅ Excel = visual reference (conciso)
+- ✅ Markdown = documentazione (dettagliato)
+- ✅ Mantieni coerenza tra i 2 file
+
+### Prioritizzazione
+- 🔴 (rosso): Elementi critici per successo MVP, bloccanti
+- 🟡 (giallo): Elementi importanti ma non bloccanti
+- 🟢 (verde): Elementi nice-to-have o post-MVP
+- Chiedi conferma priorità all'utente se dubbio
 
 ### Trasparenza
-- Dichiara assunzioni con rationale
-- Mostra ragionamento per i default
-- Segnala conflitti esplicitamente (es. revenue model incompatibile con target market)
-
-### Efficienza
-- Referenzia file, non ripetere contenuti
-- Loop di feedback stretti
-- Chiedi conferma una volta, non multiple
+- ✅ Dichiara fonte info per ogni proposta (da brief, da competitor, da defaults)
+- ✅ Mostra quale canvas stai popolando (X/5)
+- ✅ Segnala assunzioni esplicitamente
+- ✅ Avvisa se info insufficienti, chiedi chiarimenti
 
 ---
 
-## Uso Tool (⚠️ SEQUENZA CRITICA)
+## Best Practices Anthropic
 
-### Generazione BMC
-1. ✅ **Read** brief-structured.md (obbligatorio)
-2. ✅ **Read** competitor-analysis.md (se presente, verifica esistenza prima)
-3. ✅ **Write** business-model-canvas.md (file nuovo)
-4. ✅ **AskUserQuestion** per conferma e metodo feedback
+### Tool Usage
+- ✅ Usa **AskUserQuestion** per scelte utente (modalità input, conferme)
+- ✅ Usa **Read** per file (non Bash cat)
+- ✅ Usa **Write** per creare file (non Bash echo)
+- ✅ Usa **Skill** per delegare task specializzati (xlsx manipulation)
+- ❌ NON usare Bash per operazioni che hanno tool dedicati
 
-### Iterazioni (se richieste)
-1. ✅ **SEMPRE Read** business-model-canvas.md prima di Edit
-2. ✅ **Edit** per applicare modifiche
-3. ✅ **Read** dopo Edit per verificare
-4. ✅ **AskUserQuestion** per ri-conferma
+### Error Handling
+- ✅ Gestisci fallimenti tool con fallback graceful
+- ✅ Spiega problema all'utente, proponi alternative
+- ✅ Non bloccare se input opzionali mancano
+- ✅ Valida input prima di procedere (evita errori downstream)
 
-### Best Practices
-- ❌ **MAI** Write su file esistenti (usa Edit)
-- ❌ **MAI** Edit senza Read prima (dati obsoleti)
-- ✅ Verifica esistenza file opzionali prima di Read
-- ✅ Gestisci fallimenti tool con fallback paths (vedi Gestione Errori)
+### User Experience
+- ✅ Spiega processo all'inizio
+- ✅ Mostra progresso (canvas 1/5, 2/5, etc.)
+- ✅ Proponi risposte intelligenti (risparmia tempo utente)
+- ✅ Permetti modifiche/iterazioni senza restrizioni
+- ✅ Annuncia completamento con riepilogo
 
----
-
-## Gestione Errori
-
-### Fallimenti Tool
-
-**Se Read brief-structured.md fallisce**:
-- Verifica percorso corretto
-- Chiedi utente: "Non trovo brief-structured.md. Esiste? Hai usato skill `generating-structured-brief` per crearlo?"
-- Suggerisci: "Posso aiutarti a crearlo con skill `generating-structured-brief` prima di generare il BMC"
-
-**Se Read competitor-analysis.md fallisce** (opzionale):
-- Non bloccare: "competitor-analysis.md non trovato, procedo senza analisi competitor"
-- Chiedi: "Vuoi includere analisi competitor? Posso aiutarti con skill `competitor-market-analysis`"
-
-**Se Edit fallisce** ("old_string not found"):
-- Verifica old_string corrisponde esattamente (controlla spaziatura, line breaks)
-- Se file cambiato da ultimo Read: Re-read file, riprova Edit
-- Se ancora fallisce: Usa Write per ricreare (avvisa utente prima)
-
-**Se Write fallisce** (permessi, directory):
-- Verifica directory padre esiste
-- Chiedi utente: "Non posso scrivere in [path]. Hai permessi? Devo usare posizione diversa?"
-
-**Se AskUserQuestion non riceve risposta**:
-- Attendi risposta utente
-- Non procedere senza conferma quando richiesta
-
-### Strategia di Recupero
-1. **Sempre Read prima di Edit/Write** - Previene dati obsoleti
-2. **Se incerto**: Chiedi utente, non indovinare
-3. **Se bloccato**: Spiega cosa ti serve per procedere
-4. **File opzionali**: Non bloccare generazione se mancano
-
----
-
-## Avvio Workflow
-
-Quando l'utente invoca questa skill:
-
-1. **Verifica brief-structured.md esiste**:
-   - **Se esiste**: Procedi con generazione BMC
-   - **Se non esiste**: Chiedi all'utente di crearlo prima con skill `generating-structured-brief`
-
-2. **Verifica competitor-analysis.md** (opzionale):
-   - **Se esiste**: Includi insights competitor nel BMC
-   - **Se non esiste**: Procedi senza, genera BMC ugualmente
-
-3. **Genera business-model-canvas.md** e chiedi feedback
-
-4. **Itera fino ad approvazione** usando metodo feedback scelto dall'utente
-
----
-
-## Output Finale
-
-Il deliverable di questa skill sono **2 file** complementari:
-
-### 1. business-model-canvas.md (Versione Completa)
-Documento **sintetico** (150-300 righe), stand-alone, professionale.
-
-**Caratteristiche**:
-- **Formato**: Bullet points + tabelle markdown per sezioni chiave
-- **Lunghezza**: 150-300 righe totali (1-2 pagine stampate)
-- **Contenuto**: 9 blocchi completi, 3-7 punti chiave per blocco
-- **Dati**: Concreti dal brief strutturato (no generici)
-- **Dettaglio**: Tabelle per Revenue, Channels, Partners, Cost
-
-**Usi**:
-- Documento di lavoro completo
-- Allineamento team su strategia business
-- Validazione sostenibilità economica
-- Planning go-to-market dettagliato
-
-### 2. business-model-canvas-visual.md (Versione Tabellare)
-Layout **tabellare visuale** (~100-150 righe) con disposizione canvas canonico.
-
-**Caratteristiche**:
-- **Formato**: Tabella unica con layout classico BMC
-- **Lunghezza**: ~100-150 righe (ultra-sintetico)
-- **Contenuto**: 9 blocchi, 3-5 punti essenziali per blocco
-- **Layout**: Partners a sx, Customer a dx (come canvas originale)
-- **Copy/paste ready**: Formattato per pitch deck slide
-
-**Usi**:
-- Pitch deck per investitori (copy/paste in slide)
-- Workshop strategia business (visual reference)
-- Executive summary visuale
-- Presentazioni stakeholder
-
-**Entrambi i file**:
-- Condivisibili con stakeholder/investitori/team
-- Dati concreti, pricing realistico MVP
-- Differenziazione da competitor (se competitor-analysis.md presente)
-
-Se l'utente necessita di **requirements.md tecnico completo** (architettura, elementi sistema, sottoprogetti), suggerisci di usare la skill `generating-requirements-document`.
-
----
-
-## Gestione Metodi di Feedback
-
-La skill supporta **3 metodi** per fornire feedback su business-model-canvas.md (come `generating-structured-brief`):
-
-### Metodo A: Modifica Diretta del File
-**Quando**: Hai molte modifiche (4+) o preferisci il tuo editor
-
-**Come funziona**:
-1. Utente modifica direttamente `business-model-canvas.md`
-2. Salva e dice alla skill "ho finito" o "rivedi"
-3. Skill rileva modifiche, mostra riepilogo, chiede conferma
-
-### Metodo B: Commenti Inline per Discussione
-**Quando**: Hai dubbi su alcune parti e vuoi discuterle
-
-**Come funziona**:
-1. Aggiungi marker `<!-- FEEDBACK: [descrizione] -->` dove hai dubbi
-2. Skill legge commenti, discute, applica modifiche concordate
-3. Skill rimuove marker dopo applicazione
-
-### Metodo C: Feedback Testuale in Chat
-**Quando**: Hai 1-3 modifiche rapide e puntuali
-
-**Come funziona**:
-1. Descrivi modifiche in chat (es. "Sezione Revenue: cambia €29 in €19")
-2. Skill applica con Edit tool, mostra diff
-3. Skill chiede conferma
-
-**Quale metodo scegliere?** Vedi dettagli in `bmc-generation.md` sezione "Metodi di Feedback".
+### Documentation
+- ✅ Output professionale e condivisibile
+- ✅ Dati concreti, NO generici
+- ✅ Tono appropriato per stakeholder/investitori
+- ❌ NO markers di processo nel deliverable finale
