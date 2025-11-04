@@ -7,8 +7,7 @@ Domande e esempi di risposte per ciascun canvas, organizzate per facilitare il c
 - **`1-business-model-canvas.md`** - Business Model Canvas (9 blocchi classici)
 - **`2-lean-canvas.md`** - Lean Canvas (focus problem-solution)
 - **`3-customer-personas.md`** - Customer Personas Canvas
-- **`4-channel-implementation.md`** - Channel Implementation Canvas
-- **`5-value-proposition.md`** - Value Proposition Canvas
+- **`4-value-proposition.md`** - Value Proposition Canvas
 
 ## Uso
 
