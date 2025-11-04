@@ -1,6 +1,6 @@
 ---
 name: generating-business-model-canvas
-description: Genera Business Model Canvas professionale principalmente in Excel (output primario, 5 canvas con priorità 🔴🟡🟢) + Markdown esplicativo (secondario). Input flessibile (file/chat/allegati). Processo 6-step: analizza→clarifica→genera Excel→verifica→genera MD→verifica. Valuta sufficienza input. No richieste permesso. Usa skill xlsx.
+description: Genera Business Model Canvas professionale principalmente in Excel (output primario, 5 canvas con priorità 🔴🟡🟢) + Markdown esplicativo (secondario). Input flessibile (file/chat/allegati). Processo 6-step: analizza→clarifica→genera Excel→verifica→genera MD→verifica. Valuta sufficienza input. No richieste permesso. Usa openpyxl direttamente via Bash.
 ---
 
 # Generating Business Model Canvas
@@ -43,7 +43,7 @@ Genera un Business Model Canvas professionale **principalmente in formato Excel*
 - **Excel-first approach**: Genera Excel sintetico, itera, approva
 - **Markdown dopo**: Dettagli estesi solo dopo Excel approvato
 - **Priorità colorate**: 🔴 (alta), 🟡 (media), 🟢 (bassa)
-- **Usa skill xlsx**: Delega manipolazione Excel alla skill specializzata
+- **Usa openpyxl direttamente**: Manipola Excel via Bash con Python (no consenso richiesto)
 - **Dual output sequenziale**: Excel → approvazione → Markdown → approvazione
 
 ---
@@ -114,21 +114,24 @@ Annuncia completamento, chiedi review. Loop modifiche fino ad approvazione. Annu
 
 ### Step C: Genera Excel
 1. ✅ **Bash**: Copia template Excel
-2. ✅ **Read**: Leggi `template-structure.md` per mappatura celle
-3. ✅ **Skill(command: "xlsx")**: Invoca skill xlsx con prompt testuale
-   - **CRITICO**: NON scrivere codice Python, usa Skill tool
-   - Fornisci prompt testuale che descrive cosa popolare
-   - Esempio: "Popola file X, sheet Y, celle Z con contenuto [...]"
-   - Skill xlsx gestirà merged cells, formatting, salvataggio
+2. ✅ **Write + Bash + Python**: Popola Excel con script temporanei
+   - **CRITICO**: Usa Write per creare script Python temporaneo in /tmp
+   - **CRITICO**: Popola UN FOGLIO ALLA VOLTA (più gestibile)
+   - **NO heredoc/inline**: Usa file Python temporaneo (evita problemi escape)
+   - Bash esegue: `python3 /tmp/script.py`
+   - Bash rimuove: `rm /tmp/script.py`
+   - Per celle merged: scrivi solo nella cella top-left
+   - Usa multiline string `"""..."""` per contenuti (più leggibile di `\n`)
    - Vedi `process-6-steps.md` Step C per esempio completo
-4. ❌ **MAI** chiedere permesso per creare file (è implicito)
-5. ❌ **MAI** codice Python diretto (usa Skill tool)
+3. ❌ **MAI** chiedere permesso per creare file (è implicito)
+4. ❌ **MAI** usare mcp__ide__executeCode (richiede notebook)
+5. ❌ **MAI** usare heredoc `<< EOF` o `python3 -c "..."` (problemi escape)
 
 ### Step D: Verifica Excel
 1. ✅ **Annuncia** completamento Excel
 2. ✅ **Chiedi review**: "Apri il file e verificalo. Va bene o vuoi modifiche?"
 3. ✅ **LOOP feedback Excel**:
-   - **Se modifiche**: **Skill(xlsx)** per applicare → annuncia → chiedi altre modifiche
+   - **Se modifiche**: **Bash + Python + openpyxl** per applicare → annuncia → chiedi altre modifiche
    - **Se approvato**: Procedi a Step E
 4. ❌ **MAI** chiedere permesso per modificare file (è implicito nel loop)
 
@@ -192,12 +195,12 @@ Documento Markdown (300-500 righe) che **spiega e dettagliare quanto inserito ne
 **Processo**:
 - `process-6-steps.md` - **Dettagli completi del processo 6-step** (Step A→F con azioni, tool usage, output)
 - `examples.md` - Esempi di utilizzo in diversi scenari
+- `anti-patterns.md` - **Errori comuni da evitare** (heredoc, merged cells, sheet structure)
 
-**Domande e Template**:
+**Domande**:
 - `questions/` - Domande per canvas (carica solo quelli necessari):
   - `1-business-model-canvas.md`, `2-lean-canvas.md`, `3-customer-personas.md`
   - `4-channel-implementation.md`, `5-value-proposition.md`
-- `templates/bmc-answers-template.md` - Template per modalità file clarification
 
 **Template Excel**:
 - Template file: `templates/business-model-canvas-template.xlsx` (incluso nella skill)
@@ -205,7 +208,10 @@ Documento Markdown (300-500 righe) che **spiega e dettagliare quanto inserito ne
   - Definisce ESATTAMENTE dove scrivere in ogni foglio
   - Include gestione merged cells (top-left rule)
   - Specifica numero righe, colonne, formato per ogni sezione
-  - **CRITICO**: Evita di "studiare" il template, usa questa mappatura
+  - **CRITICO**: Ogni sheet ha struttura diversa (merged vs. separate)
+  - **Sheet 1**: Tutte celle merged grandi
+  - **Sheet 2**: MISTA - alcune merged, altre separate (F32, F33, N12, N13...)
+  - **Sheet 3-5**: Strutture diverse (consulta template-structure.md)
 
 ---
 
@@ -240,11 +246,15 @@ Documento Markdown (300-500 righe) che **spiega e dettagliare quanto inserito ne
 - ✅ Poni solo domande per gap informativi
 - ✅ Excel prima (output primario) → approvazione → Markdown dopo (output secondario/esplicativo)
 
-### Uso Skill xlsx
-- ✅ **SEMPRE** usa Skill(xlsx) per manipolazione Excel
-- ❌ **MAI** scrivere codice Python diretto in skill BMC
-- ✅ Delega formattazione/popolamento a skill xlsx
-- ✅ Skill xlsx ha expertise su openpyxl e Excel
+### Uso openpyxl via script Python temporanei
+- ✅ **SEMPRE** usa Write + Bash + Python per manipolazione Excel
+- ✅ Pattern: Write script → Bash esegue → Bash rimuove
+- ✅ File temporanei in `/tmp/populate_*.py`
+- ✅ **NO consenso richiesto**: Write + Bash non richiedono autorizzazione
+- ✅ Popola UN FOGLIO ALLA VOLTA (script più semplici e gestibili)
+- ✅ Usa multiline string `"""..."""` per contenuti con a capo
+- ❌ **MAI** usare mcp__ide__executeCode (richiede notebook)
+- ❌ **MAI** usare heredoc `<< EOF` o `python3 -c` (problemi escape)
 
 ### Dual Output
 - ✅ **Genera entrambi** Excel e Markdown
