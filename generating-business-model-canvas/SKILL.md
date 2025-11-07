@@ -51,41 +51,85 @@ Script principale che popola Excel da JSON.
 python3 populate_excel.py <excel_file> <data_json>
 ```
 
-**JSON format**:
+**JSON format dettagliato**:
+
 ```json
 {
   "metadata": {
     "project": "Nome Progetto",
-    "author": "Team",
+    "author": "Team/Designer",
     "date": "2025-01-04",
     "version": "v1.0"
   },
+
   "sheet1": {
-    "key_partners": "🔴 Partner 1\n🔴 Partner 2\n...",
-    "key_activities": "...",
-    "key_resources": "...",
-    "value_propositions": "...",
-    "customer_relationships": "...",
-    "customer_segments": "...",
-    "channels": "...",
-    "cost_structure": "...",
-    "revenue_streams": "..."
+    "key_partners": "🔴 Partner critico 1 - descrizione\n🔴 Partner critico 2\n🟡 Partner importante",
+    "key_activities": "🔴 Attività critica 1\n🟡 Attività importante 2",
+    "key_resources": "🔴 Risorsa critica 1\n🟡 Risorsa importante 2",
+    "value_propositions": "🔴 Value prop principale 1\n🔴 Value prop principale 2",
+    "customer_relationships": "🔴 Self-service\n🟡 Email support",
+    "customer_segments": "🔴 Segmento 1\n🟡 Segmento 2",
+    "channels": "🔴 Direct sales\n🟡 Partner network",
+    "cost_structure": "🔴 Costo fisso (€500/mese)\n🟡 Costo variabile",
+    "revenue_streams": "🔴 Subscription (€49-199/mese)\n🟡 Setup fee"
   },
-  "sheet2": { ... },
+
+  "sheet2": {
+    "problem": "🔴 Problem 1 - descrizione\n🔴 Problem 2\n🟡 Problem 3",
+    "existing_alternatives": "🟡 Alternative 1\n🟡 Alternative 2",
+    "solution": "🔴 Solution 1 - come risolve\n🔴 Solution 2",
+    "key_metrics": "🔴 Metric 1 - Target: 50-100\n🔴 Metric 2 - €100k MRR",
+    "unique_value_proposition": "🔴 Clear one-liner value prop",
+    "high_level_concept": "🟡 Like X but for Y",
+    "unfair_advantage": "🔴 Advantage 1 non copiabile\n🟡 Advantage 2",
+    "channels": "🔴 Direct sales\n🟡 Partners",
+    "customer_segments": "🔴 Target Customers\n🟡 Target Users",
+    "early_adopters": "🔴 Early adopter 1\n🔴 Early adopter 2",
+    "cost_structure": "🔴 CAC: €50\n🔴 Hosting: €500/mese",
+    "revenue_streams": "🔴 Model: Subscription\n🔴 LTV: €2400"
+  },
+
   "sheet3": {
     "personas": [
       {
-        "name": "Persona 1",
-        "description": "...",
-        "attributes": ["attr1", "attr2", ...]
+        "name": "Persona 1 Name",
+        "description": "One-liner descrizione persona",
+        "attributes": [
+          "Demographics: età, location",
+          "Comportamento: tech-savvy, cerca automazione",
+          "Goal: obiettivo principale",
+          "Pain: problema 1",
+          "Pain: problema 2",
+          "Budget: range spesa"
+        ]
+      },
+      {
+        "name": "Persona 2 Name",
+        "description": "One-liner",
+        "attributes": ["Demo: ...", "Goal: ..."]
       }
     ]
   },
-  "sheet4": { ... }
+
+  "sheet4": {
+    "benefits": "🔴 Benefit 1 - outcome emotivo\n🔴 Benefit 2",
+    "features": "🔴 Feature 1 - fattuale\n🟡 Feature 2",
+    "value_proposition": "Statement sintetico value prop",
+    "experience": "Esperienza prodotto - come si sente cliente",
+    "wants": "🔴 Want 1 - desiderio emotivo\n🔴 Want 2",
+    "fears": "🔴 Fear 1 - paura/preoccupazione\n🟡 Fear 2",
+    "rational_needs": "🔴 Need 1 - bisogno razionale\n🟡 Need 2",
+    "substitutes": "Alternativa 1\nAlternativa 2 non ovvia"
+  }
 }
 ```
 
-Vedi firme funzioni in `scripts/sheet_populators.py` per dettagli campi.
+**Note**:
+- Tutti i campi **opzionali** (default `''`)
+- `\n` per a capo in celle merged
+- Priorità: 🔴 (critica), 🟡 (importante), 🟢 (nice-to-have)
+- Sheet3: max 3 personas
+- Contenuti: sintetici con numeri/metriche
 
 ---
 
@@ -93,9 +137,10 @@ Vedi firme funzioni in `scripts/sheet_populators.py` per dettagli campi.
 
 - `scripts/populate_excel.py` - Script principale
 - `scripts/sheet_populators.py` - Funzioni per ogni sheet (firme dettagliate)
+- `scripts/README.md` - Documentazione script + JSON format
 - `template-structure.md` - Mappatura celle Excel (reference)
 - `process-6-steps.md` - Dettagli processo 6-step
-- `questions/` - Domande per canvas (1-4)
+- `questions/` - Domande guida per ogni canvas (1-4)
 
 ---
 

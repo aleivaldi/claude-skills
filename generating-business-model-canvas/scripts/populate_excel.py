@@ -41,6 +41,13 @@ def populate_metadata(ws, metadata):
 
 
 def main():
+    """
+    Entry point: carica JSON, popola Excel con 4 canvas, salva.
+
+    Exit codes:
+        0: Success
+        1: Error (file not found, invalid JSON, save failed)
+    """
     if len(sys.argv) != 3:
         print("Usage: python3 populate_excel.py <excel_file> <data_json_file>")
         print("\nExample:")

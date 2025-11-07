@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """
 Funzioni per popolare ogni sheet del Business Model Canvas.
-Ogni funzione riceve un worksheet openpyxl e un dict con i dati.
+
+Ogni funzione riceve:
+- ws: Worksheet openpyxl
+- data: Dict con campi specifici per lo sheet
+
+Tutti i campi sono OPZIONALI (usano .get() con default '').
+Contenuti con \n per andare a capo in celle merged.
+Priorità consigliate: 🔴 (critica), 🟡 (importante), 🟢 (nice-to-have)
 """
 
 from openpyxl.styles import Alignment

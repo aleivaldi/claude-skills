@@ -26,7 +26,7 @@ Il requirements.md deve essere:
 8. **Next Steps** - Sempre
 
 ### Sezioni Solitamente Necessarie
-- **Competitive Landscape** - Sempre basic, approfondito se competitor-analysis.md disponibile
+- **Competitive Landscape** - Sempre basic, anche se competitor-analysis.md è disponibile ne deve essere una sintesi
 - **Dettaglio Elementi Sistema** - Se sistema complesso (3+ elementi)
 - **Assunzioni e Domande Aperte** - Se assunzioni significative o decisioni da prendere
 

@@ -1,22 +1,21 @@
-# Canvas Questions - Struttura
+# Domande Guida per Canvas
 
-Domande e esempi di risposte per ciascun canvas, organizzate per facilitare il caricamento selettivo.
-
-## File Disponibili
-
-- **`1-business-model-canvas.md`** - Business Model Canvas (9 blocchi classici)
-- **`2-lean-canvas.md`** - Lean Canvas (focus problem-solution)
-- **`3-customer-personas.md`** - Customer Personas Canvas
-- **`4-value-proposition.md`** - Value Proposition Canvas
+Domande strategiche per guidare l'analisi di ogni canvas.
 
 ## Uso
 
-- **Step B (Clarification)**: Leggi solo i canvas per cui mancano informazioni
-- **Step C (Generazione)**: Usa come guida per estrarre info da brief e assegnare priorità
+- **Step B (Clarification)**: Usa se info mancanti nel brief
+- **Principio**: Domande aperte che guidano pensiero strategico, NON checklist rigida
 
-## Formato Domande
+## File
 
-Ogni file contiene:
-- **Domanda**: Cosa chiedere/identificare
-- **Esempi risposte**: Con priorità 🔴🟡🟢
-- **Note**: Specifiche per il canvas
+1. **business-model-canvas.md** - 9 blocchi classici
+2. **lean-canvas.md** - Focus problem-solution  
+3. **customer-personas.md** - Profili utenti dettagliati
+4. **value-proposition.md** - Jobs-pains-gains
+
+## Note
+
+- Domande sono **guide**, non template rigidi
+- Adatta al contesto specifico del progetto
+- Focus su "PERCHÉ" oltre al "COSA"

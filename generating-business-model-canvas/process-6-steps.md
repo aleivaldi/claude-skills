@@ -39,24 +39,7 @@
    cp ~/.claude/skills/generating-business-model-canvas/templates/business-model-canvas-template.xlsx ./business-model-canvas.xlsx
    ```
 
-2. **Genera JSON** con dati strutturati:
-   ```json
-   {
-     "metadata": {
-       "project": "...",
-       "author": "...",
-       "date": "2025-01-04",
-       "version": "v1.0"
-     },
-     "sheet1": {
-       "key_partners": "🔴 Partner 1\n🔴 Partner 2\n...",
-       ...
-     },
-     "sheet2": { ... },
-     "sheet3": { "personas": [...] },
-     "sheet4": { ... }
-   }
-   ```
+2. **Genera JSON** con dati strutturati (vedi formato in `SKILL.md` o `scripts/README.md`)
 
 3. **Write**: Salva JSON in `/tmp/bmc_data.json`
 
