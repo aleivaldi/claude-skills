@@ -1,15 +1,15 @@
 ---
 name: frontend-spec-from-stories
-description: Genera Frontend Specifications complete (Sitemap + Screen Inventory) da user stories o project brief. Processo interattivo in 7 fasi che propone soluzioni UX ottimali con raccomandazioni. Output Markdown pronto per designer. Supporta iterazione via edit diretto, commenti o chat. Adatta lingua automaticamente a input ricevuto (italiano/inglese).
+description: Genera Frontend Specifications funzionali (Sitemap + Screen Inventory) da user stories o project brief. Processo interattivo in 7 fasi focalizzato su COSA fa ogni schermata (dati, azioni, input) non COME (layout, UX). Output Markdown sintetico ma esaustivo, input per UI/UX experts. Supporta iterazione via edit diretto, commenti o chat. Adatta lingua automaticamente a input ricevuto (italiano/inglese).
 ---
 
 # Frontend Specifications Generator
 
 ## Il Tuo Compito
 
-Genera un documento completo di **Frontend Specifications** (Sitemap + Screen Inventory & Features) partendo da user stories o project brief. Guidi l'utente attraverso un processo interattivo in 7 fasi, proponendo soluzioni UX ottimali con raccomandazioni chiare basate su best practices. Supporti iterazione fino a soddisfazione dell'utente.
+Genera un documento di **Frontend Specifications funzionali** (Sitemap + Screen Inventory) partendo da user stories o project brief. Guidi l'utente attraverso un processo interattivo in 7 fasi, focalizzandoti su **requisiti funzionali** (cosa fa ogni schermata) non su soluzioni implementative o estetiche (come è fatto). Supporti iterazione fino a soddisfazione dell'utente.
 
-**Obiettivo finale**: Documento Markdown completo, pronto per essere condiviso con designer e contenente sitemap, screen details, navigation flows, e coverage matrix.
+**Obiettivo finale**: Documento Markdown sintetico ma esaustivo, contenente sitemap, specifiche funzionali per ogni screen, navigation flows. Pronto per essere usato per mostrare a cliente possibile e soluzione e  da UI/UX experts come input per decisioni di design.
 
 ---
 
@@ -55,7 +55,7 @@ Invoca quando l'utente:
 **PRINCIPIO**: Chiedi SOLO per ambiguità reali. Se evidente dal documento, procedi senza chiedere.
 
 **Usa AskUserQuestion SOLO per**:
-- **App structure ambigua**: non chiaro se utenti e admin in app unica o separate
+- **App structure o funzionalità ambigua**: non è chiaro cosa vuole l'utente e ci sono diverse opzioni che potrebbero essere valide
   - Proponi opzione raccomandata + alternatives con rationale
 - **Piattaforme non specificate**: manca info web/mobile/both
 - **Ruoli ambigui**: ruoli mal definiti nelle stories
@@ -69,128 +69,81 @@ Invoca quando l'utente:
 
 ---
 
-### Fase 2: Proposta UX Approach
+### Fase 2: Scelte Architetturali (SE necessario)
 
-**SEMPRE proponi approccio UX** con raccomandazione basata su tipo applicazione (SaaS/E-commerce/Dashboard/etc).
+**SOLO se necessario, chiedi scelte architetturali macro** che impattano la struttura:
 
-**Formato proposta**:
-```
-Per questo tipo di applicazione [tipo], propongo:
+**Quando chiedere**:
+- App separata per admin vs sezione integrata
+- Multiple app distinte (web user + mobile + admin panel)
+- Struttura macro non deducibile dal documento
 
-**Approccio raccomandato: [Nome]**
-- [Descrizione breve]
-- Pro: [vantaggi specifici per questo progetto]
-- Contro: [limitazioni se esistono]
+**Quando NON chiedere**:
+- Pattern di navigazione (lascia a UI/UX expert)
+- Layout specifici o pattern UX
+- Dettagli implementativi
 
-Alternative:
-A) [Altro approccio]: [quando ha senso]
-B) [Altro approccio]: [quando ha senso]
+**Usa AskUserQuestion** solo per scelte architetturali critiche.
 
-Raccomando [approccio] perché [motivo specifico]. Procedo così?
-```
-
-**Obiettivo**: UX ottima minimizzando azioni/click. Considera task frequency, cognitive load, mobile-first se rilevante.
-
-**Usa AskUserQuestion** per ottenere conferma approccio.
-
-**Output fase**: Approccio UX scelto e confermato.
+**Output fase**: Scelte architetturali macro confermate (se necessarie).
 
 ---
 
 ### Fase 3: Sitemap Structure
 
-**Genera sitemap gerarchica** mostrando struttura completa dell'applicazione.
+**Genera sitemap gerarchica** mostrando struttura  dell'applicazione.
 
 **Azioni**:
 1. Analizza user stories/brief per identificare aree logiche
 2. Raggruppa funzionalità correlate
 3. Proponi struttura con:
-   - Max 3-4 livelli di profondità (ottimale per navigazione)
    - Separazione chiara tra public/authenticated/admin areas
    - Feature grouping logico
+   - Profondità ragionevole (evita troppi livelli nested)
 4. **Proponi con rationale** (formato albero testuale)
-5. Specifica navigation approach:
-   - Global navigation (sidebar/top bar/bottom nav)
-   - Mobile specifics (hamburger/bottom nav/tab bar)
-   - Breadcrumb strategy
-   - Access control per path
+5. Specifica access control per path (chi può accedere a cosa)
 
 **Usa AskUserQuestion** per confermare struttura o scegliere tra alternative.
 
-**Considera**:
-- Profondità navigazione (max 3-4 livelli raccomandati)
-- Mobile navigation patterns
-- Access control e redirects
+**NON specificare**:
+- Navigation patterns (sidebar/top bar/etc) - lascia a UI/UX expert
+- Mobile specifics - lascia a UI/UX expert
+- Breadcrumb strategy - lascia a UI/UX expert
 
-**Output fase**: Sitemap approvata con navigation strategy.
+**Output fase**: Sitemap approvata con access control.
 
----
 
-### Fase 4: Identificazione Schermate
+### Fase 4: Dettaglio per Schermata
 
-Per ogni nodo della sitemap, dettagliare la schermata.
+Per ogni schermata approvata, genera dettagli funzionali (cosa fa, non come).
+Prima di chiedere all'utente di verificare il documento esegui una gap analyisis il documento analizza i
 
-**Azioni per ogni gruppo di funzionalità**:
-1. Identifica stories correlate
-2. **Proponi screen con raccomandazione**:
-   - Nome schermata + route/screen ID
-   - Rationale (es: "riduce navigazione", "unifica contesto")
-   - Layout suggerito + componenti principali
-   - Alternative meno ottimali con spiegazione
-3. **SE responsive**: evidenzia differenze mobile vs web
+**Informazioni da includere**:
 
-**Usa AskUserQuestion** per confermare ogni proposta o scegliere alternative.
-
-**Output fase**: Lista schermate approvate per ogni nodo sitemap.
-
----
-
-### Fase 5: Dettaglio per Schermata
-
-Per ogni schermata approvata, genera dettagli completi.
-
-**Informazioni da includere** (proponi soluzioni già complete):
-
-**Layout e Componenti**:
-- Main sections della pagina
-- **Componenti interattivi completi**:
-  - N bottoni con azioni specifiche
-  - Form/inputs con tipo e purpose
-  - Dropdown, slider, checkbox, context menu, etc.
-  - **Gestures mobile**: swipe, long-press, pull-to-refresh, etc.
-- **Platform differences** (solo se esistono): mobile vs web specifics
-- **Raccomandazioni** con rationale (es: "skeleton table per perceived performance")
-
-**Data Displayed**:
-- Field/section con source (entity.field)
-- Formato/trasformazione se rilevante
-
-**Actions**:
-- Per ogni azione: who (roles), trigger, flow, confirmation type, states
-- Reference a story ID se disponibile
-
-**States & Feedback**:
-- Loading: soluzione specifica + rationale
-- Empty: CTA + messaging + rationale
-- Error: recovery mechanism
-- Success: feedback tipo
+**Nome pagina** (/path):
+- Lista informazioni/dati mostrati
+- Tipo di dato (es: testo, numero, data, immagine, lista)
+- Lista azioni con chi può eseguirla (roles)
+- Eventuali conferme necessarie (es: delete richiede conferma)
+- Lista campi input con tipo 
+- Validazioni necessarie 
 
 **Navigation**:
 - Entry points (da dove si arriva)
 - Exit points (dove si va)
-- Breadcrumb se applicabile
 
-**Proponi sempre con raccomandazione** (es: "Propongo modal per conferma delete perché previene errori. Alternative: inline confirmation (più veloce ma rischiosa)").
+**NON includere**:
+- Layout/posizionamento componenti
+- Platform differences (mobile vs web)
+- Gestures specifiche
+- Raccomandazioni UX implementative
+- Soluzioni specifiche (es: skeleton vs spinner, modal vs inline)
 
-**Usa AskUserQuestion** solo per scelte critiche dove multiple opzioni sono ugualmente valide.
 
-**Output fase**: Dettagli completi per tutte le schermate.
 
----
+#### Gap Analysis
 
-### Fase 6: Gap Analysis
-
-**DOPO aver completato tutte le schermate**:
+**DOPO aver completato tutte le schermate, prima di chiedere conferma all'utente**:
 
 1. ✅ Identifica user stories NON coperte (se input era user stories)
 2. ✅ **Identifica scenari critici non menzionati ma necessari**:
@@ -199,27 +152,22 @@ Per ogni schermata approvata, genera dettagli completi.
    - Network error handling
    - Session timeout behavior
    - First-time user onboarding (se rilevante)
-3. ✅ Segnala inconsistenze o problemi UX potenziali
-4. ❌ **NON inventare features** - solo evidenziare lacune critiche
+3. ✅ In caso di dubbi su come implementare/risolvere quanto emerso, proponi soluzione concreta e chiedi conferma con **AskUserQuestion**. 
 
-**Per ogni gap**: proponi soluzione concreta e chiedi conferma con **AskUserQuestion**.
-
-**Output fase**: Gap identificati e soluzioni proposte/approvate.
+**Output fase**: Specifiche funzionali complete per tutte le schermate. Le proprietà emerse da gap analysis e non presenti nei requisiti/user stories hanno il simbolo  ⚠️ 
 
 ---
 
-### Fase 7: Generazione Documento e Iterazione
+
+### Fase 5: Generazione Documento e Iterazione
 
 **Azioni**:
 1. ✅ **Write** il documento finale usando template (`templates/frontend-spec-template.md`)
 2. Popola tutte le sezioni con informazioni raccolte
 3. Genera:
    - Sitemap visual structure
-   - Access matrix
-   - Screen details completi
+   - Screen details 
    - Navigation flow diagram
-   - Coverage matrix (se da user stories)
-   - Gap analysis section
 4. Informa utente del path del file creato
 
 **Supporta iterazione in 3 modi**:
@@ -310,33 +258,17 @@ Per ogni schermata approvata, genera dettagli completi.
 
 ## Behavior Guidelines
 
-### Tono: Conciso e Diretto
+### Tono: Conciso e Funzionale
 - Evita prolissità - vai al punto
-- 1-2 righe per rationale, non saggi
+- Focus su requisiti funzionali, non soluzioni implementative
 - Usa bullet points invece di paragrafi dove possibile
-
-### Proponi Sempre con Raccomandazione
-**Formato standard**:
-```
-Raccomando A perché [motivo specifico].
-Alternative: B (quando), C (quando).
-Preferenza?
-```
-- Include rationale breve ma chiaro (UX, performance, best practice)
-- Non elencare opzioni senza opinione
+- Descrivi cosa serve, non come implementarlo
 
 ### Evidenzia Gap Critici
 - Feature critica mancante (auth, errors, permissions, 404/403)
 - Edge case comune non coperto
 - Inconsistenze nelle stories
-- **Non bloccare per gap minori** - proponi soluzione default e procedi
-
-### Mobile vs Web
-**SE responsive**:
-- Default mobile-first approach
-- Evidenzia differenze SOLO quando esistono
-- Considera: touch targets (min 44x44px), gestures, screen real estate
-- Specifica breakpoints se rilevante
+- **Non bloccare per gap minori** - documenta e procedi
 
 ---
 
@@ -344,31 +276,19 @@ Preferenza?
 
 **File generato**: `frontend-specifications.md` (o nome scelto dall'utente)
 
-**Contenuto** (vedi `templates/frontend-spec-template.md` per struttura completa):
-1. Overview (project, app type, UX approach, platforms)
-2. User Roles
-3. **Sitemap** (visual structure, navigation levels, access matrix)
-4. **Screens Inventory** (dettagli completi per ogni schermata)
-5. Navigation Flow Diagram
-6. **Coverage & Gaps** (stories covered, gaps identificati)
-7. Open Questions (se esistono)
-8. Change Log
+**Contenuto** (vedi `templates/frontend-spec-template.md` per struttura completa)
 
-**Pronto per**: Designer (layout, componenti), PM (validazione coverage), Dev (riferimento implementazione).
+**Pronto per**: UI/UX experts (design decisions), PM (validazione coverage), Dev (riferimento implementazione).
 
 ---
 
 ## Success Criteria
 
-✅ Sitemap completa con max 3-4 livelli
-✅ Navigation pattern definito (global + contextual)
-✅ Access control documentato per ogni path
-✅ Ogni schermata ha: sitemap location, layout, componenti interattivi, dati, azioni, stati, navigation
-✅ Differenze mobile/web evidenziate (se esistono)
-✅ UX approach applicato consistentemente
-✅ Gap critici identificati e proposti
+✅ Sitemap  con struttura logica
+✅ Ogni schermata ha: purpose, dati visualizzati, azioni disponibili, input richiesti, componenti necessari, stati, navigation
+✅ Focus su requisiti funzionali (cosa), non implementazione (come)
 ✅ Ogni story mappata a schermata (o gap documentato) - se da stories
-✅ Documento completo, chiaro, actionable
+✅ Documento chiaro, actionable per UI/UX experts
 ✅ Utente ha iterato fino a soddisfazione
 
 ---

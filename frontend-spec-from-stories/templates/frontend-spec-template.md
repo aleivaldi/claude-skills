@@ -11,8 +11,8 @@
 
 **Project:** [Project Name]
 **Application Type:** [Web App/Mobile App/Desktop App/Multi-platform]
-**UX Approach:** [Chosen approach + brief rationale]
-**Target Platforms:** [Desktop/Mobile/Tablet - specify breakpoints if responsive]
+**Target Platforms:** [Desktop/Mobile/Tablet/Multi-platform]
+**Purpose:** [Brief description of what this application does - 1-2 lines]
 
 ---
 
@@ -57,24 +57,6 @@
 └─ /admin/system
 ```
 
-### Navigation Levels
-
-- **L0 - Entry Points:** [Description of public pages]
-- **L1 - Main Areas:** [Description of primary authenticated sections]
-- **L2 - Feature Pages:** [Description of feature-specific pages]
-- **L3 - Deep Pages:** [Description of detail/deep pages - max recommended depth]
-
-### Global Navigation
-
-**Primary Nav (always visible):**
-- [List of main navigation items]
-- **Position:** [sidebar/top bar/bottom bar]
-- **Mobile:** [hamburger/bottom nav/tab bar]
-
-**Secondary Nav (contextual):**
-- [Where it appears]
-- [When it appears]
-
 ### Access Matrix
 
 | Path Pattern | Roles | Redirect if Unauthorized |
@@ -84,13 +66,6 @@
 | /app/* | User, Admin | /login |
 | /admin/* | Admin only | /dashboard |
 
-### Navigation Notes
-
-- **Deep linking:** [Support for direct URLs with auth check]
-- **Breadcrumbs:** [Where needed - typically beyond L2]
-- **Back behavior:** [Browser back vs app back button]
-- **Mobile specifics:** [Gesture navigation, bottom nav behavior, etc.]
-
 ---
 
 ## 4. Screens Inventory
@@ -99,60 +74,62 @@
 
 **Route:** `/path/to/screen` (web) | **Screen ID:** `ScreenName` (mobile)
 **Users:** [Role1, Role2]
-**Satisfies:** US-001, US-003 | **Platform:** Web + Mobile
+**Satisfies:** US-001, US-003
 **Sitemap Location:** [Path from sitemap - e.g., /app/feature-a/list]
 
 #### Purpose
-[1-2 lines describing what this screen does]
+[1-2 lines describing what this screen does - functional goal]
 
-#### Layout & Components
+#### Data Displayed (cosa si vede)
 
-**Main Sections:**
-- [Section 1]: [Concise description]
-- [Section 2]: [Concise description]
+- **[Information/Data 1]:** [Source: entity.field] - [Type: text/number/date/image/list/etc]
+- **[Information/Data 2]:** [Source: entity.field or "Calculated"] - [Type]
+- **[Section/Group]:** [Description of grouped information]
 
-**Interactive Elements:**
-- **Buttons** ([N] total):
-  - [Button 1]: [Action/destination]
-  - [Button 2]: [Action/destination]
-- **Forms/Inputs** ([N] total): [Type and purpose]
-- **Dropdowns/Select**: [List]
-- **Other Controls**: checkbox, radio, slider, toggle, context menu, etc.
-- **Gestures (mobile):** swipe, long-press, pull-to-refresh, pinch-to-zoom, etc.
-
-**Platform Differences:**
-- **Mobile:** [Only if different from web]
-- **Web:** [Only if different from mobile]
-
-#### Data Displayed
-
-- **[Field/Section]:** Source (entity.field) - [format/transformation if relevant]
-- **[Field/Section]:** Calculated ([formula/logic])
-
-#### Actions
+#### Actions Available (quali azioni)
 
 **[Action Name]** (US-XXX)
 - **Who:** [Roles that can perform]
-- **Trigger:** [Button/gesture/event]
-- **Flow:** [Step1 → Step2 → Result]
-- **Confirmation:** [Modal/inline - with rationale]
-- **States:** Loading/success/error behavior
+- **What:** [What this action does]
+- **Confirmation:** [Yes/No - if yes, specify why needed]
 
-#### States & Feedback
+**[Action Name]** (US-XXX)
+- **Who:** [Roles]
+- **What:** [Description]
+- **Confirmation:** [Yes/No]
 
-- **Loading:** [Solution - e.g., skeleton, spinner] - [Rationale]
-- **Empty:** [CTA + messaging] - [Rationale]
-- **Error:** [Recovery mechanism - e.g., toast + retry]
-- **Success:** [Feedback - e.g., toast, animation, redirect]
+#### Input Required (quali input inserire)
+
+**[Field Name]:**
+- **Type:** [text/number/email/date/select/checkbox/radio/file/etc]
+- **Purpose:** [What this input is for]
+- **Validation:** [required/optional, format requirements, range, etc]
+
+**[Field Name]:**
+- **Type:** [type]
+- **Purpose:** [purpose]
+- **Validation:** [validation rules]
+
+#### Components Needed
+
+- [Component type: button/form/table/list/search/filter/modal/dialog/dropdown/etc]
+- [Component type]
+- [Component type]
+
+#### States
+
+- **Loading:** [When data is being loaded]
+- **Empty:** [When no data is available - what message/CTA to show]
+- **Error:** [When operation fails - what info to show, recovery options]
+- **Success:** [When operation succeeds - what feedback to provide]
 
 #### Navigation
 
 **Entry points:** [List of paths/screens that lead here]
 **Exit points:** [List of paths/screens reachable from here]
-**Breadcrumb:** [If applicable - structure]
 
 #### Notes
-[Technical constraints, design considerations, open questions]
+[Functional constraints, business rules, open questions]
 
 ---
 
