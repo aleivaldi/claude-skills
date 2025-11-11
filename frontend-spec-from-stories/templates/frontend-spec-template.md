@@ -70,70 +70,29 @@
 
 ## 4. Screens Inventory
 
-### [Screen Name]
+### [Screen Name] (`/path/to/screen`, [Role1, Role2])
+[1 line describing screen purpose]
 
-**Route:** `/path/to/screen` (web) | **Screen ID:** `ScreenName` (mobile)
-**Users:** [Role1, Role2]
-**Satisfies:** US-001, US-003
-**Sitemap Location:** [Path from sitemap - e.g., /app/feature-a/list]
+#### Data Displayed
+- [Field/Info Name] ([type])
+- [Field/Info Name] ([type])
+- [Nested structure]:
+  - [Sub-field] ([type])
+  - [Sub-field] ([type])
+- [Field/Info Name] ([type])
 
-#### Purpose
-[1-2 lines describing what this screen does - functional goal]
+#### Actions Available
+- [Action Name]
+- [Action Name]
+- [Action Name]
 
-#### Data Displayed (cosa si vede)
-
-- **[Information/Data 1]:** [Source: entity.field] - [Type: text/number/date/image/list/etc]
-- **[Information/Data 2]:** [Source: entity.field or "Calculated"] - [Type]
-- **[Section/Group]:** [Description of grouped information]
-
-#### Actions Available (quali azioni)
-
-**[Action Name]** (US-XXX)
-- **Who:** [Roles that can perform]
-- **What:** [What this action does]
-- **Confirmation:** [Yes/No - if yes, specify why needed]
-
-**[Action Name]** (US-XXX)
-- **Who:** [Roles]
-- **What:** [Description]
-- **Confirmation:** [Yes/No]
-
-#### Input Required (quali input inserire)
-
-**[Field Name]:**
-- **Type:** [text/number/email/date/select/checkbox/radio/file/etc]
-- **Purpose:** [What this input is for]
-- **Validation:** [required/optional, format requirements, range, etc]
-
-**[Field Name]:**
-- **Type:** [type]
-- **Purpose:** [purpose]
-- **Validation:** [validation rules]
-
-#### Components Needed
-
-- [Component type: button/form/table/list/search/filter/modal/dialog/dropdown/etc]
-- [Component type]
-- [Component type]
-
-#### States
-
-- **Loading:** [When data is being loaded]
-- **Empty:** [When no data is available - what message/CTA to show]
-- **Error:** [When operation fails - what info to show, recovery options]
-- **Success:** [When operation succeeds - what feedback to provide]
-
-#### Navigation
-
-**Entry points:** [List of paths/screens that lead here]
-**Exit points:** [List of paths/screens reachable from here]
-
-#### Notes
-[Functional constraints, business rules, open questions]
+#### Input Required (only if screen has forms)
+- [Field Name] ([type, validation])
+- [Field Name] ([type, validation])
 
 ---
 
-### [Screen Name]
+### [Screen Name] (`/path/to/screen`, [Role1, Role2])
 [Repeat structure above for each screen]
 
 ---

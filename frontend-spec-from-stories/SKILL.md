@@ -115,24 +115,44 @@ Invoca quando l'utente:
 
 ### Fase 4: Dettaglio per Schermata
 
-Per ogni schermata approvata, genera dettagli funzionali (cosa fa, non come).
-Prima di chiedere all'utente di verificare il documento esegui una gap analyisis il documento analizza i
+Per ogni schermata approvata, genera dettagli funzionali **sintetici e concisi** (cosa fa, non come).
 
-**Informazioni da includere**:
+**Formato richiesto (MOLTO CONCISO)**:
 
-**Nome pagina** (/path):
-- Lista informazioni/dati mostrati
-- Tipo di dato (es: testo, numero, data, immagine, lista)
-- Lista azioni con chi può eseguirla (roles)
-- Eventuali conferme necessarie (es: delete richiede conferma)
-- Lista campi input con tipo 
-- Validazioni necessarie 
+```markdown
+### [Screen Name] (`/path`, [Role])
+[1 line purpose]
 
-**Navigation**:
-- Entry points (da dove si arriva)
-- Exit points (dove si va)
+#### Data Displayed
+- [Field Name] ([type])
+- [Field Name] ([type])
+- [Nested Structure] (table/list):
+  - [Sub-field] ([type])
+  - [Sub-field] ([type])
 
-**NON includere**:
+#### Actions Available
+- [Action Name]
+- [Action Name]
+
+#### Input Required (solo se ha form)
+- [Field] ([type, validation])
+```
+
+**COSA includere**:
+- Dati mostrati con tipo (text, number, date, list, etc)
+- Azioni disponibili (lista nomi semplici)
+- Input richiesti con tipo e validazione base
+- 1 riga di purpose
+
+**COSA NON includere**:
+- Source dati (entity.field)
+- Chi può eseguire azioni (già indicato in header con roles)
+- Conferme necessarie (a meno che non critiche)
+- Entry/Exit points dettagliati
+- Components needed
+- States (loading/empty/error)
+- Navigation dettagliata
+- Note extra
 - Layout/posizionamento componenti
 - Platform differences (mobile vs web)
 - Gestures specifiche
@@ -258,11 +278,14 @@ Prima di chiedere all'utente di verificare il documento esegui una gap analyisis
 
 ## Behavior Guidelines
 
-### Tono: Conciso e Funzionale
-- Evita prolissità - vai al punto
-- Focus su requisiti funzionali, non soluzioni implementative
-- Usa bullet points invece di paragrafi dove possibile
-- Descrivi cosa serve, non come implementarlo
+### Tono: Sintetico e Essenziale
+- **MASSIMA concisione** - ogni parola deve essere necessaria
+- Solo liste puntate, MAI paragrafi o descrizioni lunghe
+- Purpose screen: 1 riga massimo
+- Dati: solo nome + tipo tra parentesi
+- Azioni: solo nome azione (niente spiegazioni aggiuntive)
+- Elimina tutto ciò che è inferibile o ridondante
+- Focus su requisiti funzionali minimi, non soluzioni implementative
 
 ### Evidenzia Gap Critici
 - Feature critica mancante (auth, errors, permissions, 404/403)
@@ -284,11 +307,12 @@ Prima di chiedere all'utente di verificare il documento esegui una gap analyisis
 
 ## Success Criteria
 
-✅ Sitemap  con struttura logica
-✅ Ogni schermata ha: purpose, dati visualizzati, azioni disponibili, input richiesti, componenti necessari, stati, navigation
+✅ Sitemap con struttura logica
+✅ Ogni schermata ha: purpose (1 riga), dati visualizzati (con tipo), azioni disponibili, input richiesti (solo se form)
+✅ Formato sintetico e conciso - solo informazioni essenziali
 ✅ Focus su requisiti funzionali (cosa), non implementazione (come)
 ✅ Ogni story mappata a schermata (o gap documentato) - se da stories
-✅ Documento chiaro, actionable per UI/UX experts
+✅ Documento chiaro e rapido da leggere per UI/UX experts
 ✅ Utente ha iterato fino a soddisfazione
 
 ---
