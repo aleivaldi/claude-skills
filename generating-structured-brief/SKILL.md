@@ -107,7 +107,7 @@ Durante il workflow, questi file vengono creati/modificati:
 
 ### 2. brief-structured.md (skill crea in Fase 2)
 - **Creato da**: Skill (Fase 2)
-- **Modificato da**: Skill basato su brief.md e assunzioni
+- **Modificato da**: Skill basato su brief.md e assunzioni. Da utente per risopndere a domande 
 - **Scopo**: Documento COMPLETO e DEFINITIVO che SOSTITUISCE brief.md. Contiene tutte le informazioni dal brief originale più tutto ciò dedotto e fornito dall'utente. Stand-alone, condivisibile con stakeholder.
 - **Ciclo di vita**: Modificato fino a quando l'utente non lo approva. Dopo l'approvazione, brief.md diventa obsoleto. Può essere input per skill `generating-requirements-document`.
 
