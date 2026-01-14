@@ -41,11 +41,11 @@ Va bene o preferisci struttura diversa (es: Ruolo A con mappa seprata)?
 ```
 Claude: Per la gestione utenti (US-001 a US-005), propongo pagina unica "Admin > Users".
 
-### Users
+### Users (/admin/users)
 - Lista utenti con: 
-   - Nome
-   - Email
-   - Ruolo 
+   - Nome (stringa)
+   - Email (stringa con formato verificato)
+   - Ruolo (elenco a scelta multipla)
    - ⚠️ Stato (Active/Disabled)
    - Data registrazione
    - AZIONI POSSIBILI SU ELEMENTO

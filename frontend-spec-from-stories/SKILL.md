@@ -161,20 +161,7 @@ Per ogni schermata approvata, genera dettagli funzionali **sintetici e concisi**
 
 
 
-#### Gap Analysis
-
-**DOPO aver completato tutte le schermate, prima di chiedere conferma all'utente**:
-
-1. ✅ Identifica user stories NON coperte (se input era user stories)
-2. ✅ **Identifica scenari critici non menzionati ma necessari**:
-   - 403 Forbidden page (unauthorized access)
-   - 404 Not Found page
-   - Network error handling
-   - Session timeout behavior
-   - First-time user onboarding (se rilevante)
-3. ✅ In caso di dubbi su come implementare/risolvere quanto emerso, proponi soluzione concreta e chiedi conferma con **AskUserQuestion**. 
-
-**Output fase**: Specifiche funzionali complete per tutte le schermate. Le proprietà emerse da gap analysis e non presenti nei requisiti/user stories hanno il simbolo  ⚠️ 
+**Output fase**: Specifiche funzionali complete per tutte le schermate. 
 
 ---
 
@@ -183,11 +170,12 @@ Per ogni schermata approvata, genera dettagli funzionali **sintetici e concisi**
 
 **Azioni**:
 1. ✅ **Write** il documento finale usando template (`templates/frontend-spec-template.md`)
-2. Popola tutte le sezioni con informazioni raccolte
-3. Genera:
-   - Sitemap visual structure
-   - Screen details 
-   - Navigation flow diagram
+2. Popola **SOLO** le sezioni:
+   - Overview
+   - User Roles
+   - Sitemap (con access matrix)
+   - Screens Inventory (formato conciso)
+3. **NON generare** altre sezioni (Navigation Flow, Coverage & Gaps, Data Requirements, etc.)
 4. Informa utente del path del file creato
 
 **Supporta iterazione in 3 modi**:
@@ -299,7 +287,11 @@ Per ogni schermata approvata, genera dettagli funzionali **sintetici e concisi**
 
 **File generato**: `frontend-specifications.md` (o nome scelto dall'utente)
 
-**Contenuto** (vedi `templates/frontend-spec-template.md` per struttura completa)
+**Sezioni incluse**:
+1. Overview (project info, purpose)
+2. User Roles (brevi descrizioni)
+3. Sitemap (struttura + access matrix)
+4. Screens Inventory (formato conciso: data displayed, actions, input se form)
 
 **Pronto per**: UI/UX experts (design decisions), PM (validazione coverage), Dev (riferimento implementazione).
 
