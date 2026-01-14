@@ -90,6 +90,16 @@ WebSearch: "Product Hunt [categoria]"
 
 **Obiettivo**: Identificare 7-12 competitor potenziali (restringeremo a 5-7 principali)
 
+**⚠️ IMPORTANTE - Traccia Link Durante WebSearch**:
+- **Salva URL** di ogni fonte utile trovata durante WebSearch
+- **Numerazione footnotes**: Assegna [^1], [^2], [^3]... progressivamente
+- **Annota data**: Quando accedi a ogni fonte
+- Usa struttura temporanea durante ricerca:
+  ```
+  [^1]: Market Size Report - https://... - Accessed 2024-XX-XX
+  [^2]: Competitor A Website - https://competitorA.com - Accessed 2024-XX-XX
+  ```
+
 ---
 
 ### Passo 3: Raccogliere Informazioni per Ogni Competitor
@@ -97,13 +107,13 @@ WebSearch: "Product Hunt [categoria]"
 Per ogni competitor identificato, raccogliere tramite WebSearch:
 
 **Informazioni Base**:
-- Nome e website
+- Nome e website → **Salva link**: [^N]: Competitor Website - https://...
 - Tagline/positioning statement
 - Tipo (direct/indirect competitor)
-- Anno fondazione (se trovato)
+- Anno fondazione (se trovato) → **Salva link fonte**: [^N]: Crunchbase/About Page - https://...
 
 **Features Principali**:
-- Lista features chiave (top 5-7)
+- Lista features chiave (top 5-7) → **Salva link**: [^N]: Features Page - https://competitor.com/features
 - Cosa fanno meglio
 - Cosa non fanno o limitazioni note
 
@@ -111,6 +121,7 @@ Per ogni competitor identificato, raccogliere tramite WebSearch:
 - Modello pricing (Freemium, Subscription, One-time, Usage-based)
 - Range prezzi (Entry tier, Mid tier, Enterprise)
 - Trial/Free tier se disponibile
+- **SEMPRE salva link**: [^N]: Pricing Page - https://competitor.com/pricing - Accessed 2024-XX-XX
 
 **Target Market**:
 - B2B vs B2C
@@ -120,12 +131,14 @@ Per ogni competitor identificato, raccogliere tramite WebSearch:
 
 **Market Position**:
 - Leader / Challenger / Niche player
-- Funding status (se disponibile - es. "Series B, $50M raised")
-- Numero utenti/clienti (se pubblico)
+- Funding status (se disponibile) → **Salva link**: [^N]: Crunchbase - https://crunchbase.com/organization/...
+- Numero utenti/clienti (se pubblico) → **Salva link fonte**: [^N]: Company Blog/Press Release - https://...
 
 **Punti Forza e Debolezza**:
 - Da reviews, feedback pubblici, website
 - Essere oggettivi
+- **Salva link reviews**: [^N]: G2 Reviews - https://g2.com/products/.../reviews
+- **Salva link feedback**: [^N]: Reddit Thread - https://reddit.com/r/.../comments/...
 
 **WebSearch per competitor specifico**:
 ```
@@ -133,6 +146,13 @@ WebSearch: "[Competitor Name] features pricing"
 WebSearch: "[Competitor Name] reviews"
 WebSearch: "[Competitor Name] vs [altro competitor]"
 ```
+
+**Traccia Link per OGNI informazione**:
+- Features → Link a docs ufficiale
+- Pricing → Link a pricing page con data
+- Reviews → Link specifici (non solo "G2" ma URL esatto)
+- Funding → Crunchbase URL
+- Statistics → Link a fonte (press release, about page, etc)
 
 ---
 
@@ -208,6 +228,11 @@ Quadrant 3 (Low Price, Advanced Features):
 - Price points scoperti
 - Features richieste ma non disponibili
 
+**⚠️ CRITICO - Ogni gap DEVE avere evidenze con link**:
+- Gap identificato in reviews → **Link specifico**: [^N]: G2 Review mentioning gap - https://...
+- Gap da Reddit/forum → **Link thread**: [^N]: Reddit discussion - https://reddit.com/...
+- Gap da research report → **Link report**: [^N]: Market Research Report - https://...
+
 **Opportunità per noi**:
 - Come possiamo colmare questi gap
 - Perché siamo posizionati per farlo
@@ -235,6 +260,15 @@ Usa **Write tool** per creare il file usando template.
 **Last Updated**: [Date]
 **Analysis Type**: Complete
 ```
+
+**⚠️ CRITICO - References Section**:
+- **TUTTI i footnotes [^N] devono avere entry corrispondente** nella sezione References
+- **Formato obbligatorio**: [^N]: [Titolo Fonte] - [URL Completo] - Accessed [Data]
+- **Organizza per categoria** nella sezione Research Sources:
+  - Primary Sources (siti ufficiali, docs)
+  - Secondary Sources (reports, news)
+  - User Feedback Sources (reviews, forum)
+  - Company Data Sources (Crunchbase, LinkedIn)
 
 **Vedi template**: `templates/competitor-analysis-template.md`
 
@@ -418,13 +452,16 @@ WebSearch: "emerging [categoria prodotto] startups"
 ### Modalità A (Da Zero)
 - [ ] WebSearch identificato 7-12 competitor
 - [ ] Raccolte informazioni per 5-7 competitor principali
-- [ ] Competitor Profiles completi
+- [ ] **TUTTI i link tracciati durante WebSearch**
+- [ ] Competitor Profiles completi con link a fonti
 - [ ] Feature comparison matrix creata
-- [ ] Pricing comparison creata
+- [ ] Pricing comparison creata con link a pricing pages
 - [ ] Positioning map descritto
 - [ ] Differenziatori identificati (oggettivamente)
-- [ ] Gap di mercato identificati (supportati da evidenze)
+- [ ] Gap di mercato identificati (supportati da evidenze CON LINK)
 - [ ] Raccomandazioni strategiche formulate
+- [ ] **Sezione References completa con TUTTI i footnotes**
+- [ ] **Sezione Research Sources organizzata per categorie**
 - [ ] competitor-analysis.md v1.0 creato
 - [ ] Output fornito all'utente
 - [ ] Conferma utente ricevuta
@@ -433,7 +470,9 @@ WebSearch: "emerging [categoria prodotto] startups"
 - [ ] competitor-analysis.md esistente letto
 - [ ] Competitor da approfondire identificati
 - [ ] WebSearch approfondito effettuato
-- [ ] Sezioni aggiornate con dettagli
+- [ ] **Link tracciati per nuove informazioni**
+- [ ] Sezioni aggiornate con dettagli e link
+- [ ] **References section aggiornata con nuovi link**
 - [ ] Versioning aggiornato (v1.x+1)
 - [ ] Output fornito all'utente
 - [ ] Conferma utente ricevuta
@@ -441,8 +480,10 @@ WebSearch: "emerging [categoria prodotto] startups"
 ### Modalità C (Aggiornamento)
 - [ ] competitor-analysis.md esistente letto
 - [ ] WebSearch per updates effettuato
+- [ ] **Link tracciati per informazioni aggiornate**
 - [ ] Nuovi competitor identificati (se presenti)
 - [ ] Tutte sezioni rilevanti aggiornate
+- [ ] **References section aggiornata**
 - [ ] Versioning appropriato (v1.x o v2.0)
 - [ ] Output fornito all'utente
 - [ ] Conferma utente ricevuta
@@ -474,7 +515,12 @@ WebSearch: "emerging [categoria prodotto] startups"
 ### ❌ Errore 5: Gap Non Supportati
 **Sbagliato**: "Market vuole feature X" senza evidenze
 
-**Corretto**: "Da 50+ reviews competitor A, utenti richiedono feature X"
+**Corretto**: "Da 50+ reviews competitor A, utenti richiedono feature X[^10]" con link a G2
+
+### ❌ Errore 6: Link Mancanti o Vaghi
+**Sbagliato**: "Secondo G2..." senza link specifico, o "pricing verificato" senza URL
+
+**Corretto**: "Competitor A costa $99/mese[^15]" con [^15]: Competitor A Pricing - https://competitorA.com/pricing - Accessed 2024-01-15
 
 ---
 

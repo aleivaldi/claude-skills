@@ -1,5 +1,5 @@
 ---
-name: Competitor & Market Analysis
+name: competitor-market-analysis
 description: Analizza competitor e posizionamento di mercato. Input flessibile - descrizione prodotto + opzionalmente analisi esistenti da approfondire + competitor specifici da analizzare. Usa WebSearch per identificare competitor diretti/indiretti, confronta features/pricing/target, analizza positioning, identifica differenziatori e gap di mercato. Output competitor-analysis.md con versioning. Utile standalone per requirements, marketing, pitch deck, business plan, valutazione strategica. 3 modalità - da zero, approfondimento competitor specifici, aggiornamento analisi esistente.
 ---
 
@@ -159,6 +159,21 @@ Questa skill opera in **3 modalità** basate sull'input:
 - **Analizza oggettivamente** punti forza competitor
 - **Identifica realmente** dove siamo differenti (no marketing fluff)
 - **Gap di mercato** deve essere supportato da evidenze
+
+### References & Link Tracking
+- **CRITICO**: Traccia TUTTI i link durante WebSearch
+- **Footnotes**: Usa [^N] per riferimenti numerati nel documento
+- **Link inline**: Includi URL diretti dove rilevante (pricing pages, feature docs)
+- **Sezione References**: Ogni [^N] deve avere corrispondente entry nell'Appendix
+- **Formato reference**: [^N]: [Titolo Fonte] - [URL Completo] - Accessed [Date]
+- **Tipi di link da tracciare**:
+  - Market data e statistiche (size, growth, trends)
+  - Company data (funding, user numbers, founding date)
+  - Features (link a documentazione ufficiale)
+  - Pricing (link diretto a pricing page con data verifica)
+  - Reviews (G2, Capterra, Reddit threads specifici)
+  - News articles (funding, product launches, etc)
+  - Competitor profiles (website, Crunchbase, LinkedIn)
 
 ### Versioning
 - **v1.0**: Analisi nuova completa

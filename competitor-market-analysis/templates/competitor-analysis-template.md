@@ -27,10 +27,12 @@ Il competitor-analysis.md deve essere:
 [2-3 paragrafi sintetici - ~200 parole]
 
 **Mercato**:
-[Descrizione mercato - dimensione, crescita, trend principali]
+[Descrizione mercato - dimensione, crescita, trend principali. Includere riferimenti inline]
+[es. "Il mercato globale del project management software vale $5.37B nel 2024[^1] e sta crescendo a un CAGR del 10.67%[^2]"]
 
 **Competitor Landscape**:
 [Panoramica landscape competitivo - chi sono player principali, come è strutturato mercato]
+[es. "I player principali includono Monday.com (700k+ clienti)[^3], Asana ($600M ARR)[^4], e ClickUp (crescita 400% YoY)[^5]"]
 
 **Nostro Positioning**:
 [Come ci posizioniamo - differenziatori chiave, target segment, competitive advantage]
@@ -41,17 +43,19 @@ Il competitor-analysis.md deve essere:
 
 ### Market Size & Growth
 
-**Current Market Size**: [Dimensione mercato se nota - es. "$5B globally"]
-**Growth Rate**: [Tasso crescita - es. "15% CAGR"]
+**Current Market Size**: [Dimensione mercato se nota - es. "$5B globally[^6]"]
+**Growth Rate**: [Tasso crescita - es. "15% CAGR[^7]"]
 **Market Maturity**: Emerging / Growing / Mature / Declining
+
+**Sources**: [Link alle fonti market data - es. "Gartner 2024 Report", "Grand View Research", etc]
 
 ### Key Trends
 
-- **Trend 1**: [Descrizione trend - es. "Shift verso remote work driving collaboration tools"]
-- **Trend 2**: [Descrizione trend]
-- **Trend 3**: [Descrizione trend]
+- **Trend 1**: [Descrizione trend con link - es. "Shift verso remote work driving collaboration tools[^8]"]
+- **Trend 2**: [Descrizione trend con link]
+- **Trend 3**: [Descrizione trend con link]
 
-[3-5 trend principali]
+[3-5 trend principali - ogni trend con riferimento alla fonte]
 
 ### Market Segments
 
@@ -71,62 +75,73 @@ Il competitor-analysis.md deve essere:
 ### Competitor 1: [Nome]
 
 **Type**: Direct Competitor / Indirect Competitor
-**Founded**: [Anno - se noto]
-**Funding**: [Status funding - es. "Series B, $50M raised" - se pubblico]
-**Website**: [URL]
+**Founded**: [Anno - se noto, con fonte]
+**Funding**: [Status funding - es. "Series B, $50M raised[^9]" - se pubblico]
+**Website**: [URL completo es. https://competitor.com]
 
 #### Overview
 
-[Breve descrizione competitor - 2-3 frasi]
-[Cosa fanno, per chi, positioning statement]
+[Breve descrizione competitor - 2-3 frasi con link alla fonte]
+[es. "[Competitor] è una piattaforma di project management usata da oltre 100,000 team[^10]. Fondata nel 2018, si posiziona come soluzione all-in-one per team remoti[^11]"]
 
 #### Target Market
 
-- **B2B / B2C**: [Quale]
-- **Company Size**: [SMB / Mid-market / Enterprise]
+- **B2B / B2C**: [Quale - con fonte se disponibile]
+- **Company Size**: [SMB / Mid-market / Enterprise - citare fonte]
 - **Geographic Focus**: [Global / US / EU / etc]
 - **Verticals**: [Verticali specifici se applicabile]
-- **Users/Customers**: [Numero se pubblico - es. "50k+ users"]
+- **Users/Customers**: [Numero se pubblico - es. "50k+ users[^12]" con link a fonte]
 
 #### Key Features
 
-- **[Feature 1]**: [Descrizione breve]
-- **[Feature 2]**: [Descrizione breve]
-- **[Feature 3]**: [Descrizione breve]
-- **[Feature 4]**: [Descrizione breve]
-- **[Feature 5]**: [Descrizione breve]
+- **[Feature 1]**: [Descrizione breve][^13] - [Link a documentazione/articolo dove è descritta]
+- **[Feature 2]**: [Descrizione breve][^14] - [Link a fonte]
+- **[Feature 3]**: [Descrizione breve][^15] - [Link a fonte]
+- **[Feature 4]**: [Descrizione breve][^16] - [Link a fonte]
+- **[Feature 5]**: [Descrizione breve][^17] - [Link a fonte]
 
-[Top 5-7 features]
+[Top 5-7 features - ogni feature con riferimento a dove è documentata/citata]
+
+**Feature Documentation**: [Link alla pagina features ufficiale - es. https://competitor.com/features]
 
 #### Pricing
 
 **Model**: Freemium / Subscription / One-time / Usage-based / Custom
+**Pricing Page**: [Link diretto alla pricing page - es. https://competitor.com/pricing]
+
 **Tiers**:
-- **Free/Trial**: [Cosa include - se disponibile]
-- **Entry Tier**: [Prezzo] - [Cosa include]
-- **Mid Tier**: [Prezzo] - [Cosa include]
-- **Enterprise**: [Custom / prezzo se pubblico] - [Cosa include]
+- **Free/Trial**: [Cosa include - se disponibile][^18]
+- **Entry Tier**: [Prezzo][^19] - [Cosa include]
+- **Mid Tier**: [Prezzo][^20] - [Cosa include]
+- **Enterprise**: [Custom / prezzo se pubblico][^21] - [Cosa include]
+
+**Last Verified**: [Data ultima verifica prezzi]
 
 #### Strengths
 
-- [Punto forza 1 - oggettivo, basato su evidenze]
-- [Punto forza 2]
-- [Punto forza 3]
+- [Punto forza 1 - oggettivo, basato su evidenze con fonte][^22]
+- [Punto forza 2 con fonte][^23]
+- [Punto forza 3 con fonte][^24]
 
-[3-5 punti forza]
+[3-5 punti forza - ognuno con riferimento a review, articolo, benchmark]
 
 #### Weaknesses
 
-- [Punto debole 1 - da reviews, feedback pubblici]
-- [Punto debole 2]
-- [Punto debole 3]
+- [Punto debole 1 - da reviews, feedback pubblici con link][^25]
+- [Punto debole 2 con link a review/feedback][^26]
+- [Punto debole 3 con link a review/feedback][^27]
 
-[3-5 punti deboli]
+[3-5 punti deboli - ognuno con link a fonte (G2, Capterra, Reddit, etc)]
 
 #### Market Position
 
 **Position**: Market Leader / Strong Challenger / Niche Player / Emerging
-**Competitive Advantage**: [Cosa li rende forti - es. "First mover, large user base"]
+**Competitive Advantage**: [Cosa li rende forti - es. "First mover, large user base[^28]"]
+
+**References for this competitor**: [Link a review pages, company page, news articles]
+- G2 Profile: [URL]
+- Crunchbase: [URL]
+- Latest News: [URL articolo recente]
 
 ---
 
@@ -256,17 +271,23 @@ Il competitor-analysis.md deve essere:
 ### Gap 1: [Nome Gap]
 
 **Description**: [Descrizione del gap - cosa il mercato non offre]
-**Evidence**: [Da dove emerge questo gap - reviews, feedback, ricerca]
-**Size**: [Quanto è grande questa opportunità - Small / Medium / Large]
+**Evidence**: [Da dove emerge questo gap con link specifici]
+[es. "User reviews su G2[^40] evidenziano mancanza di feature X in tutti i top 5 competitor. Thread su Reddit[^41] con 500+ upvotes conferma questo pain point"]
+**Size**: [Quanto è grande questa opportunità - Small / Medium / Large][^42]
 **Our Fit**: [Come possiamo colmare questo gap]
 
+**Supporting Links**:
+- [Link 1 a review/feedback che evidenzia il gap]
+- [Link 2 a discussion/articolo]
+- [Link 3 a research report se disponibile]
+
 ### Gap 2: [Nome Gap]
-[Stessa struttura]
+[Stessa struttura con link e riferimenti]
 
 ### Gap 3: [Nome Gap]
-[Stessa struttura]
+[Stessa struttura con link e riferimenti]
 
-[3-5 gap/opportunità]
+[3-5 gap/opportunità - ognuno con evidenze linkate]
 
 ### Under-served Segments
 
@@ -373,32 +394,74 @@ Il competitor-analysis.md deve essere:
 
 ## Appendix
 
+### References
+
+[Sezione dedicata con TUTTI i link referenziati nel documento usando footnotes]
+
+[^1]: [Titolo fonte] - [URL completo] - Accessed [Date]
+[^2]: [Titolo fonte] - [URL completo] - Accessed [Date]
+[^3]: [Titolo fonte] - [URL completo] - Accessed [Date]
+... [continuare per tutti i riferimenti numerati]
+
+**Note**: Per ogni riferimento includere:
+- Titolo preciso della fonte
+- URL completo clickable
+- Data di accesso
+- Eventuale citazione specifica della sezione (es. "Section 3.2: Market Size Analysis")
+
 ### Research Sources
 
-[Lista fonti utilizzate per analisi]
+**Primary Sources** (Informazioni dirette):
+- **Competitor A Official Website**: https://competitorA.com - Features page, Pricing page
+- **Competitor B Product Documentation**: https://docs.competitorB.com
+- **G2 Reviews - Competitor A**: https://g2.com/products/competitor-a/reviews - 500+ reviews analyzed
+- **Capterra Reviews - Competitor B**: https://capterra.com/software/competitor-b - 300+ reviews analyzed
 
-**Primary Sources**:
-- [Source 1 - es. "Competitor A official website and pricing page"]
-- [Source 2 - es. "G2 reviews for Competitor B"]
+**Secondary Sources** (Report, Analisi, News):
+- **Gartner Magic Quadrant 2024**: [URL report] - Market analysis
+- **TechCrunch - [Article Title]**: [URL] - Competitor funding announcement
+- **Grand View Research - Market Report**: [URL] - Market size and growth data
+- **Industry Blog - [Title]**: [URL] - Feature comparison analysis
 
-**Secondary Sources**:
-- [Source 3 - es. "TechCrunch article on market trends"]
-- [Source 4 - es. "Gartner report on category"]
+**User Feedback Sources**:
+- **Reddit - r/[relevant-subreddit]**: [URL thread] - User discussions on pain points
+- **ProductHunt - Competitor X**: [URL] - User reviews and comments
+- **HackerNews Discussion**: [URL] - Technical discussion on category
+
+**Company Data Sources**:
+- **Crunchbase - Competitor A**: [URL] - Funding, team size, investors
+- **LinkedIn - Competitor B**: [URL company page] - Employee count, growth trajectory
+- **SimilarWeb**: [URL] - Website traffic and engagement metrics
 
 ### Methodology Notes
 
 [Breve note su metodologia - come sono state raccolte informazioni]
 
-- WebSearch for competitor discovery and info gathering
-- Review platforms (G2, Capterra) for user feedback
-- Official websites for pricing and features
-- News sources for funding and trends
+**Data Collection Process**:
+1. **WebSearch** for competitor discovery and initial info gathering
+2. **Direct source verification** - visited official websites, pricing pages, documentation
+3. **Review aggregation** - analyzed 1500+ reviews across G2, Capterra, ProductHunt
+4. **News monitoring** - tracked recent 6 months of news via Google News, TechCrunch, etc
+5. **Social listening** - monitored Reddit, HackerNews, Twitter for user sentiment
+6. **Cross-verification** - validated claims across multiple sources
+
+**Data Freshness**:
+- Market data: Last updated [Date]
+- Competitor pricing: Last verified [Date]
+- Feature comparison: Last checked [Date]
+- Review sentiment: Based on reviews from [Date Range]
+
+**Limitations**:
+- Alcuni dati non pubblicamente disponibili (es. exact revenue for private companies)
+- Pricing può variare per contratti enterprise custom
+- Features in beta o preview potrebbero non essere incluse
 
 ### Document History
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | [Date] | Initial complete analysis | [Name] |
+| 1.1 | [Date] | Added references and source links | [Name] |
 
 ```
 
